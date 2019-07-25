@@ -1,0 +1,44 @@
+@import "./minix";
+@import "./common.scss";
+#root {
+  width: 100%;
+  height: 100%;
+  font-size: pxTorem(14px);
+}
+.container {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+footer {
+  width: 100%;
+  height: pxTorem(50px);
+  line-height: pxTorem(50px);
+  @include box_flex;
+  @include justify(space-around);
+}
+.everyCont {
+  width: 100%;
+  height: pxTorem(280px);
+  .img {
+    display: block;
+    width: 100%;
+    height: pxTorem(180px);
+  }
+  p {
+    width: 80%;
+    margin-left: 10%;
+    overflow: hidden; /*超出部分隐藏*/
+    text-overflow: ellipsis; /* 超出部分显示省略号 */
+    white-space: nowrap; /*规定段落中的文本不进行换行 */
+    line-height: pxTorem(30px);
+    font-size: pxTorem(12px);
+    text-align: center;
+  }
+  .money {
+    color: red;
+  }
+  .subtitle {
+    color: #999;
+  }
+}

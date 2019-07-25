@@ -1,0 +1,48 @@
+@import "./minix";
+@import "./common.scss";
+#root{
+    width:100%;
+    height:100%;
+    font-size:pxTorem(14px);
+}
+.wrap{
+    width:100%;
+    height:100%;
+    @include direction(column);
+    @include box_flex;
+}
+header{
+    width:100%;
+    height:pxTorem(200px);
+    .swiper-container{
+        width:100%;
+        height:pxTorem(200px);
+        .swiper-wrapper{
+            width:100%;
+            height:pxTorem(200px);
+            .swiper-slide{
+                width:100%;
+                height:100%;
+                >img{
+                    width:100%;
+                    height:100%;
+                }
+            }
+        }
+        .swiper-pagination{
+            background:#fff;
+            height:pxTorem(5px);
+        }
+    }
+}
+section{
+    width:100%;
+    height:100%;
+}
+footer{
+    width:100%;
+    height:pxTorem(50px);
+    line-height:pxTorem(50px);
+    @include box_flex;
+    @include justify(space-around);
+}

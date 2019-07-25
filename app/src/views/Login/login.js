@@ -1,0 +1,45 @@
+import React, { Component } from 'react'
+import '../../scss/login.scss'
+
+class Login extends Component {
+    state = {
+        phone: "",
+        pwd: ""
+    }
+    render() {
+        return (
+            <div className="login">
+                <div className="head">
+                    <img src="https://yanxuan.nosdn.127.net/15361406976541303.png" alt="" className="logo" />
+                </div>
+                <div className="input">
+                    <input type="text" placeholder="请输入手机号" onChange={(e) => this.changePhone(e)} value={this.state.phone} />
+                    <input type="password" placeholder="请输入密码" onChange={(e) => this.changePass(e)} value={this.state.pwd} />
+                </div>
+                <div className="foot">
+                    <button className="button" onClick={this.submit}>登录</button>
+                </div>
+            </div>
+        )
+    }
+    changePhone = (e) => {
+        this.setState({
+            phone: e.target.value
+        })
+    }
+    changePass = (e) => {
+        this.setState({
+            pwd: e.target.value
+        })
+    }
+    submit = () => {
+        let { phone, pwd } = this.state
+        let yan = /^1[3456789]\d{9}$/
+        if (yan.test(phone.trim()) && pwd.trim() !== "") {
+            this.props.history.push('/')
+        } else {
+            console.log(3)
+        }
+    }
+}
+export default Login
