@@ -45,8 +45,8 @@ class Login extends Component {
             alert('phone或password错误！');
         }
         this.setState({
-            phone:'',
-            pwd:''
+            phone: '',
+            pwd: ''
         })
         // let yan = /^1[3456789]\d{9}$/
         // if (yan.test(phone.trim()) && pwd.trim() !== "") {
