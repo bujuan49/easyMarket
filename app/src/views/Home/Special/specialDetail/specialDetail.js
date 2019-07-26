@@ -7,19 +7,20 @@ import { inject, observer } from "mobx-react";
 class specialDetail extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            id: 0
+        };
     }
     render() {
         return (
             <>
-
+                1234567
             </>
         );
     }
     componentDidMount() {
         console.log(this.props.match.params.id)
-        // this.props.match.params.id
-        // this.props.home.specialDetail()
+        this.props.home.speDetail(this.props.match.params.id)
     }
 }
 

@@ -39,7 +39,7 @@ class special extends Component {
 
     }
     handleClick = (id) => {
-        this.props.history.push({ pathname: '/home/special/detail/' + id })
+        this.props.history.push({ pathname: '/home/detail/' + id })
     }
 }
 

@@ -28,7 +28,7 @@ export default class Home {
             }
         })
     }
-    @action specialDetail(id) {
+    @action speDetail(id) {
         specialDetail({ id: id }).then(res => {
              console.log(res.data)
         })
