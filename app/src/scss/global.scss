@@ -4,6 +4,7 @@
     width:100%;
     height:100%;
     font-size:pxTorem(14px);
+    list-style: none;
 }
 .wrap{
     width:100%;
@@ -33,13 +34,138 @@ header{
 }
 section{
     width:100%;
-    height:70%;
+    height:100%;
+    background:#eee;
+    overflow-y: auto;
     .list{
         width:100%;
-        height:pxTorem(44px);
-        line-height:pxTorem(44px);
+        height:pxTorem(55px);
         @include box_flex;
-        @include justify(space-around);
+        @include flexWrap;
+        @include sizing;
+        background:#fff;
+        dl{
+            width:20%;
+            height:pxTorem(50px);
+            dt{
+                margin-top:pxTorem(5px);
+                margin-left:pxTorem(25px);
+                width:pxTorem(30px);
+                height:pxTorem(30px);
+                >img{
+                    width:100%;
+                    height:100%;
+                }
+            }
+            dd{
+                line-height:pxTorem(20px);
+                text-align:center;
+            }
+        }
+    }
+    .list_name{
+        width:100%;
+        margin-top:pxTorem(10px);
+        background:#fff;
+       text-align: center;
+       span{
+        line-height:pxTorem(44px);
+       }
+       ul{
+           width:100%;
+           @include box_flex;
+           @include flexWrap;
+           li{
+               width:50%;
+               height:pxTorem(100px);
+               >img{
+                   width:100%;
+                   height:100%;
+               }
+               div{
+                   margin-top:-60%;
+                   margin-left:pxTorem(-50px);
+                   z-index:9999;
+                 p{
+                     color:#ccc;
+                     margin-top:-10%;
+                     margin-left:pxTorem(-10px);
+                 }
+               }
+           }
+       }
+    }
+    .list_product{
+        width:100%;
+        margin-top:pxTorem(10px);
+        background:#fff;
+        text-align: center;
+        // height:pxTorem(300px);
+        span{
+            line-height:pxTorem(44px);
+        }
+        .dls{
+            width:100%;
+            height:pxTorem(400px);
+            @include box_flex;
+            @include flexWrap;
+            dl{
+                width:50%;
+                height:pxTorem(200px);
+                >dt{
+                    margin-left:pxTorem(25px);
+                    width:pxTorem(150px);
+                    height:pxTorem(150px);
+                    >img{
+                        width:100%;
+                        height:100%;
+                    }
+                }
+               dd{
+                   span{
+                       margin-top:pxTorem(-20px);
+                       display:block;
+                   }
+                   span:nth-child(2){
+                    color: darkred;
+                   }
+               }
+            }
+        }
+    }
+    .tit{
+        font-weight: bold;
+        font-size:pxTorem(16px);
+    }
+    .list_hot{
+        width:100%;
+        margin-top:pxTorem(10px);
+        text-align: center;
+        background:#fff;
+        span{
+            line-height:pxTorem(44px);
+        }
+        .hotGoodsBox{
+            width:100%;
+            padding:0 pxTorem(5px);
+            box-sizing: border-box;
+            dl{
+                border-top:1px solid #000;
+                width:100%;
+                height:pxTorem(200px);
+                >dt{
+                    width:100%;
+                    height:pxTorem(150px);
+                    >img{
+                        width:100%;
+                        height:100%;
+                    }
+                }
+                dd{
+
+                }
+            }
+        }
     }
 }
 footer{
