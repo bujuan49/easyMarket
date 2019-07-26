@@ -7,6 +7,7 @@ export default class Home {
     @observable dataList=[];
     @observable product=[];
     @observable hot=[];
+    @observable topicList=[];
     @action change(){
         home().then((res)=>{
             console.log(res.data.data);
@@ -15,6 +16,7 @@ export default class Home {
             this.dataList=res.data.data.brandList;
             this.product=res.data.data.newGoodsList;
             this.hot=res.data.data.hotGoodsList;
+            this.topicList=res.data.data.topicList;
         })
     }
 }

@@ -14,6 +14,8 @@ class index extends Component {
           <header>
             <div className="swiper-container">
               <div className="swiper-wrapper">
+              {/* <div className="swiper-slide">1</div>
+              <div className="swiper-slide">2</div> */}
                 {this.props.home &&
                   this.props.home.data.map(item => (
                     <div className="swiper-slide" key={item.id}>
@@ -78,12 +80,38 @@ class index extends Component {
                       <dt>
                         <img src={item.list_pic_url} alt=""/>
                       </dt>
-                      <dd>{item.name}</dd>
+                      <dd>
+                        <div>
+                        <span>{item.name}</span>
+                      <span>{item.goods_brief}</span>
+                      <span>￥{item.retail_price}</span>
+                        </div>
+                     
+                      </dd>
                     </dl>
                   ))
                 }
 
                 </div>
+          </div>
+          <div className="list_top">
+          <span className="tit">专题精选</span>
+          <div className="topGoodsWrap">
+          <div className="swiper-container">
+          <ul className="swiper-wrapper">
+          {
+            this.props.home.topicList.map(item=>(
+               <li className="swiper-slide" key={item.id}>
+               <img src={item.item_pic_url} alt=""/>
+               </li>
+            ))
+          }
+         
+          </ul>
+          
+          </div>
+          
+          </div>
           </div>
         </section>
       </>
