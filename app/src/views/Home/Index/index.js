@@ -3,6 +3,7 @@ import {inject,observer}from "mobx-react";
 import "../../../scss/global.scss";
 import Swiper from "swiper/dist/js/swiper.js";
 import "swiper/dist/css/swiper.min.css";
+import Footer from '../../../components/footer/footer'
 @inject("home")
 @observer
 class index extends Component {
@@ -29,6 +30,7 @@ class index extends Component {
             <section>
                 ss
             </section>
+            <Footer />
             </>
         );
     }

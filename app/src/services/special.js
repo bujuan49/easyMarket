@@ -6,3 +6,11 @@ export function special() {
         method: "GET"
     })
 }
+//详情
+export function specialDetail(params) {
+    return request({
+        url: "/topic/detail",
+        method: "GET",
+        data:params
+    })
+}

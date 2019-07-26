@@ -14,8 +14,18 @@ footer {
   width: 100%;
   height: pxTorem(50px);
   line-height: pxTorem(50px);
-  @include box_flex;
-  @include justify(space-around);
+  // @include box_flex;
+  // @include justify(space-around);
+  display: flex !important;
+  flex-direction: row;
+  dl {
+    text-align: center;
+    width: 20%;
+    dd {
+      font-size: pxTorem(12px);
+      color: #333;
+    }
+  }
 }
 .everyCont {
   width: 100%;

@@ -5,13 +5,10 @@ import Classify from "../views/Home/Classify/classify.js";//分类
 import Shop from "../views/Home/Shop/shop.js";
 import My from "../views/Home/My/my.js";//我的
 import Login from "../views/Login/login.js";//我的
-
+import SpecialDetail from '../views/Home/Special/specialDetail/specialDetail.js'
 const route = [{
     path: "/login",
     component: Login
-}, {
-    path: "/my",
-    component: My
 }, {
     path: "/home",
     component: Home,
@@ -20,7 +17,11 @@ const route = [{
         component: Index
     }, {
         path: "/home/specical",
-        component: Specical
+        component: Specical,
+        children: [{
+            path: "/home/special/detail",
+            component: SpecialDetail
+        }]
     }, {
         path: "/home/classify",
         component: Classify
@@ -30,9 +31,6 @@ const route = [{
     }, {
         path: "/home/my",
         component: My
-    }, {
-        from: "/",
-        to: "/home/index"
     }]
 }, {
     from: "/",
