@@ -1,7 +1,7 @@
 import axios from "axios";
 // create an axios instance
 const service = axios.create({
-  baseURL:"http://123.206.55.50:8888",
+  baseURL:"http://169.254.64.73:8888",
   // https:\/\/jasonandjay.com/.test(window.location.origin)?
   // withCredentials: true, // 跨域请求时发送 cookies
   timeout: 5000 // request timeout

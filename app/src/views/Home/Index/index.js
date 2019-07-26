@@ -7,14 +7,13 @@ import "swiper/dist/css/swiper.min.css";
 @observer
 class index extends Component {
   render() {
-    console.log(this.props.home);
     return (
       <>
         <section>
           <header>
             <div className="swiper-container">
               <div className="swiper-wrapper">
-              {/* <div className="swiper-slide">1</div>
+                {/* <div className="swiper-slide">1</div>
               <div className="swiper-slide">2</div> */}
                 {this.props.home &&
                   this.props.home.data.map(item => (
@@ -72,46 +71,105 @@ class index extends Component {
             </div>
           </div>
           <div className="list_hot">
-                <span className="tit">人气推荐</span>
-                <div className="hotGoodsBox">
-                {
-                  this.props.home.hot.map(item=>(
-                    <dl key={item.id}>
-                      <dt>
-                        <img src={item.list_pic_url} alt=""/>
-                      </dt>
-                      <dd>
-                        <div>
-                        <span>{item.name}</span>
+            <span className="tit">人气推荐</span>
+            <div className="hotGoodsBox">
+              {this.props.home.hot.map(item => (
+                <dl key={item.id}>
+                  <dt>
+                    <img src={item.list_pic_url} alt="" />
+                  </dt>
+                  <dd>
+                    <div>
+                      <span>{item.name}</span>
                       <span>{item.goods_brief}</span>
                       <span>￥{item.retail_price}</span>
-                        </div>
-                     
-                      </dd>
-                    </dl>
-                  ))
-                }
-
-                </div>
+                    </div>
+                  </dd>
+                </dl>
+              ))}
+            </div>
           </div>
           <div className="list_top">
-          <span className="tit">专题精选</span>
-          <div className="topGoodsWrap">
-          <div className="swiper-container">
-          <ul className="swiper-wrapper">
-          {
-            this.props.home.topicList.map(item=>(
-               <li className="swiper-slide" key={item.id}>
-               <img src={item.item_pic_url} alt=""/>
-               </li>
-            ))
-          }
-         
-          </ul>
-          
+            <span className="tit">专题精选</span>
+            <div className="topGoodsWrap">
+              <div className="swiper-container banner">
+                <ul
+                  className="swiper-wrapper"
+                  style={{ width: "337px", height: "187px" }}
+                >
+                  {this.props.home.topicList.map(item => (
+                    <div key={item.id} className="swiper-slide">
+                      <li>
+                        <img src={item.item_pic_url} alt="" />
+                      </li>
+                      <span>{item.title}</span>
+                      <span>￥0元起</span>
+                      <p>{item.subtitle}</p>
+                    </div>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
-          
+          <div className="list_cateGoryName">
+            <span className="ti">居家</span>
+            <div className="dls">
+              {this.props.home.channel.map(item => (
+                <dl key={item.id}>
+                  <dt>
+                    <img src={item.list_pic_url} alt="" />
+                  </dt>
+                  <dd>
+                    <span>{item.name}</span>
+                    <span>￥{item.retail_price}</span>
+                  </dd>
+                </dl>
+              ))}
+              <dl>
+                <dt></dt>
+                <dd>更多居家好物</dd>
+              </dl>
+            </div>
           </div>
+          <div className="list_cateGoryName">
+            <span className="ti">餐厨</span>
+            <div className="dls">
+              {this.props.home.kitchen.map(item => (
+                <dl key={item.id}>
+                  <dt>
+                    <img src={item.list_pic_url} alt="" />
+                  </dt>
+                  <dd>
+                    <span>{item.name}</span>
+                    <span>￥{item.retail_price}</span>
+                  </dd>
+                </dl>
+              ))}
+              <dl>
+                <dt></dt>
+                <dd>更多居家好物</dd>
+              </dl>
+            </div>
+          </div>
+          <div className="list_cateGoryName">
+            <span className="ti">饮食</span>
+            <div className="dls">
+              {this.props.home.diet.map(item => (
+                <dl key={item.id}>
+                  <dt>
+                    <img src={item.list_pic_url} alt="" />
+                  </dt>
+                  <dd>
+                    <span>{item.name}</span>
+                    <span>￥{item.retail_price}</span>
+                  </dd>
+                </dl>
+              ))}
+              <dl>
+                <dt></dt>
+                <dd>更多居家好物</dd>
+              </dl>
+            </div>
           </div>
         </section>
       </>
@@ -127,7 +185,14 @@ class index extends Component {
       pagination: {
         el: ".swiper-pagination",
         type: "bullets"
-      }
+      },
+      observer: true,
+      observeParents: true
+    });
+    new Swiper(".banner", {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      loop: true
     });
     this.props.home.change();
   }

@@ -19,19 +19,19 @@ header {
     width: 100%;
     height: pxTorem(200px);
     overflow: hidden;
-     .swiper-wrapper {
-       width: 100%;
+    .swiper-wrapper {
+      width: 100%;
       //  height: pxTorem(200px);
-       .swiper-slide {
-         width: 100%;
+      .swiper-slide {
+        width: 100%;
         //  height: 100%;
-         > img {
-           width: 100%;
-           height: 100%;
-         }
-       }
-     }
-   }
+        > img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
 }
 section {
   width: 100%;
@@ -184,28 +184,81 @@ section {
       }
     }
   }
-  .list_top{
+  .list_top {
+    width: 100%;
+    margin-top: pxTorem(10px);
+    text-align: center;
+    background: #fff;
+    .topGoodsWrap {
       width: 100%;
-      margin-top: pxTorem(10px);
-      text-align: center;
-      background: #fff;
-      .topGoodsWrap{
-          width:100%;
-          height:pxTorem(250px);
-          .swiper-container{
+      height: pxTorem(250px);
+      position: relative;
+      overflow-x: auto;
+      .swiper-container {
+        width: 100%;
+        height: pxTorem(250px);
+        .swiper-wrapper {
+          width: 100%;
+          height: pxTorem(250px);
+            .swiper-slide {
               width:100%;
-              .swiper-wrapper{
-                width:100%;
-                .swiper-slide{
-                  width:100%;
-                  >img{
-                    width:100%;
-                  }
+              height: pxTorem(250px);
+              li{
+                > img {
+                  width: 90%;
+                  height: 70%;
                 }
               }
+             
+            
           }
+          
+        }
       }
-      
+    }
+  }
+  .list_cateGoryName{
+    width:100%;
+    text-align: center;
+    background:#fff;
+    .ti{
+      width:100%;
+      display:inline-block;
+      height:pxTorem(44px);
+      line-height:pxTorem(44px);
+      background:#eee;
+    }
+    .dls {
+      width: 100%;
+      height: auto;
+      @include box_flex;
+      @include flexWrap;
+      background:#fff;
+      dl {
+        width: 50%;
+        height: pxTorem(200px);
+        > dt {
+          margin-left: pxTorem(25px);
+          width: pxTorem(150px);
+          height: pxTorem(150px);
+          > img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        dd {
+          background:#fff;
+          span {
+            display: block;
+          }
+          span:nth-child(2) {
+            color: darkred;
+            font-size: pxTorem(16px);
+          }
+        }
+      }
+    }
+
   }
 }
 footer {

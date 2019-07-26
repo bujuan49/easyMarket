@@ -4,6 +4,7 @@ import Specical from "../views/Home/Special/special.js";//专题
 import Classify from "../views/Home/Classify/classify.js";//分类
 import Shop from "../views/Home/Shop/shop.js";
 import My from "../views/Home/My/my.js";//我的
+
 const route=[{
     path:"/my",
     component:My
@@ -33,4 +34,5 @@ const route=[{
     from:"/",
     to:"/home"
 }]
+
 export default route;
