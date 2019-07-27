@@ -6,7 +6,7 @@ import Shop from "../views/Home/Shop/shop.js";
 import My from "../views/Home/My/my.js";//我的
 import Login from "../views/Login/login.js";//我的
 import SpecialDetail from '../views/Home/Special/specialDetail/specialDetail.js'
-
+import HomeDetail from "../views/Home/Index/HomeDetail/HomeDetail.js";
 const route = [{
     path: "/login",
     component: Login
@@ -14,6 +14,9 @@ const route = [{
     path: "/home",
     component: Home,
     children: [{
+        path:"/home/goods/:id",
+        component:HomeDetail
+    },{
         path: "/home/index",
         component: Index
     }, {
@@ -31,6 +34,9 @@ const route = [{
     }, {
         path: "/home/detail/:id",
         component: SpecialDetail
+    },{
+        from:"/",
+        to:"/home/index"
     }]
 }, {
     from: "/",

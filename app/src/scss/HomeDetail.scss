@@ -1,0 +1,9 @@
+@import "./minix";
+@import "./common.scss";
+header{
+    width:100%;
+    height:pxTorem(44px);
+    line-height:pxTorem(44px);
+    @include box_flex;
+    @include justify(space-around);
+}

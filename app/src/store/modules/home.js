@@ -33,7 +33,6 @@ export default class Home {
   @observable inclination=[];//志趣
   @action change() {
     home().then(res => {
-      console.log(res.data);
       this.data = res.data.banner;
       this.List = res.data.channel;
       this.dataList = res.data.brandList;

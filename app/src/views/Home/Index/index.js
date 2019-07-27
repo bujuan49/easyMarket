@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
-import "../../../scss/global.scss";
+import "../../../scss/index.scss";
 import Swiper from "swiper/dist/js/swiper.js";
 import "swiper/dist/css/swiper.min.css";
 import List from "../../../components/List/List";
@@ -15,8 +15,6 @@ class index extends Component {
           <header>
             <div className="swiper-container">
               <div className="swiper-wrapper">
-                {/* <div className="swiper-slide">1</div>
-              <div className="swiper-slide">2</div> */}
                 {this.props.home &&
                   this.props.home.data.map(item => (
                     <div className="swiper-slide" key={item.id}>

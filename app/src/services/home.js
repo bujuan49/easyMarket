@@ -5,3 +5,10 @@ export function home(){
         method:"GET"
     })
 }
+export function homeDetail(params){
+    console.log(params);
+    return request({
+        url:"/goods/related?id="+params,
+        method:"GET",
+      })
+}
