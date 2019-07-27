@@ -1,34 +1,30 @@
 import axios from "axios";
-// create an axios instance
-const service = axios.create({
-  baseURL:"http://169.254.12.70:8888",
-  // https:\/\/jasonandjay.com/.test(window.location.origin)?
-  // withCredentials: true, // 跨域请求时发送 cookies
-  timeout: 5000 // request timeout
-});
+import {getCookie} from "./index"
 
-// request interceptor
-// service.interceptors.request.use(
-//   config => {
-//     // 判断是否有登陆态
-//     if (getToken()) {
-//       // 让每个请求携带authorization
-//       config.headers['authorization'] = getToken()
-//     }
-//     return config;
-//   },
-//   error => {
-//     return Promise.reject(error);
-//   }
-// );
+const service=axios.create({
+  // baseURL: /jasonandjay.com/.test(window.location.host)?'https://exam.jasonandjay.com':'http://169.254.12.168:7001/',
+  baseURL:'http://169.254.12.49:8888/',
+  timeout:5000
+})
 
-// response interceptor
-// service.interceptors.response.use(
-//   response => response.data,
-//   error => {
-//     // return Promise.reject(error);
-//     message.error(error.message);
-//   }
-// );
+service.interceptors.request.use(
+  config=>{
+    if(getCookie()){
+      config.headers['x-nideshop-token']=getCookie() 
+    }
+    return config
+  },
+  error=>{
+    return Promise.reject(error)
+  }
+)
 
-export default service;
+service.interceptors.response.use(
+  response=>response.data,
+  error=>{
+    return Promise.reject(error)
+  }
+)
+
+export default service
+

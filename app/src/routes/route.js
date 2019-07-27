@@ -4,35 +4,37 @@ import Specical from "../views/Home/Special/special.js";//专题
 import Classify from "../views/Home/Classify/classify.js";//分类
 import Shop from "../views/Home/Shop/shop.js";
 import My from "../views/Home/My/my.js";//我的
+import Login from "../views/Login/login.js";//我的
+import SpecialDetail from '../views/Home/Special/specialDetail/specialDetail.js'
 
-const route=[{
-    path:"/my",
-    component:My
-},{
-    path:"/home",
-    component:Home,
-    children:[{
-        path:"/home/index",
-        component:Index
-    },{
-        path:"/home/specical",
-        component:Specical
-    },{
-        path:"/home/classify",
-        component:Classify
-    },{
-        path:"/home/shop",
-        component:Shop
-    },{
-        path:"/home/my",
-        component:My
-    },{
-        from:"/",
-        to:"/home/index"
+const route = [{
+    path: "/login",
+    component: Login
+}, {
+    path: "/home",
+    component: Home,
+    children: [{
+        path: "/home/index",
+        component: Index
+    }, {
+        path: "/home/specical",
+        component: Specical
+    }, {
+        path: "/home/classify",
+        component: Classify
+    }, {
+        path: "/home/shop",
+        component: Shop
+    }, {
+        path: "/home/my",
+        component: My
+    }, {
+        path: "/home/detail/:id",
+        component: SpecialDetail
     }]
-},{
-    from:"/",
-    to:"/home"
+}, {
+    from: "/",
+    to: "/home"
 }]
 
 export default route;

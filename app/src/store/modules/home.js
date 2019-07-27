@@ -33,22 +33,22 @@ export default class Home {
   @observable inclination=[];//志趣
   @action change() {
     home().then(res => {
-      console.log(res.data.data.categoryList);
-      this.data = res.data.data.banner;
-      this.List = res.data.data.channel;
-      this.dataList = res.data.data.brandList;
-      this.product = res.data.data.newGoodsList;
-      this.hot = res.data.data.hotGoodsList;
-      this.topicList = res.data.data.topicList;
-      this.channel=res.data.data.categoryList[0].goodsList;//居家
-      this.kitchen=res.data.data.categoryList[1].goodsList;//餐厨
-      this.diet=res.data.data.categoryList[2].goodsList;//饮食
-      this.accessories=res.data.data.categoryList[3].goodsList;
-      this.clothing=res.data.data.categoryList[4].goodsList;
-      this.body=res.data.data.categoryList[5].goodsList;
-      this.store=res.data.data.categoryList[6].goodsList;
-      this.personal=res.data.data.categoryList[7].goodsList;
-      this.inclination=res.data.data.categoryList[8].goodsList;
+      console.log(res.data);
+      this.data = res.data.banner;
+      this.List = res.data.channel;
+      this.dataList = res.data.brandList;
+      this.product = res.data.newGoodsList;
+      this.hot = res.data.hotGoodsList;
+      this.topicList = res.data.topicList;
+      this.channel=res.data.categoryList[0].goodsList;//居家
+      this.kitchen=res.data.categoryList[1].goodsList;//餐厨
+      this.diet=res.data.categoryList[2].goodsList;//饮食
+      this.accessories=res.data.categoryList[3].goodsList;
+      this.clothing=res.data.categoryList[4].goodsList;
+      this.body=res.data.categoryList[5].goodsList;
+      this.store=res.data.categoryList[6].goodsList;
+      this.personal=res.data.categoryList[7].goodsList;
+      this.inclination=res.data.categoryList[8].goodsList;
     });
   }
 }

@@ -1,0 +1,97 @@
+@import "./minix";
+@import "./common.scss";
+.main {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+.headerTop {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  width: 100%;
+  height: pxTorem(40px);
+  line-height: pxTorem(40px);
+  background: white;
+  .back {
+    display: inline-block;
+    width: 17%;
+    font-size: pxTorem(18px);
+    padding-left: 10%;
+  }
+  span:nth-child(2) {
+    display: inline-block;
+    width: 73%;
+  }
+}
+.topical_detail_main {
+  padding-top: pxTorem(40px);
+  width: 100%;
+  img {
+    display: block;
+    width: 100%;
+    height: pxTorem(250px);
+    margin-top: pxTorem(5px);
+  }
+}
+.titleLine {
+  width: 100%;
+  height: pxTorem(50px);
+  line-height: pxTorem(50px);
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  .line {
+    padding-left: pxTorem(10px);
+  }
+  .icon {
+    margin-left: 70%;
+    font-size: pxTorem(25px);
+  }
+}
+.all {
+  width: 100%;
+  height: pxTorem(150px);
+  text-align: center;
+  dt {
+    font-size: pxTorem(100px);
+    color: #ccc;
+  }
+  dd {
+    font-size: pxTorem(13px);
+  }
+}
+p.messages {
+  width: 100%;
+  height: pxTorem(40px);
+  line-height: pxTorem(40px);
+  text-align: center;
+  background: rgb(238, 237, 237);
+}
+.containers {
+  width: 100%;
+}
+.everyCont {
+  width: 100%;
+  height: pxTorem(280px);
+  .img {
+    display: block;
+    width: 100%;
+    height: pxTorem(180px);
+  }
+  p {
+    width: 80%;
+    margin-left: 10%;
+    overflow: hidden; /*超出部分隐藏*/
+    text-overflow: ellipsis; /* 超出部分显示省略号 */
+    white-space: nowrap; /*规定段落中的文本不进行换行 */
+    line-height: pxTorem(30px);
+    font-size: pxTorem(12px);
+    text-align: center;
+  }
+  .money {
+    color: red;
+  }
+  .subtitle {
+    color: #999;
+  }
+}

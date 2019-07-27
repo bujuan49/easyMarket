@@ -1,7 +1,5 @@
-import Home from './modules/home.js'
-
-const home=new Home();
-
+import Home from "./modules/home";
+const home =new Home();
 export default{
-    home
+   home
 }

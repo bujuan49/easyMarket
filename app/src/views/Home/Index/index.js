@@ -3,7 +3,8 @@ import { inject, observer } from "mobx-react";
 import "../../../scss/global.scss";
 import Swiper from "swiper/dist/js/swiper.js";
 import "swiper/dist/css/swiper.min.css";
-import List from "../../../component/List/List";
+import List from "../../../components/List/List";
+import Footer from "../../../components/footer/footer.js";
 @inject("home")
 @observer
 class index extends Component {
@@ -150,6 +151,7 @@ class index extends Component {
           <List accessories={this.props.home.inclination}></List>
           </div>
         </section>
+        <Footer></Footer>
       </>
     );
   }
