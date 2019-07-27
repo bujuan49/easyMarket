@@ -235,8 +235,10 @@ section {
       @include flexWrap;
       background:#fff;
       dl {
-        width: 50%;
+        width: 49.5%;
         height: pxTorem(200px);
+        border-right: pxTorem(1px) solid rgb(226, 219, 219);
+        border-top:pxTorem(1px) solid rgb(226, 219, 219);
         > dt {
           margin-left: pxTorem(25px);
           width: pxTorem(150px);
@@ -248,6 +250,7 @@ section {
         }
         dd {
           background:#fff;
+          font-size:pxTorem(12px);
           span {
             display: block;
           }
