@@ -9,7 +9,6 @@ export function special(params) {
 }
 //详情
 export function specialDetail(params) {
-    console.log(params)
     return request({
         url: "/topic/detail",
         method: "GET",
@@ -19,9 +18,17 @@ export function specialDetail(params) {
 
 //id获取
 export function specialDetailList(params) {
-    console.log(params)
     return request({
         url: "/topic/related",
+        method: "GET",
+        params
+    })
+}
+//id评论
+export function idDiscuss(params) {
+    console.log(params)
+    return request({
+        url: "/comment/list",
         method: "GET",
         params
     })
