@@ -48,12 +48,6 @@ class Login extends Component {
             phone: '',
             pwd: ''
         })
-        // let yan = /^1[3456789]\d{9}$/
-        // if (yan.test(phone.trim()) && pwd.trim() !== "") {
-        //     this.props.history.push('/')
-        // } else {
-        //     console.log(3)
-        // }
     }
 }
 export default Login

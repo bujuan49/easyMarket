@@ -33,7 +33,8 @@ class specialDetail extends Component {
                 <div className="containers">
                     {
                         this.props.home && this.props.home.speList.map(item => (
-                            <div key={item.id} className="everyCont" onClick={() => this.handleClick(item.id)}>
+                            <div key={item.id} className="everyCont">
+                                {/* onClick={() => this.handleClicks(item.id)} */}
                                 <img src={item.scene_pic_url} alt="" className="img" />
                                 <p className="title">{item.title}</p>
                                 <p className="subtitle">{item.subtitle}</p>
@@ -50,6 +51,11 @@ class specialDetail extends Component {
         this.props.home.speDetail(this.props.match.params.id)
         this.props.home.speDetailList(this.props.match.params.id)
     }
+    // handleClicks = (id) => {
+    //     console.log(id)
+    //     this.props.history.push({ pathname: '/home/detail/' + id })
+
+    // }
 }
 
 export default specialDetail;
