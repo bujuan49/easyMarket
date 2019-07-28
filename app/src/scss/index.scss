@@ -1,31 +1,32 @@
 @import "./minix";
 @import "./common.scss";
-header {
+
+  section {
     width: 100%;
-    height: pxTorem(200px);
-    .swiper-container {
+    height: 100%;
+    background:#F5F5F9;
+    overflow-y: auto;
+    header {
       width: 100%;
       height: pxTorem(200px);
-      overflow: hidden;
-      .swiper-wrapper {
+      .swiper-container {
         width: 100%;
-        //  height: pxTorem(200px);
-        .swiper-slide {
+        height: pxTorem(200px);
+        overflow: hidden;
+        .swiper-wrapper {
           width: 100%;
-          //  height: 100%;
-          > img {
+          //  height: pxTorem(200px);
+          .swiper-slide {
             width: 100%;
-            height: 100%;
+            //  height: 100%;
+            > img {
+              width: 100%;
+              height: 100%;
+            }
           }
         }
       }
     }
-  }
-  section {
-    width: 100%;
-    height: 100%;
-    background: #eee;
-    overflow-y: auto;
     .list {
       width: 100%;
       height: pxTorem(55px);
@@ -214,7 +215,7 @@ header {
         display:inline-block;
         height:pxTorem(44px);
         line-height:pxTorem(44px);
-        background:#eee;
+        background:#F5F5F9;
       }
       .dls {
         width: 100%;
@@ -225,8 +226,8 @@ header {
         dl {
           width: 49.5%;
           height: pxTorem(200px);
-          border-right: pxTorem(1px) solid rgb(226, 219, 219);
-          border-top:pxTorem(1px) solid rgb(226, 219, 219);
+          border-right: pxTorem(1px) solid #F5F5F9;
+          border-top:pxTorem(1px) solid #F5F5F9;
           > dt {
             margin-left: pxTorem(25px);
             width: pxTorem(150px);
@@ -252,10 +253,10 @@ header {
   
     }
   }
-  footer {
-    width: 100%;
-    height: pxTorem(50px);
-    line-height: pxTorem(50px);
-    @include box_flex;
-    @include justify(space-around);
-  }
+  // footer {
+  //   width: 100%;
+  //   height: pxTorem(50px);
+  //   line-height: pxTorem(50px);
+  //   @include box_flex;
+  //   @include justify(space-around);
+  // }

@@ -1,14 +1,22 @@
 import { observable, action } from "mobx";
-import {homeDetail} from "../../services/index.js";
+import {homeDetail,homeGoods} from "../../services/index.js";
 export default class HomeDetail {
 @observable detail=[];
+@observable phone=[];
+@observable info=[];
+@observable common="";
+@observable list=[];
 @action async change(id){
   let data=await homeDetail(id);
-  data.data.goodsList.map(item=>{
-      return item.
-      console.log(item);
-  })
-//   console.log(data.data.goodsList);
-//   console.log(this.detail);
+let datas=data.data.goodsList.filter(item=>item.id===id*1)
+this.detail=datas;
+}
+@action async goods(id){
+  let data=await homeGoods(id);
+  this.phone=data.data.gallery;
+  this.info.push(data.data.info);
+  this.common=data.data.comment.count;
+  this.list=data.data.comment.data;
+  console.log(data.data.comment.data);
 }
 }
