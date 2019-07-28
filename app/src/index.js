@@ -8,11 +8,5 @@ import './font/iconfont.css'
 
 var FastClick = require("fastclick");
 FastClick.attach(document.body);
-ReactDOM.render(
-  <Provider {...store}>
-    <BrowserRouter>
-      <MapRoute route={route} />
-    </BrowserRouter>
-  </Provider>,
-  document.getElementById("root")
+ReactDOM.render(<Provider {...store}><BrowserRouter><MapRoute route={route} /></BrowserRouter></Provider>, document.getElementById("root")
 );

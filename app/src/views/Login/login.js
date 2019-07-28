@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { inject, observer } from "mobx-react";
 import '../../scss/login.scss'
 
-@inject("home")
+@inject("special")
 @observer
 
 class Login extends Component {
@@ -38,10 +38,10 @@ class Login extends Component {
     }
     submit = () => {
         let { phone, pwd } = this.state;
-        this.props.home.getLogin(phone, pwd);
-        if (this.props.home.loginUser === 0) {
+        this.props.special.getLogin(phone, pwd);
+        if (this.props.special.loginUser === 0) {
             this.props.history.push('/home/index');
-        } else if (this.props.home.loginUser === 1000) {
+        } else if (this.props.special.loginUser === 1000) {
             alert('phone或password错误！');
         }
         this.setState({

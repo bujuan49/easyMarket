@@ -1,6 +1,5 @@
 import { observable, action } from "mobx";
 import { home } from "../../services/index.js";
-import { setCookie } from '../../utils/index'
 
 export default class Home {
     //轮播

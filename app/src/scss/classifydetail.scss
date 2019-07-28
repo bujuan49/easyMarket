@@ -1,0 +1,27 @@
+@import "./minix";
+@import "./common.scss";
+.mains {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+.headerTops {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  width: 100%;
+  height: pxTorem(40px);
+  line-height: pxTorem(40px);
+  background: white;
+  .back {
+    display: inline-block;
+    width: 10%;
+    background: red;
+    font-size: pxTorem(18px);
+  }
+  span:nth-child(2) {
+    display: inline-block;
+    width: 90%;
+    text-align: center;
+  }
+}

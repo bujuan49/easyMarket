@@ -51,13 +51,30 @@
 .all {
   width: 100%;
   height: pxTorem(150px);
-  text-align: center;
+
+  overflow-y: auto;
   dt {
+    text-align: center;
     font-size: pxTorem(100px);
     color: #ccc;
   }
   dd {
+    text-align: center;
     font-size: pxTorem(13px);
+  }
+  .time {
+    width: 100%;
+    margin-top: pxTorem(5px);
+    p {
+      text-indent: pxTorem(0px);
+      line-height: pxTorem(25px);
+    }
+    p:nth-child(1) {
+      color: #999;
+    }
+    p:nth-child(2) {
+      text-indent: pxTorem(10px);
+    }
   }
 }
 p.messages {
