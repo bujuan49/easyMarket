@@ -16,12 +16,29 @@
   .back {
     display: inline-block;
     width: 10%;
-    background: red;
     font-size: pxTorem(18px);
+    padding-left: 5%;
   }
   span:nth-child(2) {
     display: inline-block;
-    width: 90%;
+    width: 30%;
+    padding-left: 28%;
+    // text-align: center;
+  }
+}
+.nav{
+  margin-top: pxTorem(40px);
+  width: 300%;
+  overflow-x: auto;
+  height: pxTorem(20px);
+  // background: red;
+  span{
+    display: inline-block;
+    width: 5%;
+    font-size: pxTorem(12px);
     text-align: center;
+    line-height: pxTorem(20px);
+    color: #333;
+    margin-left: pxTorem(10px)
   }
 }

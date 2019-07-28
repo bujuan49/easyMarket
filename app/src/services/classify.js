@@ -11,3 +11,8 @@ export function catalog() {
 export function catalogLists(params) {
     return request.get('/catalog/current?id=' + params);
 }
+
+//获取分类ID分类Nav数据
+export function goods(params) {
+    return request.get('/goods/category?id=' + params);
+}

@@ -3,7 +3,8 @@ import {getCookie} from "./index"
 
 const service=axios.create({
   // baseURL: /jasonandjay.com/.test(window.location.host)?'https://exam.jasonandjay.com':'http://169.254.12.168:7001/',
-  baseURL:'http://169.254.12.49:8888/',
+  baseURL:'http://127.0.0.1:8888',
+  //http://192.168.43.153:8888/
   timeout:5000
 })
 

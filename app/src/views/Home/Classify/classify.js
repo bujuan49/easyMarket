@@ -17,7 +17,7 @@ class classify extends Component {
         this.props.history.push({ pathname: `/home/classifylist/${id}`, params: item })
     }
     componentDidMount() {
-        this.props.classify.catalogList()
+        this.props.classify.catalogList();
     }
     render() {
 
