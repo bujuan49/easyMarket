@@ -13,7 +13,6 @@ class classify extends Component {
         this.state = {};
     }
     goto = (id, item) => {
-        console.log(this.props)
         this.props.history.push({ pathname: `/home/classifylist/${id}`, params: item })
     }
     componentDidMount() {

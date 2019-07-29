@@ -6,7 +6,6 @@ export default class Classify {
     @observable data = [];
     @observable dataList = {};
     @observable dataLists = [];
-    @observable types = -1;
     @observable goodList = [];
 
 
@@ -14,6 +13,8 @@ export default class Classify {
     @action async catalogList() {
         let data = await catalog()
         this.data = data.data.categoryList;
+        this.dataList = data.data.currentCategory;
+        this.dataLists=data.data.currentCategory.subCategoryList;
     }
 
     //id分类数据
@@ -27,9 +28,8 @@ export default class Classify {
 
     //获取分类ID分类Nav数据
     @action async good(id) {
-        console.log(id)
         let data = await goods(id);
-        console.log(data.data)
+        console.log(data.data.brotherCategory)
         this.goodList = data.data.brotherCategory;
     }
 }

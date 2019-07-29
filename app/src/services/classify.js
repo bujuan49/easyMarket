@@ -16,3 +16,8 @@ export function catalogLists(params) {
 export function goods(params) {
     return request.get('/goods/category?id=' + params);
 }
+
+///goods/list
+export function goods(params) {
+    return request.get('/goods/list?id=' + params);
+}
