@@ -6,6 +6,7 @@ export default class HomeDetail {
 @observable info=[];
 @observable common="";
 @observable list=[];
+@observable pic_list=[];
 @action async change(id){
   let data=await homeDetail(id);
 let datas=data.data.goodsList.filter(item=>item.id===id*1)
@@ -17,6 +18,7 @@ this.detail=datas;
   this.info.push(data.data.info);
   this.common=data.data.comment.count;
   this.list=data.data.comment.data;
-  console.log(data.data.comment.data);
+  this.pic_list=data.data.comment.data.pic_list;
+  console.log(data.data.comment.data.pic_list);
 }
 }

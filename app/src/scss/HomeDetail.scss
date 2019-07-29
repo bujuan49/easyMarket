@@ -88,7 +88,7 @@ header {
     margin-top: pxTorem(10px);
     width: 100%;
     height: pxTorem(250px);
-    background: pink;
+    background: #fff;
     .goodsCommentTitle {
       width: 100%;
       height: pxTorem(50px);
@@ -99,24 +99,34 @@ header {
       box-sizing: border-box;
       line-height: pxTorem(50px);
       background: #fff;
-      border-bottom:pxTorem(1px) solid #ccc;
+      border-bottom: pxTorem(1px) solid #ccc;
     }
-    .commentItem{
-        width:100%;
-        height:pxTorem(200px);
-        >.userInfo{
-            width:100%;
-            height:pxTorem(30px);
-            line-height:pxTorem(30px);
-            @include box_flex;
-            @include justify(space-between);
-            padding:0 pxTorem(10px);
-            box-sizing: border-box;
+    .commentItem {
+      width: 100%;
+      height: pxTorem(200px);
+      > .userInfo {
+        width: 100%;
+        height: pxTorem(30px);
+        line-height: pxTorem(30px);
+        @include box_flex;
+        @include justify(space-between);
+        padding: 0 pxTorem(10px);
+        box-sizing: border-box;
+      }
+      > .userComment {
+        width: 100%;
+        height: pxTorem(170px);
+        padding:0 pxTorem(10px);
+        box-sizing: border-box;
+        .userimg {
+          width: 50%;
+          height: pxTorem(100px);
+          > img {
+            width: 100%;
+            height: 100%;
+          }
         }
-        >.userComment{
-width:100%;
-height:pxTorem(170px);
-        }
+      }
     }
   }
 }

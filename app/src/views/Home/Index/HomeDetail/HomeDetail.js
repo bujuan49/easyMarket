@@ -11,7 +11,7 @@ class HomeDetail extends Component {
     this.state = {};
   }
   render() {
-    let { phone,info,common,list} = this.props.homeDetail;
+    let { phone,info,common,list,pic_list} = this.props.homeDetail;
     let { name, price } = this.props.location.state;
     return (
       <>
@@ -74,9 +74,20 @@ class HomeDetail extends Component {
         </div>
         <div className="userComment">
         <span>{list.content}</span>
+        <div className="userimg">
+          {
+          pic_list.map(item=>(
+          <img src={item.pic_url} alt="" key={item.id}/>
+          ))
+          }
+        </div>
         </div>
         </div>
       
+        </div>
+        <div>
+
+          
         </div>
         </section>
         <footer className="footer">
