@@ -1,6 +1,6 @@
 # easyMarket
 
-*我的任务部分   主要是使用了react-mobx技术   拆分组建   接口调试  数据渲染   跳转详情*
+*任务部分   主要是使用了react-mobx技术   拆分组建   接口调试  数据渲染   跳转详情*
 easy
 
 # login  
