@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { inject, observer } from "mobx-react";
 import '../../../../scss/specialDetail.scss';
+
 @inject("special")
 @observer
 
@@ -24,8 +25,19 @@ class specialDetail extends Component {
                     <p className="icon iconfont icon-jingzi"></p>
                 </div>
                 <div className="all">
-                    <dt className="icon iconfont icon-mianmo"></dt>
-                    <dd>等你来留言</dd>
+                    {
+                        this.props.special.discuss.length > 0 ? this.props.special.discuss.map(item => (
+                            <div className="time" key={item.id}>
+                                <p>{item.add_time}</p>
+                                <p>{item.content}</p>
+                            </div>
+                        )) : (
+                                <dl>
+                                    <dt className="icon iconfont icon-mianmo"></dt>
+                                    <dd>欢迎来留言</dd>
+                                </dl>
+                            )
+                    }
                 </div>
                 <p className="messages">
                     推荐专题
@@ -50,7 +62,7 @@ class specialDetail extends Component {
     componentDidMount() {
         this.props.special.speDetail(this.props.match.params.id)
         this.props.special.speDetailList(this.props.match.params.id)
-        this.props.special.idDiscuss(this.props.match.params.id)
+        this.props.special.discussList(this.props.match.params.id)
 
     }
     // handleClicks = (id) => {
@@ -58,7 +70,7 @@ class specialDetail extends Component {
     //     this.props.history.push({ pathname: '/home/detail/' + id })
 
     // }
-    goBack=()=>{
+    goBack = () => {
         this.props.history.go(-1)
     }
 }
