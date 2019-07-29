@@ -16,6 +16,6 @@ export default class Home {
     @action async collects(id) {
         let data = await collect(id*1)
         console.log(data.data)
-        this.dataList = data.data.banner;
+        this.dataList = data.data;
     }
 }

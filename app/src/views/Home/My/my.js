@@ -72,8 +72,8 @@ class my extends Component {
             userPhone ?
               <div className="userMsgs">
                 <div className="img">
-                  <h6></h6>
-                  <h5></h5>
+                  <h6> </h6>
+                  <h5> </h5>
                 </div>
                 <div className='info'>
                   <span>{userPhone}</span>
