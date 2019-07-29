@@ -1,0 +1,16 @@
+@import "./minix";
+@import "./common.scss";
+
+.shop{
+    width: 100%;
+    height: 100%;
+}
+.start{
+    width: 100%;
+    height: pxTorem(25px);
+    display: flex;
+    p{
+        flex: 1;
+        font-size: pxTorem(12px);
+    }
+}
