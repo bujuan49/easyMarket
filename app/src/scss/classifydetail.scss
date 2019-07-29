@@ -26,19 +26,50 @@
     // text-align: center;
   }
 }
-.nav{
+.nav {
   margin-top: pxTorem(40px);
   width: 300%;
   overflow-x: auto;
   height: pxTorem(20px);
   // background: red;
-  span{
+  span {
     display: inline-block;
     width: 5%;
     font-size: pxTorem(12px);
     text-align: center;
     line-height: pxTorem(20px);
     color: #333;
-    margin-left: pxTorem(10px)
+    margin-left: pxTorem(10px);
+  }
+}
+.nav-mains {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  .inside {
+    width: 45%;
+    margin-left: 5%;
+  }
+  p:nth-child(1) {
+    width: 100%;
+    height: pxTorem(100px);
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  p:nth-child(2) {
+    width: 100%;
+    font-size: pxTorem(13px);
+    overflow: hidden; /*超出部分隐藏*/
+    text-overflow: ellipsis; /* 超出部分显示省略号 */
+    white-space: nowrap; /*规定段落中的文本不进行换行 */
+    line-height: pxTorem(30px);
+    text-align: center;
+  }
+  p:nth-child(3) {
+    color: red;
+    font-size: pxTorem(13px);
   }
 }

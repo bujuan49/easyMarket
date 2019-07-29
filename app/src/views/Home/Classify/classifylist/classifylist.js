@@ -20,7 +20,20 @@ class classifylist extends Component {
                 <div className="nav">
                     {
                         this.props.classify && this.props.classify.goodList.map(item => (
-                            <span key={item.id}>{item.name}</span>
+                            <span key={item.id} onClick={() => this.showList(item.id)}>{item.name}</span>
+                        ))
+                    }
+                </div>
+                <div className="nav-mains">
+                    {
+                        this.props.classify && this.props.classify.list.map(item => (
+                            <div className="inside" key={item.id}>
+                                <p>
+                                    <img src={item.list_pic_url} alt="" />
+                                </p>
+                                <p>{item.name}</p>
+                                <p>{item.retail_price}</p>
+                            </div>
                         ))
                     }
                 </div>
@@ -31,7 +44,10 @@ class classifylist extends Component {
         this.props.classify.good(this.props.match.params.id);
     }
     goBack = () => {
-        this.props.history.go(-1)
+        this.props.history.go(-1);
+    }
+    showList = (id) => {
+        this.props.classify.goods(id);
     }
 }
 

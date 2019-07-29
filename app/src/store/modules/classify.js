@@ -1,5 +1,5 @@
 import { observable, action } from "mobx";
-import { catalog, catalogLists, goods } from "../../services/index.js";
+import { catalog, catalogLists, goods, goodsList } from "../../services/index.js";
 
 export default class Classify {
     //初始渲染
@@ -7,14 +7,14 @@ export default class Classify {
     @observable dataList = {};
     @observable dataLists = [];
     @observable goodList = [];
-
+    @observable list = [];
 
     //初始渲染
     @action async catalogList() {
         let data = await catalog()
         this.data = data.data.categoryList;
         this.dataList = data.data.currentCategory;
-        this.dataLists=data.data.currentCategory.subCategoryList;
+        this.dataLists = data.data.currentCategory.subCategoryList;
     }
 
     //id分类数据
@@ -29,7 +29,16 @@ export default class Classify {
     //获取分类ID分类Nav数据
     @action async good(id) {
         let data = await goods(id);
-        console.log(data.data.brotherCategory)
+        console.log(data.data)
         this.goodList = data.data.brotherCategory;
+    }
+
+    //
+    @action async goods(id) {
+        console.log(id)
+        let num = Number(id)
+        let data = await goodsList(num);
+        console.log(data.data.data)
+        this.list = data.data.data;
     }
 }
