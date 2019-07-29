@@ -1,5 +1,5 @@
 import { observable, action } from "mobx";
-import { home } from "../../services/index.js";
+import { home,brand,list } from "../../services/index.js";
 
 export default class Home {
   @observable data = [];
@@ -31,8 +31,10 @@ export default class Home {
   @observable  personal=[];//洗护
   
   @observable inclination=[];//志趣
-  @action change() {
-    home().then(res => {
+  @observable brand=[];//品牌
+  @observable mode=[];//muji制造商
+  @action async change() {
+    let res=await home();
       this.data = res.data.banner;
       this.List = res.data.channel;
       this.dataList = res.data.brandList;
@@ -48,6 +50,16 @@ export default class Home {
       this.store=res.data.categoryList[6].goodsList;
       this.personal=res.data.categoryList[7].goodsList;
       this.inclination=res.data.categoryList[8].goodsList;
-    });
+   
+  }
+  @action async goods(id){
+    let data=await brand(id);
+    console.log(data.data);
+    this.brand=data.data.brand;
+  }
+  @action async list(id){
+    let data=await list(id);
+    this.mode=data.data.data;
+    console.log(data.data.data);
   }
 }

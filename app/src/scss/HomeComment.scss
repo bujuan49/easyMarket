@@ -1,0 +1,49 @@
+@import "./minix.scss";
+@import "./common.scss";
+.header{
+    width:100%;
+    height:pxTorem(44px);
+    line-height:pxTorem(44px);
+    @include box_flex;
+    @include justify(space-around);
+}
+.section{
+    width:100%;
+    height:100%;
+    overflow-y: auto;
+    background:#fff;
+    .commentItem {
+        width: 100%;
+        height:auto;
+        padding:0 pxTorem(10px);
+        @include sizing;
+        > .userInfo {
+          width: 100%;
+          height: pxTorem(30px);
+          line-height: pxTorem(30px);
+          @include box_flex;
+          @include justify(space-between);
+          padding: 0 pxTorem(10px);
+          box-sizing: border-box;
+        }
+        > .userComment {
+          width: 100%;
+          height:auto;
+          padding:0 pxTorem(10px);
+          box-sizing: border-box;
+        border-bottom:pxTorem(1px) solid #ccc;
+        padding-bottom:pxTorem(5px);
+
+          .userimg {
+            @include box_flex;
+            > img {
+              display: block;
+              width: 83px;
+              height: 100px;
+              box-sizing: content-box;
+              margin-right: .1rem;
+            }
+          }
+        }
+      }
+}

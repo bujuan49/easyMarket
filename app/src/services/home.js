@@ -17,3 +17,21 @@ export function homeGoods(params){
         method:"GET"
     })
 }
+export function brand(params){//品牌制造商直供
+return request({
+    url:"/brand/detail?id="+params,
+    method:"GET"
+})
+}
+export function list(params){
+    return request({
+        url:"/goods/list?brandId="+params+"&page="+1+"&size="+10000,
+        method:"GET"
+    })   
+}
+export function comment(params){
+    return request({
+        url:"/comment/list?valueId="+params+"&typeId=0&size=100&page=1",
+        method:"GET"
+    })
+}

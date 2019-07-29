@@ -10,7 +10,7 @@ class List extends Component {
     return (
       <div className="dls">
         {this.props.accessories.map(item => (
-            <dl key={item.id} onClick={()=>this.detail(item.id,item.name,item.retail_price)}>
+            <dl key={item.id} onClick={()=>this.detail(item.id,item.name)}>
               <dt>
                 <img src={item.list_pic_url} alt="" />
               </dt>
@@ -27,8 +27,8 @@ class List extends Component {
       </div>
     );
   }
-  detail = (id,name,price) => {
-    this.props.history.push({ pathname: `/home/goods/${id}`,state:{name:name,price:price} });
+  detail = (id,name) => {
+    this.props.history.push({ pathname: `/home/goods/${id}`,state:{name:name} });
   };
 }
 

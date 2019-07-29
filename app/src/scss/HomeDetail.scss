@@ -1,6 +1,6 @@
 @import "./minix";
 @import "./common.scss";
-header {
+.header{
   width: 100%;
   height: pxTorem(44px);
   line-height: pxTorem(44px);
@@ -9,7 +9,10 @@ header {
 }
 .section {
   width: 100%;
-  height: pxTorem(579px);
+  // height: pxTorem(579px);
+  height:100%;
+  overflow-y: auto;
+  @include sizing;
   .goodsBannerItem {
     width: 100%;
     height: pxTorem(350px);
@@ -87,7 +90,7 @@ header {
   .goodsCommentList {
     margin-top: pxTorem(10px);
     width: 100%;
-    height: pxTorem(250px);
+    height:auto;
     background: #fff;
     .goodsCommentTitle {
       width: 100%;
@@ -103,7 +106,7 @@ header {
     }
     .commentItem {
       width: 100%;
-      height: pxTorem(200px);
+      height:auto;
       > .userInfo {
         width: 100%;
         height: pxTorem(30px);
@@ -115,15 +118,170 @@ header {
       }
       > .userComment {
         width: 100%;
-        height: pxTorem(170px);
+        height:auto;
         padding:0 pxTorem(10px);
         box-sizing: border-box;
         .userimg {
-          width: 50%;
-          height: pxTorem(100px);
+          @include box_flex;
           > img {
-            width: 100%;
-            height: 100%;
+            display: block;
+            width: 83px;
+            height: 100px;
+            box-sizing: content-box;
+            margin-right: .1rem;
+          }
+        }
+      }
+    }
+  }
+  .goodsAttribute{
+    margin-top: pxTorem(10px);
+    width:100%;
+    height:auto;
+    padding:0 pxTorem(10px);
+    box-sizing: border-box;
+    background:#fff;
+    .con{
+      width:100%;
+      height:pxTorem(40px);
+      text-align:center;
+      @include box-flex;
+      @include align;
+      @include justify;
+      span:nth-child(1){
+        width:5%;
+        height:pxTorem(1px);
+        background:#2196f3;
+        border:pxTorem(1px) solid#2196f3;
+        display:block;
+      }
+      span:nth-child(2){
+        margin:pxTorem(5px);
+        line-height:pxTorem(44px);
+        color:#2196f3;
+      }
+      span:nth-child(3){
+        width:5%;
+        height:pxTorem(1px);
+        background:#2196f3;
+        border:pxTorem(1px) solid #2196f3;
+        display:block;
+      }
+    }
+    .goodsAttributeList{
+      width:100%;
+      height:auto;
+      >div{
+        width:100%;
+        height:auto;
+        background: #dcdfe6;
+        line-height:pxTorem(44px);
+        @include box_flex;
+        margin-top:pxTorem(4px);
+        >span:nth-child(2n+1){
+          width:pxTorem(100px);
+          color: gray;
+        text-align:center;
+        line-height:pxTorem(44px);
+        }
+        >span:nth-child(2n){
+          width:pxTorem(300px);
+        }
+      }
+    }
+    .problemLabel{
+    .proble{
+      width:100%;
+    margin-bottom:pxTorem(20px);
+    >div:nth-child(1){
+      font-size:pxTorem(16px);
+      span:nth-child(1){
+        color:red;
+        margin-right:pxTorem(5px);
+      }
+    }
+    >div:nth-child(2){
+      color: gray;
+      margin-top:pxTorem(10px);
+      font-size:pxTorem(14px);
+    }
+    }
+    }
+   
+  }
+  .topicDetailImg{
+    width:100%;
+    margin-top:pxTorem(10px);
+    >div{
+      >p{
+         >img{
+       width:100%;
+       height:auto;
+       display:block;
+     }
+      }
+    
+    }
+  }
+   .goodsAttributes{
+    margin-top: pxTorem(10px);
+    width:100%;
+    height:pxTorem(999px);
+    background:#fff;
+    @include sizing;
+    .con{
+      width:100%;
+      height:pxTorem(40px);
+      text-align:center;
+      @include box-flex;
+      @include align;
+      @include justify;
+      span:nth-child(1){
+        width:5%;
+        height:pxTorem(1px);
+        background:#2196f3;
+        border:pxTorem(1px) solid#2196f3;
+        display:block;
+      }
+      span:nth-child(2){
+        margin:pxTorem(5px);
+        line-height:pxTorem(44px);
+        color:#2196f3;
+      }
+      span:nth-child(3){
+        width:5%;
+        height:pxTorem(1px);
+        background:#2196f3;
+        border:pxTorem(1px) solid #2196f3;
+        display:block;
+      }
+    }
+    .goodsList{
+      width:100%;
+      @include box_flex;
+      @include flexWrap;
+      dl:nth-child(2n){
+        border-right:none;
+      }
+      >dl{
+        width:49%;
+        border-right:pxTorem(1px) solid #F5F5F9;
+        border-top:pxTorem(1px) solid #F5F5F9;
+        dt{
+          width:pxTorem(200px);
+          height:pxTorem(200px);
+          >img{
+            width:100%;
+            height:100%;
+          }
+        }
+        dd{
+          text-align: center;
+          span{
+            display:block;
+          }
+          span:nth-child(2){
+            color:red;
           }
         }
       }

@@ -41,7 +41,7 @@ class index extends Component {
             <span className="tit">品牌制造商直供</span>
             <ul>
               {this.props.home.dataList.map(item => (
-                <li key={item.id}>
+                <li key={item.id} onClick={()=>this.list_name(item.id)}>
                   <img src={item.new_pic_url} alt="" />
                   <div>
                     <span>
@@ -58,7 +58,7 @@ class index extends Component {
             <span className="tit">新品首发</span>
             <div className="dls">
               {this.props.home.product.map(item => (
-                <dl key={item.id}>
+                <dl key={item.id} onClick={()=>this.detail(item.id,item.name)}>
                   <dt>
                     <img src={item.list_pic_url} alt="" />
                   </dt>
@@ -74,7 +74,7 @@ class index extends Component {
             <span className="tit">人气推荐</span>
             <div className="hotGoodsBox">
               {this.props.home.hot.map(item => (
-                <dl key={item.id}>
+                <dl key={item.id} onClick={()=>this.detail(item.id,item.name)}>
                   <dt>
                     <img src={item.list_pic_url} alt="" />
                   </dt>
@@ -173,6 +173,12 @@ class index extends Component {
       loop: true
     });
     this.props.home.change();
+  }
+  list_name=(id)=>{
+    this.props.history.push({ pathname: `/home/brand/${id}`});
+  }
+  detail=(id,name)=>{
+    this.props.history.push({ pathname: `/home/goods/${id}`,state:{name:name} });
   }
 }
 
