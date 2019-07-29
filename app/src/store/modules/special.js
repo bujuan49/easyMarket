@@ -2,7 +2,7 @@ import { observable, action } from "mobx";
 import { special, login, specialDetail, specialDetailList, idDiscuss } from "../../services/index.js";
 import { setCookie } from '../../utils/index'
 
-export default class Home {
+export default class Special {
     //专题
     @observable specialData = [];
     //登录
@@ -21,6 +21,7 @@ export default class Home {
     }
     //登录
     @action async getLogin(phone, pwd) {
+        window.localStorage.setItem('user',phone)
         let data = await login({ mobile: phone, password: pwd })
         if (data.errno === 0) {
             setCookie(data.data.sessionKey)

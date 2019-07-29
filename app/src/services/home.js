@@ -1,7 +1,13 @@
 import request from "../utils/request.js";
-export function home(){
+
+
+export function home() {
     return request({
-        url:"/",
-        method:"GET"
+        url: "/",
+        method: "GET"
     })
+}
+
+export function collect(params) {
+    return request.get('/collect/list?typeId=' + params);
 }
