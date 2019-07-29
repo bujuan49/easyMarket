@@ -73,3 +73,24 @@
     font-size: pxTorem(13px);
   }
 }
+
+h4 {
+  width: 100%;
+  text-align: center;
+  margin-top: pxTorem(20px);
+}
+
+.dis{
+  width: 100%;
+  height: pxTorem(80px);
+  background: rgb(241, 245, 247);
+  text-align: center;
+  p{
+    line-height: pxTorem(30px);
+    color: #888;
+    font-size: pxTorem(12px);
+  }
+  p:nth-child(1){
+    color: black;
+  }
+}

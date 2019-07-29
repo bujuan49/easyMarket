@@ -8,6 +8,7 @@ export default class Classify {
     @observable dataLists = [];
     @observable goodList = [];
     @observable list = [];
+    @observable des = {};
 
     //初始渲染
     @action async catalogList() {
@@ -31,14 +32,16 @@ export default class Classify {
         let data = await goods(id);
         console.log(data.data)
         this.goodList = data.data.brotherCategory;
+        this.des = data.data.currentCategory;
+        this.goods(id)
+
     }
 
     //
     @action async goods(id) {
-        console.log(id)
         let num = Number(id)
         let data = await goodsList(num);
-        console.log(data.data.data)
+        console.log(data)
         this.list = data.data.data;
     }
 }

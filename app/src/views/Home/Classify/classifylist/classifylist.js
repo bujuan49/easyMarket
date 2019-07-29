@@ -24,6 +24,10 @@ class classifylist extends Component {
                         ))
                     }
                 </div>
+                <div className="dis">
+                    <p>{this.props.classify.des.name}</p>
+                    <p>{this.props.classify.des.front_name}</p>
+                </div>
                 <div className="nav-mains">
                     {
                         this.props.classify && this.props.classify.list.map(item => (
