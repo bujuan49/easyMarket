@@ -29,7 +29,7 @@ class index extends Component {
           <div className="list">
             {this.props.home &&
               this.props.home.List.map(item => (
-                <dl key={item.id}>
+                <dl key={item.id} onClick={() => this.living(item.id, item)}>
                   <dt>
                     <img src={item.icon_url} alt="" />
                   </dt>
@@ -41,7 +41,7 @@ class index extends Component {
             <span className="tit">品牌制造商直供</span>
             <ul>
               {this.props.home.dataList.map(item => (
-                <li key={item.id} onClick={()=>this.list_name(item.id)}>
+                <li key={item.id} onClick={() => this.list_name(item.id)}>
                   <img src={item.new_pic_url} alt="" />
                   <div>
                     <span>
@@ -58,7 +58,10 @@ class index extends Component {
             <span className="tit">新品首发</span>
             <div className="dls">
               {this.props.home.product.map(item => (
-                <dl key={item.id} onClick={()=>this.detail(item.id,item.name)}>
+                <dl
+                  key={item.id}
+                  onClick={() => this.detail(item.id, item.name)}
+                >
                   <dt>
                     <img src={item.list_pic_url} alt="" />
                   </dt>
@@ -74,7 +77,10 @@ class index extends Component {
             <span className="tit">人气推荐</span>
             <div className="hotGoodsBox">
               {this.props.home.hot.map(item => (
-                <dl key={item.id} onClick={()=>this.detail(item.id,item.name)}>
+                <dl
+                  key={item.id}
+                  onClick={() => this.detail(item.id, item.name)}
+                >
                   <dt>
                     <img src={item.list_pic_url} alt="" />
                   </dt>
@@ -111,45 +117,9 @@ class index extends Component {
               </div>
             </div>
           </div>
-          <div className="list_cateGoryName">
-            <span className="ti">居家</span>
-            <List accessories={this.props.home.channel}></List>
-           
-          </div>
-          <div className="list_cateGoryName">
-            <span className="ti">餐厨</span>
-            <List accessories={this.props.home.kitchen}></List>
-          </div>
-          <div className="list_cateGoryName">
-            <span className="ti">饮食</span>
-            <List accessories={this.props.home.diet}></List>
-          </div>
-          <div className="list_cateGoryName">
-            <span className="ti">配件</span>
-          <List accessories={this.props.home.accessories}></List>
-          </div>
-          <div className="list_cateGoryName">
-            <span className="ti">服装</span>
-          <List accessories={this.props.home.clothing}></List>
-          </div>
-          <div className="list_cateGoryName">
-            <span className="ti">婴童</span>
-          <List accessories={this.props.home.body}></List>
-          </div>
-          <div className="list_cateGoryName">
-            <span className="ti">杂货</span>
-          <List accessories={this.props.home.store}></List>
-          </div>
-          <div className="list_cateGoryName">
-            <span className="ti">洗护</span>
-          <List accessories={this.props.home.personal}></List>
-          </div>
-          <div className="list_cateGoryName">
-            <span className="ti">志趣</span>
-          <List accessories={this.props.home.inclination}></List>
-          </div>
+          <List type={this.props.home.type} list={this.props.home.List} />
         </section>
-        <Footer></Footer>
+        <Footer />
       </>
     );
   }
@@ -174,12 +144,21 @@ class index extends Component {
     });
     this.props.home.change();
   }
-  list_name=(id)=>{
-    this.props.history.push({ pathname: `/home/brand/${id}`});
-  }
-  detail=(id,name)=>{
-    this.props.history.push({ pathname: `/home/goods/${id}`,state:{name:name} });
-  }
+  list_name = id => {
+    this.props.history.push({ pathname: `/home/brand/${id}` });
+  };
+  detail = (id, name) => {
+    this.props.history.push({
+      pathname: `/home/goods/${id}`,
+      state: { name: name }
+    });
+  };
+  living = (id, item) => {
+    this.props.history.push({
+      pathname: `/home/classifylist/${id}`,
+      params: item
+    });
+  };
 }
 
 export default index;

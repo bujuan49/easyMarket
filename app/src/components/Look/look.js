@@ -13,7 +13,7 @@ class look extends Component {
   }
 
   render() {
-    let { price, goods_number, phone, callback } = this.props;
+    let { price, goods_number, callback } = this.props;
     return (
       <>
         <div className="mark" onClick={() => callback(this.props.flag)} />

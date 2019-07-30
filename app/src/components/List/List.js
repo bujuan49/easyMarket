@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { inject, observer } from "mobx-react";
 import { withRouter } from "react-router";
-
+@inject("home")
+@observer
 @withRouter
 class List extends Component {
   constructor(props) {
@@ -9,30 +11,61 @@ class List extends Component {
   }
 
   render() {
+    let { type, list } = this.props;
     return (
-      <div className="dls">
-        {this.props.accessories.map(item => (
-          <dl key={item.id} onClick={() => this.detail(item.id, item.name)}>
-            <dt>
-              <img src={item.list_pic_url} alt="" />
-            </dt>
-            <dd>
-              <span>{item.name}</span>
-              <span>￥{item.retail_price}</span>
-            </dd>
-          </dl>
+      <>
+        {type.map(item => (
+          <div className="list_cateGoryName" key={item.id}>
+            <span className="ti">{item.name}</span>
+            <div className="dls">
+              {item.goodsList.map(v => (
+                <dl key={v.id} onClick={() => this.detail(v.id, v.name)}>
+                  <dt>
+                    <img src={v.list_pic_url} alt="" />
+                  </dt>
+                  <dd>
+                    <span>{v.name}</span>
+                    <span>￥{v.retail_price}</span>
+                  </dd>
+                </dl>
+              ))}
+              {
+                <dl onClick={() => this.living(item.id, item)}>
+                  <dt>
+                    <span style={{ lineHeight: "144px" }}>
+                      {" "}
+                      更多{item.name}好物
+                    </span>
+                  </dt>
+                  <dd
+                    style={{
+                      marginTop: "-250px",
+                      border: "1px solid #ccc",
+                      display: "inline-block",
+                      padding: "0 10px",
+                      borderRadius: "50px"
+                    }}
+                  >
+                    <span>&gt;</span>
+                  </dd>
+                </dl>
+              }
+            </div>
+          </div>
         ))}
-        <dl>
-          <dt />
-          <dd>更多居家好物</dd>
-        </dl>
-      </div>
+      </>
     );
   }
   detail = (id, name) => {
     this.props.history.push({
       pathname: `/home/goods/${id}`,
       state: { name: name }
+    });
+  };
+  living = (id, item) => {
+    this.props.history.push({
+      pathname: `/home/classifylist/${id}`,
+      params: item
     });
   };
 }

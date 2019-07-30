@@ -144,7 +144,7 @@ class HomeDetail extends Component {
             </div>
           </div>
 
-          <div className="goodsAttributes">
+          {/* <div className="goodsAttributes">
             <div className="con">
               <span />
               <span>大家都在看</span>
@@ -163,7 +163,7 @@ class HomeDetail extends Component {
                 </dl>
               ))}
             </div>
-          </div>
+          </div> */}
         </section>
         <footer className="footer">
           <span>☆</span>

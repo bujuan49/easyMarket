@@ -31,12 +31,19 @@ export default class Home {
   @observable  personal=[];//洗护
   
   @observable inclination=[];//志趣
+
   @observable brand=[];//品牌
+
   @observable mode=[];//muji制造商
+
+  @observable type=[];//居家
+  
   @action async change() {
     let res=await home();
       this.data = res.data.banner;
       this.List = res.data.channel;
+      this.type=res.data.categoryList;
+      console.log(res.data.channel);
       this.dataList = res.data.brandList;
       this.product = res.data.newGoodsList;
       this.hot = res.data.hotGoodsList;
