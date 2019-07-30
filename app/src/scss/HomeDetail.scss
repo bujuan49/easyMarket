@@ -272,11 +272,10 @@
         border-right:none;
       }
       >dl{
-        width:49%;
+        width:49.5%;
         height:pxTorem(250px);
         border-right:pxTorem(1px) solid #F5F5F9;
         border-top:pxTorem(1px) solid #F5F5F9;
-        @include sizing;
         dt{
           width:pxTorem(200px);
           height:pxTorem(200px);
@@ -296,6 +295,7 @@
         }
       }
     }
+    
   }
 }
 .footer {
