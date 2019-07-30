@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { inject, observer } from "mobx-react";
 import '../../../../scss/specialDetail.scss';
-@inject("home")
+
+@inject("special")
 @observer
 
 class specialDetail extends Component {
@@ -15,24 +16,35 @@ class specialDetail extends Component {
         return (
             <div className="main">
                 <div className="headerTop">
-                    <span className="back">←</span>
-                    <span>{this.props.home.specialList.title}</span>
+                    <span className="back" onClick={this.goBack}>←</span>
+                    <span>{this.props.special.specialList.title}</span>
                 </div>
-                <div dangerouslySetInnerHTML={{ __html: this.props.home.specialList.content }} className="topical_detail_main"></div>
+                <div dangerouslySetInnerHTML={{ __html: this.props.special.specialList.content }} className="topical_detail_main"></div>
                 <div className="titleLine">
                     <p className="line">精选留言</p>
                     <p className="icon iconfont icon-jingzi"></p>
                 </div>
                 <div className="all">
-                    <dt className="icon iconfont icon-mianmo"></dt>
-                    <dd>等你来留言</dd>
+                    {
+                        this.props.special.discuss.length > 0 ? this.props.special.discuss.map(item => (
+                            <div className="time" key={item.id}>
+                                <p>{item.add_time}</p>
+                                <p>{item.content}</p>
+                            </div>
+                        )) : (
+                                <dl>
+                                    <dt className="icon iconfont icon-mianmo"></dt>
+                                    <dd>欢迎来留言</dd>
+                                </dl>
+                            )
+                    }
                 </div>
                 <p className="messages">
                     推荐专题
                 </p>
                 <div className="containers">
                     {
-                        this.props.home && this.props.home.speList.map(item => (
+                        this.props.special && this.props.special.speList.map(item => (
                             <div key={item.id} className="everyCont">
                                 {/* onClick={() => this.handleClicks(item.id)} */}
                                 <img src={item.scene_pic_url} alt="" className="img" />
@@ -48,14 +60,19 @@ class specialDetail extends Component {
         );
     }
     componentDidMount() {
-        this.props.home.speDetail(this.props.match.params.id)
-        this.props.home.speDetailList(this.props.match.params.id)
+        this.props.special.speDetail(this.props.match.params.id)
+        this.props.special.speDetailList(this.props.match.params.id)
+        this.props.special.discussList(this.props.match.params.id)
+
     }
     // handleClicks = (id) => {
     //     console.log(id)
     //     this.props.history.push({ pathname: '/home/detail/' + id })
 
     // }
+    goBack = () => {
+        this.props.history.go(-1)
+    }
 }
 
 export default specialDetail;

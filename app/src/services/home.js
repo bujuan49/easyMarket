@@ -1,8 +1,22 @@
 import request from "../utils/request.js";
-export function home(){
+
+
+export function home() {
     return request({
-        url:"/",
-        method:"GET"
+        url: "/",
+        method: "GET"
+    })
+}
+
+export function collect(params) {
+    return request.get('/collect/list?typeId=' + params);
+}
+
+//地址
+export function address() {
+    return request({
+        url: "/address/list",
+        method: "GET"
     })
 }
 export function homeDetail(params){//详情页
