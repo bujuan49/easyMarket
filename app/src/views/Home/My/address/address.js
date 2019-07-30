@@ -28,7 +28,7 @@ class address extends Component {
                                 <p>吉林省长春市南关区</p>
                                 <p>上地软件园38</p>
                             </div>
-                            <div className="icon iconfont icon-jingzi"></div>
+                            <div className="icon iconfont icon-filedone"></div>
                         </section>
                     </div>
                     <div className="button" onClick={this.go}>新建地址</div>
