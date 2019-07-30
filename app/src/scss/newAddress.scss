@@ -54,7 +54,17 @@ h2 {
   height: pxTorem(40px);
   line-height: pxTorem(40px);
   display: flex;
-  p:nth-child(1) {
-    margin-left: 37%;
+  align-items: center;
+  justify-content: center;
+  p {
+  margin-left: pxTorem(10px)
+
   }
+}
+
+.nweaddressnum {
+  color: rgb(206, 23, 23);
+}
+.col {
+  color: #333;
 }

@@ -6,6 +6,8 @@ export default class Home {
     @observable data = [];
     @observable dataList = [];
     @observable addressList = [];
+    @observable flag = false;
+
 
 
     //轮播
@@ -24,5 +26,14 @@ export default class Home {
         let data = await address(id)
         console.log(data.data)
         this.addressList = data.data;
+    }
+
+    //changeFlag
+    @action async changeFlag() {
+        this.flag = true;
+    }
+    //cancleFlag
+    @action async changeFlag() {
+        this.flag = false;
     }
 }

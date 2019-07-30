@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import address from './addressData'
-import { PickerView, WhiteSpace } from 'antd-mobile';
+import { PickerView } from 'antd-mobile';
 import './add.scss'
-import { Divider } from 'antd';
+import { inject, observer } from "mobx-react";
+
+@inject("home")
+@observer
 
 class addRess extends Component {
     constructor(props) {
@@ -13,11 +16,11 @@ class addRess extends Component {
     }
     render() {
         return (
-            <div className="pickers">
+            <div className={this.props.flags ? 'showZz' : 'pickers'}>
                 <div className="pack">
                     <div className="picker">
                         <div className="top-btn">
-                            <p>取消</p>
+                            <p onClick={() => this.props.cancle()}>取消</p>
                             <p>确认</p>
                         </div>
                         <PickerView
@@ -35,6 +38,7 @@ class addRess extends Component {
             value,
         });
     }
+
 }
 
 export default addRess;

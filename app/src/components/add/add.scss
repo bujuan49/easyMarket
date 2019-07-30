@@ -2,6 +2,7 @@
 @import "./common.scss";
 
 .pickers {
+  display: none;
   position: fixed;
   overflow: auto;
   top: 0;
@@ -35,4 +36,17 @@
   p:nth-child(2) {
     margin-left: 60%;
   }
+}
+
+.showZz{
+  display: block;
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.3);
 }

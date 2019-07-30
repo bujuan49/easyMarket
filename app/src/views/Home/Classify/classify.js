@@ -21,6 +21,7 @@ class classify extends Component {
     render() {
 
         return (
+            <>
             <div className='wrap'>
                 <div className="fl-header">
                     <div>
@@ -66,8 +67,10 @@ class classify extends Component {
                         </div>
                     </div>
                 </div>
-                <Footer />
+
             </div>
+            <Footer />
+            </>
         );
     }
 

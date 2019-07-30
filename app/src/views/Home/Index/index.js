@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {inject,observer}from "mobx-react";
+import { inject, observer } from "mobx-react";
 import "../../../scss/global.scss";
 import Swiper from "swiper/dist/js/swiper.js";
 import "swiper/dist/css/swiper.min.css";
@@ -11,31 +11,31 @@ class index extends Component {
         // console.log(this.props.home);
         return (
             <>
-            <header>
-            <div className='swiper-container'>
-                <div className='swiper-wrapper'>
-                {
-                       this.props.home && this.props.home.data.map(item => (
-                           <div className="swiper-slide" key={item.id}>
-                              <img src={item.image_url} alt="" />
-                             </div>
-                                    ))
+                <header>
+                    <div className='swiper-container'>
+                        <div className='swiper-wrapper'>
+                            {
+                                this.props.home && this.props.home.data.map(item => (
+                                    <div className="swiper-slide" key={item.id}>
+                                        <img src={item.image_url} alt="" />
+                                    </div>
+                                ))
 
-                                }
+                            }
 
-                </div>
-                <div className='swiper-pagination'></div>
-            </div>
-            </header>
-            <section>
-                ss
+                        </div>
+                        <div className='swiper-pagination'></div>
+                    </div>
+                </header>
+                <section>
+                    ss
             </section>
-            <Footer />
+                <Footer />
             </>
         );
     }
     componentDidMount() {
-        new Swiper('.swiper-container',{
+        new Swiper('.swiper-container', {
             loop: true,//这里是自动轮播
             autoplay: {
                 delay: 2000,
@@ -47,7 +47,7 @@ class index extends Component {
         });
         this.props.home.change();
     }
-    
+
 }
 
 export default index;
