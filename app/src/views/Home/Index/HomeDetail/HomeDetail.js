@@ -172,7 +172,7 @@ class HomeDetail extends Component {
           <span>立即购买</span>
         </footer>
         {
-           flag===false?null: <Look callback={this.changeFlag.bind(this)} price={inf.retail_price} goods_number={inf.goods_number} phone={phone} num={this.state.num} flag={this.state.flag}/>
+           flag===false?null: <Look callback={this.changeFlag.bind(this)}  price={inf.retail_price} goods_number={inf.goods_number} phone={phone}  flag={this.state.flag}/>
         }
        
       </>
@@ -206,8 +206,7 @@ class HomeDetail extends Component {
       flag:true
     })
   }
-  changeFlag(flag,num){
-    console.log(num);
+  changeFlag(flag){
     this.setState({
       flag:false
     })
