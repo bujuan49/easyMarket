@@ -1,0 +1,74 @@
+@import "./minix";
+@import "./common.scss";
+
+.main {
+  width: 100%;
+  height: 100%;
+}
+.userMsgs {
+  width: 100%;
+  height: pxTorem(130px);
+  background: rgb(221, 189, 129);
+  display: flex;
+  h6 {
+    height: pxTorem(130px);
+  }
+  .img {
+    width: pxTorem(70px);
+    height: 100%;
+    margin-left: pxTorem(20px);
+    line-height: pxTorem(130px);
+    h6 {
+      height: pxTorem(30px);
+    }
+    h5 {
+      width: 100%;
+      height: pxTorem(70px);
+      border-radius: 50%;
+      background: rgb(192, 207, 213);
+    }
+  }
+}
+.info {
+  width: 50%;
+  height: 50%;
+  margin-left: 5%;
+  span {
+    display: block;
+    line-height: pxTorem(30px);
+    color: white;
+  }
+  span:nth-child(1) {
+    margin-top: 22%;
+  }
+}
+.userPower {
+  display: flex;
+  flex-wrap: wrap;
+  & > div {
+    width: 33%;
+    height: 2.5rem;
+    background: white;
+    border: 0.5px solid gainsboro;
+    i {
+      display: block;
+      padding-top: 0.8rem;
+      padding-bottom: 0.2rem;
+      text-align: center;
+      font-size: 0.6rem;
+      color: #9e9e9e;
+    }
+    div {
+      text-align: center;
+      font-size: 0.3rem;
+    }
+  }
+}
+.out{
+    width: 100%;
+    height: pxTorem(50px);
+    line-height: pxTorem(50px);
+    text-align: center;
+    color: #777;
+    font-size: pxTorem(16px);
+}

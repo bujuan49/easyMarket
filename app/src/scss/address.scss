@@ -1,0 +1,75 @@
+@import "./minix";
+@import "./common.scss";
+.content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.headerTop {
+  width: 100%;
+  height: pxTorem(40px);
+  line-height: pxTorem(40px);
+  background: white;
+  .back {
+    display: inline-block;
+    width: 17%;
+    font-size: pxTorem(18px);
+    padding-left: 10%;
+  }
+  span:nth-child(2) {
+    display: inline-block;
+    text-align: center;
+    width: 50%;
+  }
+}
+.adds {
+  margin-top: pxTorem(40px);
+  width: 100%;
+  flex: 1;
+  section {
+    width: 100%;
+    height: pxTorem(80px);
+    display: flex;
+    font-size: pxTorem(12px);
+    .myname {
+      width: 20%;
+      height: 91%;
+      text-align: center;
+      padding-top: 3%;
+      color: orange;
+      border-left: pxTorem(7px) solid #108ee9;;
+    }
+    .addres {
+      width: 60%;
+      height: 100%;
+      p {
+        line-height: pxTorem(22px);
+      }
+      p:nth-child(1) {
+        padding-top: 4%;
+      }
+      p:nth-child(2),
+      p:nth-child(3) {
+        color: #777;
+      }
+    }
+    .icon-jingzi{
+      width: 20%;
+      height: 100%;
+      padding-top: pxTorem(20px);
+      text-align: center;
+      font-size: pxTorem(30px)
+    }
+  }
+}
+.button {
+  width: 100%;
+  height: pxTorem(40px);
+  line-height: pxTorem(40px);
+  color: white;
+  text-align: center;
+  border-radius: pxTorem(0px);
+  font-weight: 500;
+  font-size: pxTorem(20px);
+}
