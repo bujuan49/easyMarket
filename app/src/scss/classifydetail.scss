@@ -5,7 +5,7 @@
   height: 100%;
   overflow-y: auto;
 }
-.headerTops {
+.headerTopp {
   position: fixed;
   z-index: 999;
   top: 0;
@@ -13,7 +13,7 @@
   height: pxTorem(40px);
   line-height: pxTorem(40px);
   background: white;
-  .back {
+  .backk {
     display: inline-block;
     width: 10%;
     font-size: pxTorem(18px);
@@ -21,20 +21,21 @@
   }
   span:nth-child(2) {
     display: inline-block;
-    width: 30%;
     padding-left: 28%;
-    // text-align: center;
   }
 }
-.nav {
+.navss {
+  position: fixed;
+  z-index: 999;
   margin-top: pxTorem(40px);
-  width: 300%;
-  overflow-x: auto;
+  background: white;
+  width: 100%;
+  display: flex;
   height: pxTorem(20px);
-  // background: red;
+  overflow-x: auto;
   span {
     display: inline-block;
-    width: 5%;
+    width: 15%;
     font-size: pxTorem(12px);
     text-align: center;
     line-height: pxTorem(20px);
@@ -80,18 +81,18 @@ h4 {
   margin-top: pxTorem(20px);
 }
 
-.dis{
+.dis {
   width: 100%;
   overflow-x: auto;
   height: pxTorem(80px);
   background: rgb(241, 245, 247);
   text-align: center;
-  p{
+  p {
     line-height: pxTorem(30px);
     color: #888;
     font-size: pxTorem(12px);
   }
-  p:nth-child(1){
+  p:nth-child(1) {
     color: black;
   }
 }

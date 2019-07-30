@@ -14,8 +14,6 @@ footer {
   width: 100%;
   height: pxTorem(50px);
   line-height: pxTorem(50px);
-  // @include box_flex;
-  // @include justify(space-around);
   display: flex !important;
   flex-direction: row;
   dl {
@@ -29,7 +27,7 @@ footer {
 }
 .everyCont {
   width: 100%;
-  height: pxTorem(280px);
+  height: pxTorem(28px);
   .img {
     display: block;
     width: 100%;
@@ -41,12 +39,13 @@ footer {
     overflow: hidden; /*超出部分隐藏*/
     text-overflow: ellipsis; /* 超出部分显示省略号 */
     white-space: nowrap; /*规定段落中的文本不进行换行 */
-    line-height: pxTorem(30px);
+    line-height: pxTorem(25px);
     font-size: pxTorem(12px);
     text-align: center;
   }
   .money {
     color: red;
+    line-height: pxTorem(20px)
   }
   .subtitle {
     color: #999;

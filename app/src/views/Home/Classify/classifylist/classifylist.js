@@ -13,11 +13,11 @@ class classifylist extends Component {
     render() {
         return (
             <div className="mains">
-                <div className="headerTops">
-                    <span className="back" onClick={this.goBack}>←</span>
+                <div className="headerTopp">
+                    <span className="backk" onClick={this.goBack}>←</span>
                     <span>奇趣分类</span>
                 </div>
-                <div className="nav">
+                <div className="navss">
                     {
                         this.props.classify && this.props.classify.goodList.map(item => (
                             <span key={item.id} onClick={() => this.showList(item.id)}>{item.name}</span>
