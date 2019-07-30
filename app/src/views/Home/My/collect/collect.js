@@ -20,9 +20,9 @@ class collect extends Component {
                     </div>
                     <div className="listss">
                         {
-                            this.props.home&&this.props.home.dataList.map(item=>(
+                            this.props.home && this.props.home.dataLists.map(item => (
                                 <div className="lists" key={item.id}>
-                                    <img src={item.list_pic_url} alt=""/>
+                                    <img src={item.list_pic_url} alt="" />
                                     <div className="right">
                                         <p>{item.goods_brief}</p>
                                         <p>{item.name}</p>
@@ -39,7 +39,7 @@ class collect extends Component {
     componentDidMount() {
         this.props.home.collects(0)
     }
-    goBack=()=>{
+    goBack = () => {
         this.props.history.go(-1)
     }
 }
