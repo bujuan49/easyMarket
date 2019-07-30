@@ -101,10 +101,9 @@ class index extends Component {
               <div className="swiper-container banner">
                 <ul
                   className="swiper-wrapper"
-                  style={{ width: "337px", height: "187px" }}
                 >
                   {this.props.home.topicList.map(item => (
-                    <div key={item.id} className="swiper-slide">
+                    <div key={item.id} className="swiper-slide" onClick={()=>this.handleClick(item.id)}>
                       <li>
                         <img src={item.item_pic_url} alt="" />
                       </li>
@@ -159,6 +158,9 @@ class index extends Component {
       params: item
     });
   };
+  handleClick=(id)=>{
+    this.props.history.push({ pathname: '/home/detail/' + id })
+  }
 }
 
 export default index;

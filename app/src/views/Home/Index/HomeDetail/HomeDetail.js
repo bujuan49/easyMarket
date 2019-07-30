@@ -11,7 +11,9 @@ class HomeDetail extends Component {
     super(props);
     this.state = {
       num:0,
-      flag:false
+      flag:false,
+      check:false,
+      active:"yellow"
     };
   }
   render() {
@@ -24,10 +26,14 @@ class HomeDetail extends Component {
       attribute,
       issue,
       goodsList,
-      inf,names
+      inf,
+      names,
+      counts,
+      productId
     } = this.props.homeDetail;
     let { name } = this.props.location.state;
     let {flag}=this.state;
+    let {id}=this.props.match.params;
     return (
       <>
         <div className="header">
@@ -75,7 +81,7 @@ class HomeDetail extends Component {
           </div>
           <div className="goodsSize">
             <span>x</span>
-            <span>0</span>
+            <span>{this.state.num}</span>
             <span onClick={()=>this.flag()}>选择规格&gt;</span>
           </div>
           {
@@ -144,7 +150,7 @@ class HomeDetail extends Component {
             </div>
           </div>
 
-          {/* <div className="goodsAttributes">
+          <div className="HomeDls">
             <div className="con">
               <span />
               <span>大家都在看</span>
@@ -163,16 +169,18 @@ class HomeDetail extends Component {
                 </dl>
               ))}
             </div>
-          </div> */}
+          </div>
         </section>
         <footer className="footer">
-          <span>☆</span>
-          <span>购物</span>
-          <span>加入购物车</span>
+          <span onClick={()=>this.add(this.state.check)} className={this.state.check===false?null:this.state.active}>☆</span>
+          <span onClick={()=>this.shop()}>
+            <i>{counts}</i>
+            购物</span>
+          <span onClick={()=>this.flag()}>加入购物车</span>
           <span>立即购买</span>
         </footer>
         {
-           flag===false?null: <Look callback={this.changeFlag.bind(this)}  price={inf.retail_price} goods_number={inf.goods_number} phone={phone}  flag={this.state.flag}/>
+           flag===false?null: <Look callback={this.changeFlag.bind(this)} addNum={this.changeNum.bind(this)} price={inf.retail_price} goods_number={inf.goods_number} productId={productId} phone={phone} id={id} flag={this.state.flag} num={this.state.num}/>
         }
        
       </>
@@ -191,6 +199,12 @@ class HomeDetail extends Component {
     });
     this.props.homeDetail.change(this.props.match.params.id);
     this.props.homeDetail.goods(this.props.match.params.id);
+    this.props.homeDetail.count();
+  }
+  add=(check)=>{
+    this.setState({
+      check:!check
+    })
   }
   go = () => {
     this.props.history.go(-1);
@@ -210,6 +224,12 @@ class HomeDetail extends Component {
     this.setState({
       flag:false
     })
+  }
+  changeNum(str){
+    str==="+"?this.setState({num:++this.state.num}):this.setState({num:--this.state.num||this.state.num>=0})
+  }
+  shop(){
+    this.props.history.push("/home/shop")
   }
 }
 

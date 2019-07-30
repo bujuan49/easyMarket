@@ -45,7 +45,7 @@
   }
   .goodsMsgWrap {
     width: 100%;
-    height: pxTorem(100px);
+    height: pxTorem(110px);
     text-align: center;
     background: #fff;
     span {
@@ -230,11 +230,12 @@
     
     }
   }
-   .goodsAttributes{
+   .HomeDls{
     margin-top: pxTorem(10px);
     width:100%;
     height:auto;
     background:#fff;
+    overflow: hidden;
     @include sizing;
     .con{
       width:100%;
@@ -313,13 +314,24 @@
     font-size: pxTorem(20px);
   }
   span:nth-child(3) {
-    background: orange;
+    background: linear-gradient(90deg, #ff9500, #ff5e3a);
     color: #fff;
     display: block;
   }
   span:nth-child(4) {
-    background: blue;
+    background: linear-gradient(90deg, #1d62f0, #19d5fd);
     color: #fff;
     display: block;
+  }
+  span:nth-child(2){
+    >i{
+      position:absolute;
+      left:40%;
+      bottom:pxTorem(10px);
+      color:red;
+    }
+  }
+  .yellow{
+   color:gold;
   }
 }

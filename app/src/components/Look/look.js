@@ -1,5 +1,11 @@
 import React, { Component } from "react";
 import "./look.scss";
+import { inject, observer } from "mobx-react";
+import { Toast } from 'antd-mobile';
+import 'antd-mobile/dist/antd-mobile.css'; 
+@inject("shop")
+@observer
+
 class look extends Component {
   constructor(props) {
     super(props);
@@ -15,11 +21,11 @@ class look extends Component {
   render() {
     let { price, goods_number, callback } = this.props;
     return (
-      <>
+      <div className="Marks">
         <div className="mark" onClick={() => callback(this.props.flag)} />
         <div className="markbox">
           <div className="title">
-            <div className="dls">
+            <div className="dlss">
               <dl>
                 <dt>
                   <img src={this.img_url} alt="" />
@@ -43,32 +49,30 @@ class look extends Component {
             <div className="count">
               <span>数量</span>
               <div>
-                <span onClick={() => this.prev(this.state.num)}>-</span>
-                <span>{this.state.num}</span>
-                <span onClick={() => this.next(this.state.num)}>+</span>
+                <span onClick={() => this.props.addNum("-")}>-</span>
+                <span>{this.props.num}</span>
+                <span onClick={() => this.props.addNum("+")}>+</span>
               </div>
             </div>
           </div>
-          <div className="nav">
-            <span>加入购物车</span>
+          <div className="countNav">
+            <span onClick={()=>this.AddShop()}>加入购物车</span>
             <span>立即下单</span>
           </div>
         </div>
-      </>
+      </div>
     );
   }
-  prev = num => {
-    if (num > 0) {
-      this.setState({
-        num: --num
-      });
+  AddShop=()=>{
+    if(this.props.num===0){
+      Toast.fail("请选择商品数量");
     }
-  };
-  next = num => {
-    this.setState({
-      num: ++num
-    });
-  };
+
+   let str={goodsId:this.props.id,number:this.props.num,productId:this.props.productId[0].id}
+    this.props.shop.addNum(str);
+    Toast.success("添加成功！");
+  }
+ 
 }
 
 export default look;

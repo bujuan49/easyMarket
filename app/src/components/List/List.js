@@ -11,7 +11,7 @@ class List extends Component {
   }
 
   render() {
-    let { type, list } = this.props;
+    let { type } = this.props;
     return (
       <>
         {type.map(item => (
@@ -33,7 +33,6 @@ class List extends Component {
                 <dl onClick={() => this.living(item.id, item)}>
                   <dt>
                     <span style={{ lineHeight: "144px" }}>
-                      {" "}
                       更多{item.name}好物
                     </span>
                   </dt>

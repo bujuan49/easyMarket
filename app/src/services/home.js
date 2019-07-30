@@ -49,3 +49,9 @@ export function comment(params){
         method:"GET"
     })
 }
+export function countNum(){
+    return request({
+        url:"/cart/goodscount",
+        method:"GET"
+    })
+}
