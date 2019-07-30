@@ -56,6 +56,8 @@ num:0
             num:--num
         })
      }
+     console.log(num);
+
     }
     next=(num)=>{
       this.setState({
