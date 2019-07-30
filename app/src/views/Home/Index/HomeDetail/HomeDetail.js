@@ -4,6 +4,8 @@ import "../../../../scss/HomeDetail.scss";
 import Swiper from "swiper/dist/js/swiper.js";
 import "swiper/dist/css/swiper.min.css";
 import Look from "../../../../components/Look/look.js";
+import { Toast } from 'antd-mobile';
+import 'antd-mobile/dist/antd-mobile.css'; 
 @inject("homeDetail")
 @observer
 class HomeDetail extends Component {
@@ -177,7 +179,7 @@ class HomeDetail extends Component {
             <i>{counts}</i>
             购物</span>
           <span onClick={()=>this.flag()}>加入购物车</span>
-          <span>立即购买</span>
+          <span onClick={()=>this.error()}>立即购买</span>
         </footer>
         {
            flag===false?null: <Look callback={this.changeFlag.bind(this)} addNum={this.changeNum.bind(this)} price={inf.retail_price} goods_number={inf.goods_number} productId={productId} phone={phone} id={id} flag={this.state.flag} num={this.state.num}/>
@@ -226,10 +228,19 @@ class HomeDetail extends Component {
     })
   }
   changeNum(str){
-    str==="+"?this.setState({num:++this.state.num}):this.setState({num:--this.state.num||this.state.num>=0})
+    if(str==="+"){
+      this.setState({num:++this.state.num})
+
+    }else if(this.state.num>0){
+      this.setState({num:--this.state.num})
+    }
+   
   }
   shop(){
     this.props.history.push("/home/shop")
+  }
+  error(){
+    Toast.loading("下单功能还未GET,耐心等待~")
   }
 }
 

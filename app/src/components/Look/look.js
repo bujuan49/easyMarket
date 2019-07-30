@@ -57,7 +57,7 @@ class look extends Component {
           </div>
           <div className="countNav">
             <span onClick={()=>this.AddShop()}>加入购物车</span>
-            <span>立即下单</span>
+            <span onClick={()=>this.error()}>立即下单</span>
           </div>
         </div>
       </div>
@@ -67,10 +67,15 @@ class look extends Component {
     if(this.props.num===0){
       Toast.fail("请选择商品数量");
     }
-
-   let str={goodsId:this.props.id,number:this.props.num,productId:this.props.productId[0].id}
-    this.props.shop.addNum(str);
-    Toast.success("添加成功！");
+     if(this.props.num){
+      let str={goodsId:this.props.id,number:this.props.num,productId:this.props.productId[0].id}
+      this.props.shop.addNum(str);
+      Toast.success("添加成功！");
+     }
+  
+  }
+  error(){
+    Toast.loading("下单功能还未GET,耐心等待~")
   }
  
 }

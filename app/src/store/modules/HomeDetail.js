@@ -29,7 +29,6 @@ console.log(data.data.goodsList)
   this.phone=data.data.gallery;
   this.info.push(data.data.info);
   this.inf=data.data.info;
-  console.log(data.data.productList[0].id);
   this.names=data.data.brand.name;
   this.common=data.data.comment.count;
   this.list=data.data.comment.data;
@@ -43,12 +42,10 @@ console.log(data.data.goodsList)
 @action async remark(id){
   let data=await comment(id);
   this.comment=data.data.data;
-  console.log(data.data.data);
 }
 
 @action async count(){
   let data=await countNum();
   this.counts=data.data.cartTotal.goodsCount;
-  console.log(data.data.cartTotal.goodsCount);
 }
 }
