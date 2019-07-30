@@ -24,7 +24,7 @@ class HomeDetail extends Component {
       attribute,
       issue,
       goodsList,
-      inf
+      inf,names
     } = this.props.homeDetail;
     let { name } = this.props.location.state;
     let {flag}=this.state;
@@ -67,6 +67,10 @@ class HomeDetail extends Component {
                 <span>{inf.name}</span>
                 <span>{inf.goods_brief}</span>
                 <span>￥{inf.retail_price}</span>
+                {
+                  typeof(names)=="string"? <span>{names}</span>:null
+                }
+              
               </div>
           </div>
           <div className="goodsSize">
@@ -113,11 +117,9 @@ class HomeDetail extends Component {
             </div>
           </div>
           <div className="topicDetailImg">
-            {info.map(item => (
+            {info.map((item,ind) => (
               <div
-                dangerouslySetInnerHTML={{ __html: item.goods_desc }}
-                key={item.id}
-              />
+                dangerouslySetInnerHTML={{ __html: item.goods_desc }} key={ind}></div>
             ))}
           </div>
 
@@ -204,7 +206,8 @@ class HomeDetail extends Component {
       flag:true
     })
   }
-  changeFlag(flag){
+  changeFlag(flag,num){
+    console.log(num);
     this.setState({
       flag:false
     })

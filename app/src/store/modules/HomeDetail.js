@@ -13,6 +13,7 @@ export default class HomeDetail {
 @observable inf=[];
 @observable comment=[];
 @observable img=[];
+@observable names=[];
 @action async change(id){
   let data=await homeDetail(id);
 let datas=data.data.goodsList.filter(item=>item.id===id*1)
@@ -25,6 +26,8 @@ console.log(data.data.goodsList)
   this.phone=data.data.gallery;
   this.info.push(data.data.info);
   this.inf=data.data.info;
+  console.log(data.data.info);
+  this.names=data.data.brand.name;
   this.common=data.data.comment.count;
   this.list=data.data.comment.data;
   this.pic_list=data.data.comment.data.pic_list;

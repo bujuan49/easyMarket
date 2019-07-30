@@ -4,11 +4,11 @@ class look extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-
+num:0
          };
     }
     render() {
-        let {price,goods_number,phone,num,callback}=this.props;
+        let {price,goods_number,phone,callback}=this.props;
         return (
             <>
                <div className="mark" onClick={()=>callback(this.props.flag)}>
@@ -18,7 +18,7 @@ class look extends Component {
                 <div className="dls">
                    <dl>
                     {
-                      phone[0].img_url?<dt>米高哥</dt>:  <dt>
+                      phone[0].img_url?null: <dt>
              <img src={phone[0].img_url} alt=""/> </dt>
                     }
                 <dd>
@@ -39,7 +39,7 @@ class look extends Component {
                 </div>
             <div className="count">
             <span>数量</span>
-            <div><span onClick={()=>this.prev(num)}>-</span><span>{num}</span><span onClick={()=>this.next(num)}>+</span></div>
+            <div><span onClick={()=>this.prev(this.state.num)}>-</span><span>{this.state.num}</span><span onClick={()=>this.next(this.state.num)}>+</span></div>
             </div>
                 </div>
                 <div className="nav">
@@ -52,11 +52,15 @@ class look extends Component {
     }
     prev=(num)=>{
      if(num>0){
-         return 
+        this.setState({
+            num:--num
+        })
      }
     }
     next=(num)=>{
-     console.log(num++);
+      this.setState({
+          num:++num
+      })
     }
 }
 

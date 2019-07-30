@@ -65,6 +65,13 @@
       color: red;
       font-size: pxTorem(17px);
     }
+    span:nth-child(4){
+      display:inline-block;
+      border:pxTorem(1px) solid orange;
+      color:orange;
+      border-radius:pxTorem(5px);
+      padding:0 pxTorem(10px);
+    }
   }
   .goodsSize {
     margin-top: pxTorem(3px);
@@ -226,7 +233,7 @@
    .goodsAttributes{
     margin-top: pxTorem(10px);
     width:100%;
-    height:pxTorem(999px);
+    height:auto;
     background:#fff;
     @include sizing;
     .con{
@@ -257,16 +264,19 @@
       }
     }
     .goodsList{
-      width:100%;
-      @include box_flex;
-      @include flexWrap;
+       width:100%;
+       height:auto;
+       @include box_flex;
+       @include flexWrap;
       dl:nth-child(2n){
         border-right:none;
       }
       >dl{
         width:49%;
+        height:pxTorem(250px);
         border-right:pxTorem(1px) solid #F5F5F9;
         border-top:pxTorem(1px) solid #F5F5F9;
+        @include sizing;
         dt{
           width:pxTorem(200px);
           height:pxTorem(200px);
