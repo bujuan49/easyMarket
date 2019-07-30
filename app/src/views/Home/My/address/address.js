@@ -19,12 +19,32 @@ class address extends Component {
                         <span>地址管理</span>
                     </div>
                     <div className="adds">
-
+                        <section>
+                            <div className="myname">
+                                赵鑫雨
+                            </div>
+                            <div className="addres">
+                                <p>15011111111</p>
+                                <p>吉林省长春市南关区</p>
+                                <p>上地软件园38</p>
+                            </div>
+                            <div className="icon iconfont icon-jingzi"></div>
+                        </section>
                     </div>
-                    <p className="button">新建地址</p>
+                    <div className="button" onClick={this.go}>新建地址</div>
                 </div>
             </>
         );
+    }
+    goBack = () => {
+        this.props.history.go(-1)
+    }
+    componentDidMount() {
+        this.props.home.addresss();
+    }
+    go=()=>{
+        this.props.history.push('/home/newAddress')
+
     }
 }
 

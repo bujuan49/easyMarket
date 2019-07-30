@@ -8,7 +8,7 @@ export default class Shop {
     //轮播
     @action async shops() {
         let data = await shop()
-        console.log(data.data)
+        console.log(data)
         this.data = data.data.cartList;
     }
 }

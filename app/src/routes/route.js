@@ -9,6 +9,8 @@ import SpecialDetail from '../views/Home/Special/specialDetail/specialDetail.js'
 import ClassifyList from '../views/Home/Classify/classifylist/classifylist'
 import Collect from "../views/Home/My/collect/collect";//我的
 import Address from "../views/Home/My/address/address";//我的
+import newAddress from "../views/Home/My/address/newAddress/newAddress";//我的
+
 
 const route = [{
     path: "/login",
@@ -37,12 +39,15 @@ const route = [{
     }, {
         path: "/home/classifylist/:id",
         component: ClassifyList
-    },{
+    }, {
         path: "/home/collect",
         component: Collect
-    },{
+    }, {
         path: "/home/address",
         component: Address
+    }, {
+        path: "/home/newAddress",
+        component: newAddress
     }]
 }, {
     from: "/",
