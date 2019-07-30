@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../../../../../scss/newAddress.scss'
-import Pack from '../../../../../components/add/addRess'
+import Pack from '../../../../../component/add/addRess'
 import { Checkbox } from 'antd-mobile';
 import { inject, observer } from "mobx-react";
 

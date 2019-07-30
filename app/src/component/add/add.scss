@@ -1,0 +1,52 @@
+@import "./minix";
+@import "./common.scss";
+
+.pickers {
+  display: none;
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.3);
+}
+.pack {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: pxTorem(279px);
+  background: white;
+}
+
+.top-btn {
+  width: 100%;
+  height: pxTorem(40px);
+  display: flex;
+  p {
+    width: 20%;
+    height: 100%;
+    line-height: pxTorem(40px);
+    text-align: center;
+    color: rgb(12, 149, 208);
+    font-size: pxTorem(16px);
+  }
+  p:nth-child(2) {
+    margin-left: 60%;
+  }
+}
+
+.showZz{
+  display: block;
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.3);
+}
