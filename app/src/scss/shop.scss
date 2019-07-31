@@ -28,6 +28,9 @@
   overflow-y: auto;
   overflow: hidden;
 }
+.none{
+  display:none !important;
+}
 .car > section {
   width: 100%;
   height: pxTorem(80px);
@@ -49,7 +52,7 @@
       margin-top: 55%;
       margin-left: 20%;
     }
-    .active {
+    .actives {
       display: block;
       width: 50%;
       height: pxTorem(20px);
@@ -116,21 +119,35 @@
   height: pxTorem(60px);
   background: rgb(231, 235, 235);
   display: flex;
-  .checks {
+   .checks {
     width: 12%;
+    height: pxTorem(80px);
     .check {
       display: block;
-      font-size: pxTorem(16px) !important;
-      margin-top: 40%;
+      width: 50%;
+      height: pxTorem(20px);
+      border-radius: 50%;
+      background: rgb(171, 17, 17);
+      line-height: pxTorem(20px);
+      text-align: center;
+      color: white;
+      font-size: pxTorem(12px);
+      margin-top:40%;
       margin-left: 20%;
-      background: rgb(168, 25, 25);
     }
     .actives {
       display: block;
-      font-size: pxTorem(16px);
+      width: 50%;
+      height: pxTorem(20px);
+      border-radius: 50%;
+      background: white;
+      line-height: pxTorem(20px);
+      text-align: center;
+      color: white;
+      font-size: pxTorem(12px);
       margin-top: 40%;
       margin-left: 20%;
-      background: white;
+      border: pxTorem(1px) solid #ccc;
     }
   }
   .sec {
@@ -140,6 +157,11 @@
   }
 }
 .num {
+  height: pxTorem(14px);
+  width: 40%;
+  margin-top: 6%;
+}
+.price{
   height: pxTorem(14px);
   width: 40%;
   margin-top: 6%;

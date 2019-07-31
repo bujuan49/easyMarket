@@ -7,9 +7,29 @@ export function shop() {
     })
 }
 export function add(params){
-    console.log(params);
     return request({
         url:"/cart/add",
+        method:"POST",
+        data:params
+    })
+}
+export function check(params){
+    return request({
+        url:"/cart/checked",
+        method:"POST",
+        data:params
+    })
+}
+export function update(params){
+    return request({
+        url:"/cart/update",
+        method:"POST",
+        data:params
+    })
+}
+export function del(params){
+    return request({
+        url:"/cart/delete",
         method:"POST",
         data:params
     })

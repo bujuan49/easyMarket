@@ -4,9 +4,13 @@ import { home, brand, list, collect, address } from "../../services/index.js";
 export default class Home {
     //轮播
     @observable data = [];
+    
     @observable dataList = [];
+
     @observable dataLists = [];
+
     @observable addressList = [];
+
     @observable flag = false;
 
     @observable List = [];

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import '../../../../../scss/newAddress.scss'
 import Pack from '../../../../../component/add/addRess'
-import { Checkbox } from 'antd-mobile';
+// import { Checkbox } from 'antd-mobile';
 import { inject, observer } from "mobx-react";
 
-const CheckboxItem = Checkbox.CheckboxItem;
+// const CheckboxItem = Checkbox.CheckboxItem;
 
 @inject("home")
 @observer

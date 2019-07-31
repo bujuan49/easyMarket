@@ -175,9 +175,9 @@ class HomeDetail extends Component {
         </section>
         <footer className="footer">
           <span onClick={()=>this.add(this.state.check)} className={this.state.check===false?null:this.state.active}>☆</span>
-          <span onClick={()=>this.shop()}>
+          <span onClick={()=>this.shop()} className="icon iconfont icon-gouwuche-01">
             <i>{counts}</i>
-            购物</span>
+           </span>
           <span onClick={()=>this.flag()}>加入购物车</span>
           <span onClick={()=>this.error()}>立即购买</span>
         </footer>
