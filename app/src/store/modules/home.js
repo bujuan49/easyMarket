@@ -1,16 +1,15 @@
 import { observable, action } from "mobx";
-import { home, brand, list } from "../../services/index.js";
+import { home, brand, list, collect, address } from "../../services/index.js";
 
 export default class Home {
     //轮播
     @observable data = [];
+    @observable dataList = [];
     @observable dataLists = [];
     @observable addressList = [];
     @observable flag = false;
 
     @observable List = [];
-
-    @observable dataList = [];
 
     @observable product = [];
 
@@ -72,5 +71,16 @@ export default class Home {
         let data = await list(id);
         this.mode = data.data.data;
         console.log(data.data.data);
+    }
+    @action async collects(id) {
+        let data = await collect(id * 1)
+        console.log(data.data)
+        this.dataList = data.data;
+    }
+
+    @action async addresss(id) {
+        let data = await address(id)
+        console.log(data.data)
+        this.addressList = data.data;
     }
 }

@@ -50,7 +50,7 @@ class shop extends Component {
                                     this.props.shop && this.props.shop.data.map(item => (
                                         <section key={item.id}>
                                             <div className="checks">
-                                                <span className={item.checked ? 'check' : 'active'}>√</span>
+                                                <span className={item.checked ? 'icon iconfont icon-check-circle check' : 'icon iconfont icon-check-circle actives'}></span>
                                             </div>
                                             <div className="left">
                                                 <img src={item.list_pic_url} alt="" />
@@ -68,7 +68,7 @@ class shop extends Component {
                 </div>
                 <div className="bottom">
                     <div className="checks">
-                        <span className='active'>√</span>
+                        <span className='icon iconfont icon-check-circle circle'></span>
                     </div>
                     <section className="sec">
                         <span className="num">已选(0)</span>
