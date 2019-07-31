@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { inject, observer } from "mobx-react";
 import "../../../scss/index.scss";
 import Swiper from "swiper/dist/js/swiper.js";
@@ -103,7 +103,7 @@ class index extends Component {
                   className="swiper-wrapper"
                 >
                   {this.props.home.topicList.map(item => (
-                    <div key={item.id} className="swiper-slide" onClick={()=>this.handleClick(item.id)}>
+                    <div key={item.id} className="swiper-slide" onClick={() => this.handleClick(item.id)}>
                       <li>
                         <img src={item.item_pic_url} alt="" />
                       </li>
@@ -158,7 +158,7 @@ class index extends Component {
       params: item
     });
   };
-  handleClick=(id)=>{
+  handleClick = (id) => {
     this.props.history.push({ pathname: '/home/detail/' + id })
   }
 }

@@ -12,7 +12,7 @@ class footer extends Component {
       <footer>
         <dl>
           <dt>
-            <span className="icon iconfont icon-fangshai" />
+            <span className="icon iconfont icon-shouye"></span>
           </dt>
           <dd>
             <NavLink to="/home/index">首页</NavLink>
@@ -20,36 +20,34 @@ class footer extends Component {
         </dl>
         <dl>
           <dt>
-            <span className="icon iconfont icon-jingzi" />
+            <span className="icon iconfont icon-filedone"></span>
           </dt>
           <dd>
             <NavLink to="/home/specical">专题</NavLink>
           </dd>
-        </dl>
-        <dl>
+        </dl><dl>
           <dt>
-            <span className="icon iconfont icon-mianmo" />
+            <span className="icon iconfont icon-leimupinleifenleileibie"></span>
           </dt>
           <dd>
             <NavLink to="/home/classify">分类</NavLink>
           </dd>
-        </dl>
-        <dl>
+        </dl><dl>
           <dt>
-            <span className="icon iconfont icon-xiangshui" />
+            <span className="icon iconfont icon-gouwuche-01"></span>
           </dt>
           <dd>
             <NavLink to="/home/shop">购物车</NavLink>
           </dd>
-        </dl>
-        <dl>
+        </dl><dl>
           <dt>
-            <span className="icon iconfont icon-kouhong" />
+            <span className="icon iconfont icon-user"></span>
           </dt>
           <dd>
             <NavLink to="/home/my">我的</NavLink>
           </dd>
         </dl>
+
       </footer>
     );
   }

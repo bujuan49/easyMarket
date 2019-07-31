@@ -94,11 +94,13 @@
     }
   }
 }
-.money {
-  color: red;
+.moneys {
   margin-left: 3%;
   line-height: pxTorem(50px);
-  .cars {
+  .it_price {
+    color: red;
+  }
+  .carss {
     display: inline-block;
     width: 30%;
     margin-left: 50%;
@@ -118,30 +120,17 @@
     width: 12%;
     .check {
       display: block;
-      width: 50%;
-      height: pxTorem(20px);
-      border-radius: 40%;
-      background: rgb(171, 17, 17);
-      line-height: pxTorem(20px);
-      text-align: center;
-      color: white;
-      font-size: pxTorem(12px);
-      margin-top: 50%;
-      margin-left: 20%;
-    }
-    .active {
-      display: block;
-      width: 50%;
-      height: pxTorem(20px);
-      border-radius: 50%;
-      background: white;
-      line-height: pxTorem(20px);
-      text-align: center;
-      color: white;
-      font-size: pxTorem(12px);
+      font-size: pxTorem(16px) !important;
       margin-top: 40%;
       margin-left: 20%;
-      border: pxTorem(1px) solid #ccc;
+      background: rgb(168, 25, 25);
+    }
+    .actives {
+      display: block;
+      font-size: pxTorem(16px);
+      margin-top: 40%;
+      margin-left: 20%;
+      background: white;
     }
   }
   .sec {
@@ -155,7 +144,7 @@
   width: 40%;
   margin-top: 6%;
 }
-.h {
+.bianji {
   font-size: pxTorem(14px);
   width: 15%;
   margin-top: 6%;
@@ -168,4 +157,9 @@
   line-height: pxTorem(50px);
   text-align: center;
   color: white;
+}
+.circle {
+  display: block;
+  margin-top: 45%;
+  margin-left: 20%;
 }

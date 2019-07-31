@@ -1,0 +1,69 @@
+@import "./minix";
+@import "./common.scss";
+
+.addres {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  width: 100%;
+  height: pxTorem(40px);
+  line-height: pxTorem(40px) !important;
+  text-align: center;
+  font-weight: 400;
+  box-shadow: 0 0.04rem 0.08rem 0 rgba(0, 0, 0, 0.12),
+    0 0 6px 0 rgba(8, 7, 7, 0.04);
+}
+
+.discribe {
+  width: 100%;
+  flex: 1;
+  input,
+  .address-my {
+    width: 100%;
+    height: pxTorem(40px);
+    line-height: pxTorem(40px);
+    border: none;
+    outline: none;
+    margin-top: pxTorem(5px);
+    text-indent: pxTorem(10px);
+  }
+}
+
+.bottom-btn {
+  width: 100%;
+  height: pxTorem(40px);
+  display: flex;
+  p {
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    line-height: pxTorem(40px);
+    font-size: pxTorem(17px);
+  }
+  .btn-save {
+    background: #108ee9;
+    color: white;
+  }
+}
+.moren {
+  width: 100%;
+  height: pxTorem(40px);
+  line-height: pxTorem(40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  p {
+    margin-left: pxTorem(10px);
+  }
+}
+
+.nweaddressnum {
+  color: rgb(206, 23, 23);
+}
+.col {
+  color: #333;
+}
