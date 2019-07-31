@@ -14,13 +14,13 @@ class collect extends Component {
         return (
             <>
                 <div className="main">
-                    <div className="headerTop">
+                    <div className="headerTop11">
                         <span className="back" onClick={this.goBack}>←</span>
                         <span>商品收藏</span>
                     </div>
                     <div className="listss">
                         {
-                            this.props.home && this.props.home.dataLists.map(item => (
+                            this.props.home && this.props.home.dataList.map(item => (
                                 <div className="lists" key={item.id}>
                                     <img src={item.list_pic_url} alt="" />
                                     <div className="right">
