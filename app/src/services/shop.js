@@ -6,3 +6,11 @@ export function shop() {
         method: "GET",
     })
 }
+export function add(params){
+    console.log(params);
+    return request({
+        url:"/cart/add",
+        method:"POST",
+        data:params
+    })
+}

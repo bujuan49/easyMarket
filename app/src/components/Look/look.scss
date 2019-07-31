@@ -1,0 +1,112 @@
+.Marks{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    overflow: hidden;
+    
+}
+.mark{
+    width:100%;
+    height:100%;
+    background:#000;
+    opacity: .5;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:999;
+    overflow: hidden;
+
+}
+.markbox{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:250px;
+    background:#fff;
+    z-index:999999;
+    overflow: hidden;
+    .title{
+        width:100%;
+        height:200px;
+        .dlss{
+            width:100%;
+            height:120px;
+            display:flex;
+            justify-content: space-around;
+            overflow: hidden;
+            dl{
+                width:80%;
+                display:flex;
+                padding:10px 10px;
+                box-sizing: border-box;
+                dt{
+                    width:100px;
+                    height:100px;
+                    >img{
+                        width:100%;
+                        height:100%;
+                    }
+                }
+                dd{
+                    line-height:30px;
+                    >div{
+                        display:flex;
+                        color:#ccc;
+                        >span{
+                            color:red;
+                        }
+                        p{
+                            color:#ccc;
+
+                        }
+                    }
+                }
+            }
+            >div{
+                margin-top:15px;
+                span{
+                    width:10px;
+                    height:15px;
+                display:inline-block;
+                border:1px solid red;
+                color:red;
+                }
+            }
+        }
+        .count{
+            width:100%;
+            height:80px;
+            padding:0 10px;
+            >div{
+               display:flex;
+               text-align: center;
+                >span{
+                  line-height:40px;
+                    width:20%;
+                    height:40px;
+                    border:1px solid #ccc;
+                }
+            }
+        }
+    }
+    .countNav{
+        width:100%;
+        height:50px;
+        line-height:50px;
+        display:flex;
+        text-align: center;
+        margin-top:0px;
+        span:nth-child(1){
+            width:50%;
+            background: linear-gradient(90deg, #ff9500, #ff5e3a);
+            color:#fff;
+        }
+        span:nth-child(2){
+            width:50%;
+            background: linear-gradient(90deg, #1d62f0, #19d5fd);
+            color:#fff;
+        }
+    }
+}

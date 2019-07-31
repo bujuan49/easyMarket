@@ -32,8 +32,8 @@ class newAddress extends Component {
                     <div className="moren">
                         <p onClick={this.set}>设置默认地址</p>
                         {this.state.num === false ? <p className='icon iconfont icon-check-circle'></p> : <p className="iconfont icon-check-circle nweaddressnum"></p>}
-                        
-                        
+
+
                     </div>
                 </div>
                 <div className="bottom-btn">

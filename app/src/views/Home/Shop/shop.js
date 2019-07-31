@@ -82,7 +82,7 @@ class shop extends Component {
         );
     }
     componentDidMount() {
-        this.props.shop.shops()
+        this.props.shop.shops();
     }
     handleClick = () => {
         this.setState({

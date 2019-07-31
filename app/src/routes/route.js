@@ -1,5 +1,6 @@
+import loadable from "react-loadable";
+import React from "react"
 import Home from "../views/Home/home.js";//入口
-import Index from "../views/Home/Index/index.js";
 import Specical from "../views/Home/Special/special.js";//专题
 import Classify from "../views/Home/Classify/classify.js";//分类
 import Shop from "../views/Home/Shop/shop.js";
@@ -10,15 +11,35 @@ import ClassifyList from '../views/Home/Classify/classifylist/classifylist'
 import Collect from "../views/Home/My/collect/collect";//我的
 import Address from "../views/Home/My/address/address";//我的
 import newAddress from "../views/Home/My/address/newAddress/newAddress";//我的
-
-
+import HomeComment from "../views/Home/Index/HomeComment/HomeComment.js";
+import HomeBrand from "../views/Home/Index/HomeBrand/HomeBrand.js";
+function Loading(){
+    return <div>...loadding</div>
+}
+const Index=loadable({//首页
+    loader:()=>import("../views/Home/Index/index.js"),
+    loading:Loading
+})
+const HomeDetail=loadable({//详情
+    loader:()=>import("../views/Home/Index/HomeDetail/HomeDetail.js"),
+    loading:Loading
+})
 const route = [{
     path: "/login",
-    component: Login
+    component:Login
 }, {
     path: "/home",
     component: Home,
     children: [{
+        path:"/home/comment/:id",
+        component:HomeComment
+    },{
+        path:"/home/brand/:id",
+        component:HomeBrand
+    },{
+        path:"/home/goods/:id",
+        component:HomeDetail
+    },{
         path: "/home/index",
         component: Index
     }, {
@@ -48,6 +69,9 @@ const route = [{
     }, {
         path: "/home/newAddress",
         component: newAddress
+    },{
+        from:"/",
+        to:"/home/index"
     }]
 }, {
     from: "/",
