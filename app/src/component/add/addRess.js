@@ -11,7 +11,7 @@ class addRess extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: null
+            value: []
         };
     }
     render() {
@@ -21,24 +21,32 @@ class addRess extends Component {
                     <div className="picker">
                         <div className="top-btn">
                             <p onClick={() => this.props.cancle()}>取消</p>
-                            <p>确认</p>
+                            <p onClick={() => this.props.oks()}>确认</p>
                         </div>
                         <PickerView
                             onChange={this.onChange}
+                            onScrollChange={this.onScrollChange}
                             data={address}
                             value={this.state.value}
+                            // cascade={true}
                         />
                     </div>
                 </div>
             </div>
         );
     }
-    onChange = (value) => {
+    // onChange = (value) => {
+    //     console.log(value)
+    //     this.setState({
+    //         value,
+    //     });
+    // }
+    onScrollChange = (value) => {
+        console.log(value);
         this.setState({
             value,
         });
     }
-
 }
 
 export default addRess;

@@ -38,44 +38,55 @@
 .titleLine {
   width: 100%;
   height: pxTorem(50px);
-  line-height: pxTorem(50px);
   display: flex;
   border-bottom: 1px solid #ccc;
   .line {
     padding-left: pxTorem(10px);
+    margin-top: pxTorem(17px);
   }
   .icon {
     margin-left: 70%;
-    font-size: pxTorem(25px);
+    font-size: pxTorem(17px);
+    margin-top: pxTorem(15px);
   }
 }
 .all {
   width: 100%;
-  height: pxTorem(150px);
+  height: pxTorem(250px);
+  section {
+    width: 100%;
+    height: pxTorem(210px);
+    overflow: hidden;
 
-  overflow-y: auto;
+    .time {
+      width: 100%;
+      margin-top: pxTorem(5px);
+      p {
+        text-indent: pxTorem(0px);
+        line-height: pxTorem(25px);
+      }
+      p:nth-child(1) {
+        color: #999;
+      }
+      p:nth-child(2) {
+        text-indent: pxTorem(10px);
+      }
+    }
+  }
+  .lookss {
+    width: 100%;
+    line-height: pxTorem(40px);
+    text-align: center;
+  }
   dt {
     text-align: center;
     font-size: pxTorem(100px);
     color: #ccc;
+    margin-top: pxTorem(33px);
   }
   dd {
     text-align: center;
     font-size: pxTorem(13px);
-  }
-  .time {
-    width: 100%;
-    margin-top: pxTorem(5px);
-    p {
-      text-indent: pxTorem(0px);
-      line-height: pxTorem(25px);
-    }
-    p:nth-child(1) {
-      color: #999;
-    }
-    p:nth-child(2) {
-      text-indent: pxTorem(10px);
-    }
   }
 }
 p.messages {
@@ -111,5 +122,53 @@ p.messages {
   }
   .subtitle {
     color: #999;
+  }
+}
+.moreSpecials {
+  background: white;
+  margin-top: pxTorem(44px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  > .time {
+    width: 100%;
+    margin-top: pxTorem(15px);
+    border-bottom: pxTorem(1px) solid #ccc;
+    p {
+      text-indent: pxTorem(0px);
+      line-height: pxTorem(25px);
+    }
+    p:nth-child(1) {
+      text-indent: pxTorem(10px);
+    }
+    p:nth-child(2) {
+      text-indent: pxTorem(10px);
+      font-size: pxTorem(12px);
+      color: #999;
+    }
+  }
+}
+.heads {
+  position: fixed;
+  background: white;
+  z-index: 999;
+  top: 0;
+  width: 100%;
+  height: pxTorem(44px);
+  line-height: pxTorem(44px);
+  box-shadow: 0 0.04rem 0.08rem 0 rgba(0, 0, 0, 0.12),
+    0 0 6px 0 rgba(0, 0, 0, 0.04);
+  span {
+    display: inline-block;
+    text-align: center;
+  }
+  span:nth-child(2) {
+    width: 30%;
+    text-align: center;
+    margin-left: 26%;
+  }
+  span:nth-child(1) {
+    width: 10%;
+    padding-left: paTorem(5px);
   }
 }

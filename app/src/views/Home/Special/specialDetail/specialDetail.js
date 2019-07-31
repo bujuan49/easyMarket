@@ -22,22 +22,25 @@ class specialDetail extends Component {
                 <div dangerouslySetInnerHTML={{ __html: this.props.special.specialList.content }} className="topical_detail_main"></div>
                 <div className="titleLine">
                     <p className="line">精选留言</p>
-                    <p className="icon iconfont icon-jingzi"></p>
+                    <p className="icon iconfont icon-edit-square" onClick={this.sayMore}></p>
                 </div>
                 <div className="all">
-                    {
-                        this.props.special.discuss.length > 0 ? this.props.special.discuss.map(item => (
-                            <div className="time" key={item.id}>
-                                <p>{item.add_time}</p>
-                                <p>{item.content}</p>
-                            </div>
-                        )) : (
-                                <dl>
-                                    <dt className="icon iconfont icon-mianmo"></dt>
-                                    <dd>欢迎来留言</dd>
-                                </dl>
-                            )
-                    }
+                    <section>
+                        {
+                            this.props.special.discuss.length > 0 ? this.props.special.discuss.map(item => (
+                                <div className="time" key={item.id}>
+                                    <p>{item.add_time}</p>
+                                    <p>{item.content}</p>
+                                </div>
+                            )) : (
+                                    <dl>
+                                        <dt className="icon iconfont icon-filedone"></dt>
+                                        <dd>欢迎来留言</dd>
+                                    </dl>
+                                )
+                        }
+                    </section>
+                    <div className="lookss" onClick={this.doMore}>查看更多</div>
                 </div>
                 <p className="messages">
                     推荐专题
@@ -72,6 +75,13 @@ class specialDetail extends Component {
     // }
     goBack = () => {
         this.props.history.go(-1)
+    }
+    doMore = () => {
+        this.props.history.push({ pathname: '/home/moredetail/' + this.props.match.params.id })
+    }
+    sayMore = () => {
+        this.props.history.push({ pathname: '/home/saymore/' + this.props.match.params.id })
+
     }
 }
 

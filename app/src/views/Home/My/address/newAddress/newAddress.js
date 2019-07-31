@@ -14,7 +14,8 @@ class newAddress extends Component {
         super(props);
         this.state = {
             flag: false,
-            num: false
+            num: false,
+            arr: '江苏省/南京市/玄武区'
         }
     }
     render() {
@@ -24,16 +25,14 @@ class newAddress extends Component {
                 <div className="discribe">
                     <input type="text" placeholder="姓名" />
                     <input type="text" placeholder='电话号码' />
-                    <Pack cancle={this.show.bind(this)} flags={this.state.flag} />
+                    <Pack cancle={this.show.bind(this)} flags={this.state.flag} oks={this.remember.bind(this)} />
                     <p className="address-my" onClick={this.showFlag}>
-                        江苏省/南京市/玄武区
+                        {this.state.arr}
                     </p>
                     <input type="textarea" placeholder="详细地址" />
                     <div className="moren">
                         <p onClick={this.set}>设置默认地址</p>
                         {this.state.num === false ? <p className='icon iconfont icon-check-circle'></p> : <p className="iconfont icon-check-circle nweaddressnum"></p>}
-
-
                     </div>
                 </div>
                 <div className="bottom-btn">
@@ -59,6 +58,12 @@ class newAddress extends Component {
     set = () => {
         this.setState({
             num: !this.state.num
+        })
+    }
+    remember = (value) => {
+        console.log(value)
+        this.setState({
+            arr: value
         })
     }
 }
