@@ -14,7 +14,7 @@ class address extends Component {
         return (
             <>
                 <div className="content">
-                    <div className="headerTop">
+                    <div className="headerts">
                         <span className="back" onClick={this.goBack}>←</span>
                         <span>地址管理</span>
                     </div>

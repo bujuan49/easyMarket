@@ -10,6 +10,7 @@ import SpecialDetail from '../views/Home/Special/specialDetail/specialDetail.js'
 import moreDetail from '../views/Home/Special/specialDetail/moreSpecial.js'
 import sayMore from '../views/Home/Special/specialDetail/sayMore.js'
 import ClassifyList from '../views/Home/Classify/classifylist/classifylist'
+import Classs from '../views/Home/Classify/classifylist/classs.js'
 import Collect from "../views/Home/My/collect/collect";//我的
 import Address from "../views/Home/My/address/address";//我的
 import newAddress from "../views/Home/My/address/newAddress/newAddress";//我的
@@ -74,6 +75,9 @@ const route = [{
     }, {
         path: "/home/moredetail",
         component: moreDetail
+    }, {
+        path: "/home/classs",
+        component: Classs
     }, {
         path: "/home/saymore",
         component: sayMore

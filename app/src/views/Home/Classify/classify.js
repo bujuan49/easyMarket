@@ -26,7 +26,7 @@ class classify extends Component {
                 <div className="fl-header">
                     <div>
                         <i></i>
-                        <p>搜索商品，共21458款好物</p>
+                        <p onClick={this.goClass}>搜索商品，共21458款好物</p>
                     </div>
                 </div>
                 <div className="fl-main">
@@ -73,7 +73,9 @@ class classify extends Component {
             </>
         );
     }
-
+    goClass=()=>{
+        this.props.history.push('/home/classs')
+    }
 }
 
 export default classify;

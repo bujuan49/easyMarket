@@ -20,5 +20,18 @@ export function goods(params) {
 ///goods/list
 export function goodsList(params) {
     return request.get('/goods/list?categoryId=' + params);
-    
+
+}
+
+///search/index
+export function history() {
+    return request.get('/search/index');
+
+}
+
+///search/helper
+export function helper(params) {
+    console.log(params)
+    return request.get('/search/helper?keyword=' + params);
+
 }

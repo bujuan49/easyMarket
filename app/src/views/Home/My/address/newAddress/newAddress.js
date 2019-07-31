@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import '../../../../../scss/newAddress.scss'
-import Pack from '../../../../../component/add/addRess'
-import { Checkbox } from 'antd-mobile';
 import { inject, observer } from "mobx-react";
-
-const CheckboxItem = Checkbox.CheckboxItem;
+import { PickerView, WhiteSpace } from 'antd-mobile';
+import address from './addressData'
 
 @inject("home")
 @observer
@@ -20,26 +18,42 @@ class newAddress extends Component {
     }
     render() {
         return (
-            <div className="addres">
-                <h2>新增地址</h2>
-                <div className="discribe">
-                    <input type="text" placeholder="姓名" />
-                    <input type="text" placeholder='电话号码' />
-                    <Pack cancle={this.show.bind(this)} flags={this.state.flag} oks={this.remember.bind(this)} />
-                    <p className="address-my" onClick={this.showFlag}>
-                        {this.state.arr}
-                    </p>
-                    <input type="textarea" placeholder="详细地址" />
-                    <div className="moren">
-                        <p onClick={this.set}>设置默认地址</p>
-                        {this.state.num === false ? <p className='icon iconfont icon-check-circle'></p> : <p className="iconfont icon-check-circle nweaddressnum"></p>}
+            <>
+                <div className="addres">
+                    <h2>新增地址</h2>
+                    <div className="discribe">
+                        <input type="text" placeholder="姓名" />
+                        <input type="text" placeholder='电话号码' />
+                        <p className="address-my" onClick={this.showFlag}>
+                            {this.state.arr}
+                        </p>
+                        <input type="textarea" placeholder="详细地址" />
+                        <div className="moren">
+                            <p onClick={this.set}>设置默认地址</p>
+                            {this.state.num === false ? <p className='icon iconfont icon-check-circle'></p> : <p className="iconfont icon-check-circle nweaddressnum"></p>}
+                        </div>
+                    </div>
+                    <div className="bottom-btn">
+                        <p className="btn-cancle" onClick={this.cl}>取消</p>
+                        <p className="btn-save">保存</p>
                     </div>
                 </div>
-                <div className="bottom-btn">
-                    <p className="btn-cancle" onClick={this.cl}>取消</p>
-                    <p className="btn-save">保存</p>
+                <div className={this.state.flag ? 'showZz' : 'pickers'}>
+                    <div className="pack">
+                        <div className="picker">
+                            <div className="top-btn">
+                                <p onClick={this.cancle}>取消</p>
+                                <p onClick={this.oks}>确认</p>
+                            </div>
+                            <WhiteSpace /><WhiteSpace />
+                            <PickerView
+                                data={address}
+                                value={['2', '2-1', '2-1-1']}
+                            />
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </>
         );
     }
     cl = () => {
@@ -64,6 +78,16 @@ class newAddress extends Component {
         console.log(value)
         this.setState({
             arr: value
+        })
+    }
+    cancle = () => {
+        this.setState({
+            flag: false
+        })
+    }
+    oks = () => {
+        this.setState({
+            flag: false
         })
     }
 }
