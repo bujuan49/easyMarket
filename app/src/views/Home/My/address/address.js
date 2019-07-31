@@ -19,17 +19,23 @@ class address extends Component {
                         <span>地址管理</span>
                     </div>
                     <div className="adds">
-                        <section>
-                            <div className="myname">
-                                赵鑫雨
-                            </div>
-                            <div className="addres">
-                                <p>15011111111</p>
-                                <p>吉林省长春市南关区</p>
-                                <p>上地软件园38</p>
-                            </div>
-                            <div className="icon iconfont icon-filedone"></div>
-                        </section>
+                        {
+                            this.props.home && this.props.home.addressList.map(item => (
+                                <section key={item.id}>
+                                    <div className={item.is_default ? 'myname' : 'youname'}>
+                                        {item.name}
+                                    </div>
+                                    <div className="addres">
+                                        <p>{item.mobile}</p>
+                                        <p>吉林省长春市南关区</p>
+                                        <p>上地软件园38</p>
+                                    </div>
+                                    <div className="icon iconfont icon-filedone"></div>
+                                </section>
+                            ))
+
+                        }
+
                     </div>
                     <div className="button" onClick={this.go}>新建地址</div>
                 </div>
@@ -37,12 +43,12 @@ class address extends Component {
         );
     }
     goBack = () => {
-        this.props.history.go(-1)
+        this.props.history.push('/home/my')
     }
     componentDidMount() {
         this.props.home.addresss();
     }
-    go=()=>{
+    go = () => {
         this.props.history.push('/home/newAddress')
 
     }

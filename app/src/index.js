@@ -5,6 +5,7 @@ import store from "./store";
 import { BrowserRouter } from "react-router-dom";
 import { MapRoute, route } from "./routes";
 import 'antd-mobile/dist/antd-mobile.css';
+import 'antd/dist/antd.css'
 import './fonts/iconfont.css'
 
 var FastClick = require("fastclick");

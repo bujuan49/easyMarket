@@ -1,5 +1,5 @@
 import { observable, action } from "mobx";
-import { home, brand, list, collect, address } from "../../services/index.js";
+import { home, brand, list, collect, address, addressSave } from "../../services/index.js";
 
 export default class Home {
     //轮播
@@ -41,6 +41,9 @@ export default class Home {
 
     @observable type = [];//居家
 
+    @observable addressSaveList = [];//新增地址
+
+
     @action async change() {
         let res = await home();
         this.data = res.data.banner;
@@ -78,9 +81,17 @@ export default class Home {
         this.dataList = data.data;
     }
 
-    @action async addresss(id) {
-        let data = await address(id)
+    @action async addresss() {
+        let data = await address()
         console.log(data.data)
         this.addressList = data.data;
+    }
+
+    @action async addressSaves(params) {
+        
+        let data = await addressSave(params)
+        console.log(data)
+        this.addresss();
+        // this.addressList = data.data;
     }
 }
