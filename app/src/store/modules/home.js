@@ -2,16 +2,11 @@ import { observable, action } from "mobx";
 import { home, brand, list } from "../../services/index.js";
 
 export default class Home {
-<<<<<<< HEAD
     //轮播
     @observable data = [];
     @observable dataLists = [];
     @observable addressList = [];
     @observable flag = false;
-
-=======
-  @observable data = [];
->>>>>>> 77bb582884981147569d6524936cf81187520ba1
 
     @observable List = [];
 
