@@ -55,3 +55,10 @@ export function countNum(){
         method:"GET"
     })
 }
+export function xinxin(params){
+  return request({
+      url:"/collect/addordelete",
+      method:"POST",
+      data:params
+  })
+}

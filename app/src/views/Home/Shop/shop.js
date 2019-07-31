@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Footer from '../../../components/footer/footer'
 import '../../../scss/shop.scss';
 import { inject, observer } from "mobx-react";
+import { Toast } from 'antd-mobile';
 
 @inject("shop")
 @observer
@@ -15,7 +16,9 @@ class shop extends Component {
             class:"none",
             count:0,
             price:0,
-            product:0
+            product:0,
+            arr:0,
+            arrList:[]
         };
     }
     render() {
@@ -79,11 +82,14 @@ class shop extends Component {
                        
                     </div>
                     <section className="sec">
-                        <span className="num">已选({this.state.count})</span>
-                        <span className="price">￥{this.state.price}</span>
+                    {
+                        this.state.con? <span className="num">已选({this.state.arr})</span>:<span className="num">已选({this.state.count})<span className="price">￥{this.state.price}</span></span>
+                        
+                    }
+                       
                         <h1 className="bianji" onClick={this.handleClick}>{this.state.con ? '完成' : '编辑'}</h1>
                         {
-                        this.state.con? <p className="btn" onClick={()=>this.del()}>删除所选</p>:<p className="btn" onClick={()=>this.del()}>下单</p>
+                        this.state.con? <p className="btn" onClick={()=>this.del()}>删除所选</p>:<p className="btn" onClick={()=>this.error()}>下单</p>
                         }
                     </section>
                 </div>
@@ -104,9 +110,8 @@ class shop extends Component {
         let num=checked===1?0:1;
       let str={isChecked:num,productIds:product_id};
        this.props.shop.checked(str);
-       console.log(num);
        let data=this.props.shop.data.filter(item=>item.checked==0)
-       if(data.length===4){
+       if(data.length===data.length){
         this.setState({
             flag:false
         })
@@ -136,8 +141,16 @@ class shop extends Component {
         let num=checked===1?0:1;
         let str={isChecked:num,productIds:product_id};
         this.props.shop.checked(str);
-        console.log(checked,product_id);
-        console.log(num);
+        if(num===1){
+            this.setState({
+                arr:++this.state.arr
+            })
+        }else{
+            this.setState({
+                arr:--this.state.arr
+            })
+        }
+        console.log(this.state.arr);
         this.setState({
             product:product_id
         })
@@ -160,6 +173,9 @@ this.props.shop.updated({
     productId: product_id
 })
     }
+    error(){
+        Toast.loading("下单功能还未GET,耐心等待~")
+      }
 }
 
 export default shop;

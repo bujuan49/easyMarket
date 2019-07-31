@@ -15,7 +15,8 @@ class HomeDetail extends Component {
       num:0,
       flag:false,
       check:false,
-      active:"yellow"
+      active:"yellow",
+      type:0
     };
   }
   render() {
@@ -202,16 +203,31 @@ class HomeDetail extends Component {
     this.props.homeDetail.change(this.props.match.params.id);
     this.props.homeDetail.goods(this.props.match.params.id);
     this.props.homeDetail.count();
+    if(this.props.homeDetail.type==="add"){
+      this.setState({
+        check:true
+      })
+    }
   }
   add=(check)=>{
-    this.setState({
-      check:!check
-    })
+    this.props.homeDetail.collect({typeId:0,valueId:this.props.match.params.id});
+    if(this.props.homeDetail.type==="add"){
+      this.setState({
+        check:false
+      })
+    }else{
+     this.setState({
+       check:true
+     })
+    }
   }
   go = () => {
     this.props.history.go(-1);
   };
   detail=(id,name)=>{
+    this.setState({
+      type:id
+    })
     this.props.history.push({ pathname: `/home/goods/${id}`,state:{name:name} });
   }
   comment=()=>{
@@ -230,9 +246,11 @@ class HomeDetail extends Component {
   changeNum(str){
     if(str==="+"){
       this.setState({num:++this.state.num})
+      this.props.homeDetail.count(this.state.num);
 
     }else if(this.state.num>0){
       this.setState({num:--this.state.num})
+      this.props.homeDetail.count(this.state.num);
     }
    
   }
