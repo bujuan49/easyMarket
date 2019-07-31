@@ -35,9 +35,9 @@ class shop extends Component {
                                         </div>
                                         <div className="right">
                                             <p><span className="name">{item.goods_name}</span></p>
-                                            <p className="money">
-                                                <span>￥{item.market_price}</span>
-                                                <i className="cars">
+                                            <p className="moneys">
+                                                <span className="it_price">￥{item.market_price}</span>
+                                                <i className="carss">
                                                     <span>-</span>
                                                     <span>{item.number}</span>
                                                     <span>+</span>
@@ -72,7 +72,7 @@ class shop extends Component {
                     </div>
                     <section className="sec">
                         <span className="num">已选(0)</span>
-                        <h4 className="h" onClick={this.handleClick}>{this.state.con ? '完成' : '编辑'}</h4>
+                        <h1 className="bianji" onClick={this.handleClick}>{this.state.con ? '完成' : '编辑'}</h1>
                         <p className="btn">下单</p>
                     </section>
                 </div>

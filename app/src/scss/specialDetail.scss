@@ -15,13 +15,14 @@
   background: white;
   .back {
     display: inline-block;
-    width: 17%;
+    width: 15%;
     font-size: pxTorem(18px);
-    padding-left: 10%;
+    padding-left: 5%;
   }
   span:nth-child(2) {
     display: inline-block;
-    width: 73%;
+    width: 60%;
+    margin-left: 12%;
   }
 }
 .topical_detail_main {

@@ -6,6 +6,8 @@ export default class Home {
     @observable data = [];
     @observable dataLists = [];
     @observable addressList = [];
+    @observable flag = false;
+
 
     @observable data = [];
 

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { inject, observer } from "mobx-react";
 import "../../../scss/global.scss";
 import Swiper from "swiper/dist/js/swiper.js";

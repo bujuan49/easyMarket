@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
 }
-.headerTop {
+.headerTops {
   width: 100%;
   height: pxTorem(40px);
   line-height: pxTorem(40px);
@@ -54,12 +54,13 @@
         color: #777;
       }
     }
-    .icon-jingzi{
+    .icon-filedone{
       width: 20%;
       height: 100%;
       padding-top: pxTorem(20px);
       text-align: center;
-      font-size: pxTorem(30px)
+      font-size: pxTorem(30px);
+      color: #777;
     }
   }
 }

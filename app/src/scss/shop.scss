@@ -94,11 +94,13 @@
     }
   }
 }
-.money {
-  color: red;
+.moneys {
   margin-left: 3%;
   line-height: pxTorem(50px);
-  .cars {
+  .it_price {
+    color: red;
+  }
+  .carss {
     display: inline-block;
     width: 30%;
     margin-left: 50%;
@@ -155,7 +157,7 @@
   width: 40%;
   margin-top: 6%;
 }
-.h {
+.bianji {
   font-size: pxTorem(14px);
   width: 15%;
   margin-top: 6%;
