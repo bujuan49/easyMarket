@@ -1,5 +1,5 @@
 import { observable, action } from "mobx";
-import {homeDetail,homeGoods,comment,countNum,xinxin} from "../../services/index.js";
+import {homeDetail,homeGoods,comment,countNum,xinxin,add} from "../../services/index.js";
 export default class HomeDetail {
 @observable detail=[];
 @observable phone=[];
@@ -54,5 +54,9 @@ console.log(data.data.goodsList)
   let data=await xinxin(params);
   this.type=data.data.type;
   console.log(data.data.type);
+}
+@action async addNum(params){
+  let data=await add(params);
+  this.mess=data.errno;
 }
 }

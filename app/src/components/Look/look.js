@@ -3,7 +3,6 @@ import "./look.scss";
 import { inject, observer } from "mobx-react";
 import { Toast } from 'antd-mobile';
 import 'antd-mobile/dist/antd-mobile.css'; 
-@inject("shop")
 @inject("homeDetail")
 @observer
 
@@ -73,12 +72,9 @@ class look extends Component {
     }
      if(this.props.num){
       let str={goodsId:this.props.id,number:this.props.num,productId:this.props.productId[0].id}
-      this.props.shop.addNum(str);
+      this.props.homeDetail.addNum(str);
       Toast.success("添加成功！");
      }
-     this.props.homeDetail.count();
-
-  
   }
   error(){
     Toast.loading("下单功能还未GET,耐心等待~")

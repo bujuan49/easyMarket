@@ -21,7 +21,7 @@ class collect extends Component {
                     <div className="listss">
                         {
                             this.props.home && this.props.home.dataList.map(item => (
-                                <div className="lists" key={item.id}>
+                                <div className="lists" key={item.id} onClick={() => this.detail(item.id, item.name)}>
                                     <img src={item.list_pic_url} alt="" />
                                     <div className="right">
                                         <p>{item.goods_brief}</p>
@@ -42,6 +42,12 @@ class collect extends Component {
     goBack = () => {
         this.props.history.go(-1)
     }
+    detail = (id, name) => {
+        this.props.history.push({
+          pathname: `/home/goods/${id}`,
+          state: { name: name }
+        });
+      };
 }
 
 export default collect;

@@ -203,7 +203,6 @@ class HomeDetail extends Component {
     this.props.homeDetail.change(this.props.match.params.id);
     this.props.homeDetail.goods(this.props.match.params.id);
     this.props.homeDetail.count();
-    this.props.homeDetail.counts=0;
     if(this.props.homeDetail.type==="add"){
       this.setState({
         check:true
@@ -247,11 +246,8 @@ class HomeDetail extends Component {
   changeNum(str){
     if(str==="+"){
       this.setState({num:++this.state.num})
-      // this.props.homeDetail.count(this.state.num);
-
     }else if(this.state.num>0){
       this.setState({num:--this.state.num})
-      //this.props.homeDetail.count(this.state.num);
     }
    
   }
