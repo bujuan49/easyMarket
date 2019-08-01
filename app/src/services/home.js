@@ -25,6 +25,10 @@ export function addressSave(params) {
     return request.post('/address/save?', params);
 }
 
+///address/delete
+export function deleteAddress(params) {
+    return request.post('/address/delete', params);
+}
 
 export function homeDetail(params) {//详情页
     return request({
@@ -60,5 +64,14 @@ export function countNum() {
     return request({
         url: "/cart/goodscount",
         method: "GET"
+    })
+}
+
+//shoucang  /collect/addordelete
+export function addordelete(params) {
+    return request({
+        url: "/collect/addordelete",
+        method: "POST",
+        data: params
     })
 }

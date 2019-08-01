@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../../../../scss/classs.scss';
 import { inject, observer } from 'mobx-react';
-import { Item } from 'antd-mobile/lib/tab-bar';
 
 @inject('classify')
 @observer
@@ -10,7 +9,8 @@ class classs extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            vals: ''
+            vals: '',
+            valNull: ''
         };
     }
     render() {
@@ -22,7 +22,7 @@ class classs extends Component {
                         onKeyDown={(e) => this.changeHelper(e)}
                         ref='inp'
                     />
-                    <span>取消</span>
+                    <span onClick={this.spanCancle}>取消</span>
                 </header>
                 <div className="his">
                     <p>历史记录</p>
@@ -52,13 +52,11 @@ class classs extends Component {
     changeHelper = (e) => {
         console.log(this.refs.inp.value)
         var evt = window.event || e;
-        if (evt.keyCode == 13) {
+        if (evt.keyCode === 13) {
             //回车事件
             this.props.classify.helpers(this.refs.inp.value);
-
-
+            this.refs.inp.value=""
         }
-
     }
 }
 

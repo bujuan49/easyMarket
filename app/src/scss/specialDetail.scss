@@ -14,15 +14,24 @@
   line-height: pxTorem(40px);
   background: white;
   .back {
+    padding-top: 1%;
+    font-size: pxTorem(14px)!important;
     display: inline-block;
     width: 15%;
     font-size: pxTorem(18px);
     padding-left: 5%;
   }
-  span:nth-child(2) {
+  
+  // i {
+  //   display: inline-block;
+  //   width: 15%;
+  //   font-size: pxTorem(18px);
+  //   padding-left: 5%;
+  // }
+  > span {
     display: inline-block;
-    width: 60%;
-    margin-left: 12%;
+    width: 70%;
+    text-align: center;
   }
 }
 .topical_detail_main {
@@ -134,9 +143,10 @@ p.messages {
     width: 100%;
     margin-top: pxTorem(15px);
     border-bottom: pxTorem(1px) solid #ccc;
+    padding: 3%;
     p {
       text-indent: pxTorem(0px);
-      line-height: pxTorem(25px);
+      line-height: pxTorem(20px);
     }
     p:nth-child(1) {
       text-indent: pxTorem(10px);

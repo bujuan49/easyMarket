@@ -21,28 +21,49 @@ class newAddress extends Component {
         }
     }
     render() {
-        console.log(this.state.names, this.state.phones, this.state.texts)
+        const { findname, findAdd, findDEtail, mobileNum, findNumberOne, findNumberTwo, findNumberThree } = this.props.home;
+        console.log(this.props.home.mobileNum)
         return (
-            <>
+            <div className="newaddress">
                 <div className="addres">
-                    <h2>新增地址</h2>
-                    <div className="discribe">
-                        <input type="text" placeholder="姓名" onChange={(e) => this.changeName(e)} value={this.state.names} />
-                        <input type="text" placeholder='电话号码' onChange={(e) => this.changePhones(e)} value={this.state.phones} />
-                        <p className="address-my" onClick={this.showFlag}>
-                            {this.state.arr}
-                        </p>
-                        <input type="textarea" placeholder="详细地址" onChange={(e) => this.changeText(e)} value={this.state.texts} />
-                        <div className="moren">
-                            <p onClick={this.set}>设置默认地址</p>
-                            {this.state.num === false ? <p className='icon iconfont icon-check-circle'></p> : <p className="iconfont icon-check-circle nweaddressnum"></p>}
-                        </div>
-                    </div>
+                    <h2>{this.props.history.location.pathname.slice(17) ? '修改地址' : '新建地址'}</h2>
+                    {
+                        this.props.history.location.pathname.slice(17) ? (
+                            <div className="discribe">
+                                <input type="text" placeholder="姓名" onChange={(e) => this.changeNames(e)} value={findname} />
+                                <input type="text" placeholder='电话号码' onChange={(e) => this.changePhones(e)} value={mobileNum} />
+                                <p className="address-my" onClick={this.showFlag}>
+                                    {findDEtail}
+                                </p>
+                                <input type="textarea" placeholder="详细地址" onChange={(e) => this.changeText(e)} value={findAdd} />
+                                <div className="moren">
+                                    <p onClick={this.set}>设置默认地址</p>
+                                    {this.state.num === false ? <p className='icon iconfont icon-check-circle'></p> : <p className="iconfont icon-check-circle nweaddressnum"></p>}
+                                </div>
+                            </div>
+                        ) : (
+                                <div className="discribe">
+                                    <input type="text" placeholder="姓名" onChange={(e) => this.changeName(e)} value={this.state.names} />
+                                    <input type="text" placeholder='电话号码' onChange={(e) => this.changePhones(e)} value={this.state.phones} />
+                                    <p className="address-my" onClick={this.showFlag}>
+                                        {this.state.arr}
+                                    </p>
+                                    <input type="textarea" placeholder="详细地址" onChange={(e) => this.changeText(e)} value={this.state.texts} />
+                                    <div className="moren">
+                                        <p onClick={this.set}>设置默认地址</p>
+                                        {this.state.num === false ? <p className='icon iconfont icon-check-circle'></p> : <p className="iconfont icon-check-circle nweaddressnum"></p>}
+                                    </div>
+                                </div>
+                            )
+                    }
                     <div className="bottom-btn">
                         <p className="btn-cancle" onClick={this.cl}>取消</p>
                         <p className="btn-save" onClick={this.saveAddress}>保存</p>
                     </div>
                 </div>
+                {
+
+                }
                 <div className={this.state.flag ? 'showZz' : 'pickers'}>
                     <div className="pack">
                         <div className="picker">
@@ -59,8 +80,14 @@ class newAddress extends Component {
                         </div>
                     </div>
                 </div>
-            </>
+            </div>
         );
+    }
+    changeNames = (e) => {
+        e.target.value = this.props.name.findname + e.target.value
+        this.setState({
+            names: e.target.value
+        })
     }
     changeName = (e) => {
         this.setState({
@@ -129,6 +156,11 @@ class newAddress extends Component {
         this.setState({
             flag: false
         })
+    }
+    componentDidMount() {
+        if (this.props.history.location.pathname.slice(17)) {
+            this.props.home.findAddress(this.props.history.location.pathname.slice(17))
+        }
     }
 }
 

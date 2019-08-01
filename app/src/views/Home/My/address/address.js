@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../.../../../../../scss/address.scss';
 import { inject, observer } from "mobx-react";
+import { Popconfirm, Icon } from 'antd';
 
 @inject("home")
 @observer
@@ -8,14 +9,17 @@ import { inject, observer } from "mobx-react";
 class address extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            flag: 0,
+            num: false
+        };
     }
     render() {
         return (
             <>
                 <div className="content">
                     <div className="headerts">
-                        <span className="back" onClick={this.goBack}>←</span>
+                        <span className="icon iconfont icon-icon-arrow-left back" onClick={this.goBack}></span>
                         <span>地址管理</span>
                     </div>
                     <div className="adds">
@@ -25,12 +29,24 @@ class address extends Component {
                                     <div className={item.is_default ? 'myname' : 'youname'}>
                                         {item.name}
                                     </div>
-                                    <div className="addres">
+                                    <div className="addres" onClick={()=>this.gotoDiscribe(item.id)}>
                                         <p>{item.mobile}</p>
                                         <p>吉林省长春市南关区</p>
                                         <p>上地软件园38</p>
                                     </div>
-                                    <div className="icon iconfont icon-filedone"></div>
+                                    <div>
+                                        <Popconfirm
+                                            className={this.state.num ? 'showFire' : null}
+                                            title="确认删除吗？"
+                                            title="删除"
+                                            cancelText="取消"
+                                            okText="确认"
+                                            icon={<Icon type="question-circle-o" style={{ color: 'red' }} />}
+                                        >
+                                            <a href="#"></a>
+                                        </Popconfirm>
+                                    </div>
+                                    <div className="icon iconfont icon-iconfontshanchu1" style={{ color: '#ccc' }} onClick={() => this.showFire(item.id)}></div>
                                 </section>
                             ))
 
@@ -51,6 +67,16 @@ class address extends Component {
     go = () => {
         this.props.history.push('/home/newAddress')
 
+    }
+    gotoDiscribe = (id) => {
+        this.props.history.push({ pathname: '/home/newAddress/' + id})
+    }
+    showFire = (id) => {
+        console.log(id)
+        this.setState({
+            num: true
+        })
+        this.props.home.deleteAddressAll(id)
     }
 }
 

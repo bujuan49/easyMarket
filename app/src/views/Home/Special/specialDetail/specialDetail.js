@@ -16,7 +16,7 @@ class specialDetail extends Component {
         return (
             <div className="main">
                 <div className="headerTop">
-                    <span className="back" onClick={this.goBack}>←</span>
+                    <i className="icon iconfont icon-icon-arrow-left back" onClick={this.goBack}></i>
                     <span>{this.props.special.specialList.title}</span>
                 </div>
                 <div dangerouslySetInnerHTML={{ __html: this.props.special.specialList.content }} className="topical_detail_main"></div>
