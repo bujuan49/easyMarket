@@ -75,3 +75,10 @@ export function addordelete(params) {
         data: params
     })
 }
+export function xinxin(params) {
+    return request({
+        url: "/collect/addordelete",
+        method: "POST",
+        data: params
+    })
+}

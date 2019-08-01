@@ -1,5 +1,5 @@
 import { observable, action } from "mobx";
-import {homeDetail,homeGoods,comment,countNum} from "../../services/index.js";
+import {homeDetail,homeGoods,comment,countNum,xinxin,add} from "../../services/index.js";
 export default class HomeDetail {
 @observable detail=[];
 @observable phone=[];
@@ -16,6 +16,7 @@ export default class HomeDetail {
 @observable names=[];
 @observable counts=[];
 @observable productId=[];
+@observable type=[];
 
 @action async change(id){
   let data=await homeDetail(id);
@@ -44,8 +45,17 @@ console.log(data.data.goodsList)
   this.comment=data.data.data;
 }
 
-@action async count(){
-  let data=await countNum();
+@action async count(num){
+  let data=await countNum(num);
   this.counts=data.data.cartTotal.goodsCount;
+  console.log(data.data.cartTotal.goodsCount);
+}
+@action async collect(params){
+  let data=await xinxin(params);
+  this.type=data.data.type;
+}
+@action async addNum(params){
+  let data=await add(params);
+  this.mess=data.errno;
 }
 }

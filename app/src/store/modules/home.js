@@ -4,9 +4,13 @@ import { home, brand, list, collect, address, addressSave, addordelete, deleteAd
 export default class Home {
     //轮播
     @observable data = [];
+    
     @observable dataList = [];
+
     @observable dataLists = [];
+
     @observable addressList = [];
+
     @observable flag = false;
 
     @observable List = [];

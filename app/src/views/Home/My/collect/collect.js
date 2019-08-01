@@ -63,6 +63,12 @@ class collect extends Component {
     goBack = () => {
         this.props.history.go(-1)
     }
+    detail = (id, name) => {
+        this.props.history.push({
+            pathname: `/home/goods/${id}`,
+            state: { name: name }
+        });
+    };
 }
 
 export default collect;
