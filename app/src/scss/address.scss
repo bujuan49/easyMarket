@@ -26,7 +26,7 @@
     width: 70%;
   }
 }
-.adds {
+.add-adds {
   margin-top: pxTorem(15px);
   width: 100%;
   flex: 1;
@@ -57,10 +57,11 @@
       width: 60%;
       height: 100%;
       p {
-        line-height: pxTorem(12px);
+        line-height: pxTorem(22px);
       }
       p:nth-child(1) {
         padding-top: 3%;
+        color: black;
       }
       p:nth-child(2),
       p:nth-child(3) {
@@ -79,7 +80,7 @@
     }
   }
 }
-.button {
+.add-button {
   width: 100%;
   height: pxTorem(40px);
   line-height: pxTorem(40px);
@@ -88,6 +89,7 @@
   border-radius: pxTorem(0px);
   font-weight: 500;
   font-size: pxTorem(20px);
+  background: #208cda;
 }
 .showFire {
   display: block;
