@@ -1,5 +1,5 @@
 import { observable, action } from "mobx";
-import { shop,add,check,update,del,countNum } from "../../services/index.js";
+import { shop,add,check,update,del } from "../../services/index.js";
 
 export default class Shop {
     //轮播
@@ -8,28 +8,30 @@ export default class Shop {
     @observable count=[];
     @observable price=[];
     @observable cartTotal=[];
-
-
+    @observable pr=[];
+    @observable con=[];
+    @observable counts=[];
     //轮播
     @action async shops() {
         let data = await shop();
-        console.log(data)
      this.data = data.data.cartList;
      this.cartTotal = data.data.cartTotal
-     this.price=data.data.cartTotal.goodsAmount;
-     this.count=data.data.cartTotal.goodsCount;
+     this.pr=data.data.cartTotal.goodsAmount;
+     console.log(data.data.cartTotal);
+     this.con=data.data.cartTotal.goodsCount;
+     this.price=data.data.cartTotal.checkedGoodsAmount;
+     this.counts=data.data.cartTotal.checkedGoodsCount;
     }
     
     @action async addNum(params){
         let data=await add(params);
         this.mess=data.errno;
-        countNum();
     }
     @action async checked(params){
         let data=await check(params);
         this.data=data.data.cartList;
-        this.price=data.data.cartTotal.checkedGoodsAmount;
-        this.count=data.data.cartTotal.checkedGoodsCount;
+        this.price=data.data.cartTotal.goodsAmount;
+        this.count=data.data.cartTotal.goodsCount;
        
     }
     @action async updated(params){
@@ -42,5 +44,11 @@ export default class Shop {
     @action async Del(params){
         let data=await del(params);
         this.data = data.data.cartList;
+    }
+    @action single = async (product_id)=>{
+        let id=this.data.find(item=>item.product_id===product_id&&item.checked===1);
+        this.pr=this.cartTotal.checkedGoodsAmount;
+        this.con=this.cartTotal.checkedGoodsCount;
+        console.log(this.cartTotal)
     }
 }

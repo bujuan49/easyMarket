@@ -22,6 +22,7 @@ class shop extends Component {
         };
     }
     render() {
+        let {pr,con,price,counts}=this.props.shop;
         return (
             <>
                 <div className="shop">
@@ -77,13 +78,13 @@ class shop extends Component {
                 <div className="bottom">
                     <div className="checks">
                     {
-                        this.state.flag?<span className='icon iconfont icon-check-circle actives' onClick={()=>this.all()}></span>:<span className="icon iconfont icon-check-circle check" onClick={this.all}></span>
+                        this.state.flag?<span className='icon iconfont icon-check-circle actives' onClick={()=>this.all()}></span>:<span className="icon iconfont icon-check-circle check" onClick={()=>this.all()}></span>
                     }
                        
                     </div>
                     <section className="sec">
                     {
-                        this.state.con? <span className="num">已选({this.state.arr})</span>:<span className="num">已选({this.state.count})<span className="price">￥{this.state.price}</span></span>
+                        this.state.con? <span className="num">已选({this.state.arr})</span>:<span className="num">已选({this.props.shop.con})<span className="price">￥{this.props.shop.pr}</span></span>
                         
                     }
                        
@@ -106,73 +107,14 @@ class shop extends Component {
             con: !this.state.con
         })
     }
-    choose=(checked,product_id)=>{//不选中是1  选中是0
-        let num=checked===1?0:1;
-      let str={isChecked:num,productIds:product_id};
-       this.props.shop.checked(str);
-       let data=this.props.shop.data.filter(item=>item.checked===0)
-       if(data.length===data.length){
-        this.setState({
-            flag:false
-        })
-    }else{
-        this.setState({
-            flag:true
-        })
-    }
-    this.setState({
-        count:this.props.shop.count,
-        price:this.props.shop.price
-    })
-    }
-    all=()=>{
-       this.setState({
-           flag:!this.state.flag
-       })
-        let num=this.state.flag===false?1:0;
-        let data=this.props.shop.data.map(item=>item.product_id);
-       this.props.shop.checked({isChecked:num,productIds:data});
-       this.setState({
-        count:this.props.shop.count,
-        price:this.props.shop.price
-    })
-    }
-    choosed=(arr,checked,product_id)=>{//不选是0 选中为1
-        let num=checked===1?0:1;
-        let str={isChecked:num,productIds:product_id};
-        this.props.shop.checked(str);
-        console.log(num);
-        if(num===1){
-            this.setState({
-                arr:++this.state.arr
-            })
-            this.setState({
-                product:product_id
-            })
-        }else{
-            this.setState({
-                arr:--this.state.arr
-            })
-        }
-    }
-   del=()=>{//删除
-    let id=this.state.product;
-    console.log(typeof(id));
-//      if(e.target.innerHTML==="删除所选"){
-// alert();
-//      }
-     this.props.shop.Del({productIds:JSON.stringify(id)});
+   all=()=>{
+    let {pr,con,price,counts}=this.props.shop;
+    if(pr===price&&con===counts){
 
     }
-    addNum=(id,goods_id,number,product_id)=>{
-        let num=number>0?number:0;
-this.props.shop.updated({
-    goodsId: goods_id,
-    id: id,
-    number: num,
-    productId: product_id
-})
-    }
+   }
+  
+   
     error(){
         Toast.loading("下单功能还未GET,耐心等待~")
       }

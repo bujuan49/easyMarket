@@ -34,3 +34,9 @@ export function del(params){
         data:params
     })
 }
+export function countNum(){
+    return request({
+        url:"/cart/goodscount",
+        method:"GET"
+    })
+}

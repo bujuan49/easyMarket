@@ -48,6 +48,7 @@ console.log(data.data.goodsList)
 @action async count(num){
   let data=await countNum(num);
   this.counts=data.data.cartTotal.goodsCount;
+  console.log(data.data.cartTotal.goodsCount);
 }
 @action async collect(params){
   let data=await xinxin(params);
