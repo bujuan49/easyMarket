@@ -11,16 +11,20 @@ export default class Shop {
     @observable pr=[];
     @observable con=[];
     @observable counts=[];
+    @observable del=[];
+    @observable ls=[];
     //轮播
     @action async shops() {
         let data = await shop();
      this.data = data.data.cartList;
      this.cartTotal = data.data.cartTotal
-     this.pr=data.data.cartTotal.goodsAmount;
-     console.log(data.data.cartTotal);
-     this.con=data.data.cartTotal.goodsCount;
-     this.price=data.data.cartTotal.checkedGoodsAmount;
-     this.counts=data.data.cartTotal.checkedGoodsCount;
+     this.pr=data.data.cartTotal.checkedGoodsAmount;
+     this.con=data.data.cartTotal.checkedGoodsCount;
+     this.ls=data.data.cartList.filter(item=>item.checked===1);
+     let id=data.data.cartList.filter(item=>item.checked===1);
+     id.map(item=>(
+        this.del.push(item.product_id)
+      ))
     }
     
     @action async addNum(params){
@@ -30,25 +34,23 @@ export default class Shop {
     @action async checked(params){
         let data=await check(params);
         this.data=data.data.cartList;
-        this.price=data.data.cartTotal.goodsAmount;
-        this.count=data.data.cartTotal.goodsCount;
-       
+        let id=data.data.cartList.filter(item=>item.checked===1);
+        this.ls=data.data.cartList.filter(item=>item.checked===1);
+     id.map(item=>(
+        this.del.push(item.product_id)
+      ))
+    this.pr=data.data.cartTotal.checkedGoodsAmount;
+    this.con=data.data.cartTotal.checkedGoodsCount;
     }
     @action async updated(params){
         let data=await update(params);
         this.data = data.data.cartList;
-        this.price=data.data.cartTotal.goodsAmount;
-        this.count=data.data.cartTotal.goodsCount;
-        console.log(data);
+        this.pr=data.data.cartTotal.checkedGoodsAmount;
+        this.con=data.data.cartTotal.checkedGoodsCount;
     }
     @action async Del(params){
         let data=await del(params);
         this.data = data.data.cartList;
     }
-    @action single = async (product_id)=>{
-        let id=this.data.find(item=>item.product_id===product_id&&item.checked===1);
-        this.pr=this.cartTotal.checkedGoodsAmount;
-        this.con=this.cartTotal.checkedGoodsCount;
-        console.log(this.cartTotal)
-    }
+   
 }
