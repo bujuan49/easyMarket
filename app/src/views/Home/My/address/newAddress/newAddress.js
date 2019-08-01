@@ -133,7 +133,7 @@ class newAddress extends Component {
                 province_id: 2,
                 city_id: 37,
                 district_id: 403,
-                is_default: true,
+                is_default: this.state.num,
                 address: this.state.texts
             }
             this.props.home.addressSaves(params);
@@ -148,7 +148,7 @@ class newAddress extends Component {
             province_id: 2,
             city_id: 37,
             district_id: 403,
-            is_default: true,
+            is_default: this.state.nums,
             address: this.state.textss,
             id: this.props.history.location.pathname.slice(17)
         }

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import '../.../../../../../scss/address.scss';
 import { inject, observer } from "mobx-react";
-import { Modal, Button } from 'antd';
-const { confirm } = Modal;
+import { Modal, Button } from 'antd-mobile';
+const alert = Modal.alert;
 
 @inject("home")
 @observer
@@ -35,9 +35,7 @@ class address extends Component {
                                         <p>吉林省长春市南关区</p>
                                         <p>上地软件园38</p>
                                     </div>
-                                    <div className="icon iconfont icon-iconfontshanchu1" onClick={() => this.showAlert(item)}>
-                                        {/* <alertInstance /> */}
-                                    </div>
+                                    <div className="icon iconfont icon-iconfontshanchu1" onClick={() => this.showAlert(item)}></div>
                                 </section>
                             ))
                         }
@@ -49,20 +47,15 @@ class address extends Component {
     }
     showAlert = (item) => {
         console.log(item)
+        const alertInstance = alert('删除', '确认删除?', [
+            { text: '取消', onPress: () => console.log('cancel'), style: 'default' },
+            { text: '确认', onPress: () => this.props.home.deleteAddressAll(item.id)},
+        ]);
         setTimeout(() => {
-            confirm({
-                cancelText: '取消',
-                okText: '确认',
-                content: <Button>确认要删除吗？</Button>,
-                onOk() {
-                    this.props.home.deleteAddressAll(item.id)
-                },
-                onCancel() {
-                      
-                }
-            });
-        }, 200);
-
+            // 可以调用close方法以在外部close
+            console.log('auto close');
+            alertInstance.close();
+        }, 500000);
     };
 
     goBack = () => {
