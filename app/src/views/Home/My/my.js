@@ -66,8 +66,8 @@ class my extends Component {
   render() {
     const userPhone = window.localStorage.getItem('user')
     return (
-      <>
-        <div className='main'>
+      <div className="zxycjy">
+        <div className='zxy-main'>
           {
             userPhone ?
               <div className="userMsgs">
@@ -98,18 +98,20 @@ class my extends Component {
             退出登录
           </p>
         </div>
-        <Footer />
-      </>
+        <div className="zxy-footer">
+          <Footer />
+        </div>
+      </div>
     );
   }
-  showPower= (item)=> {
-    if('link' in item){
+  showPower = (item) => {
+    if ('link' in item) {
       this.props.history.push(item.link)
     } else {
       // Toast.offline(`${item.name}功能还未解锁，请耐心等候~`,1)
     }
   }
-  goTo=()=>{
+  goTo = () => {
     this.props.history.push('/login')
 
   }

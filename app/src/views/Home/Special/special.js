@@ -14,8 +14,8 @@ class special extends Component {
     }
     render() {
         return (
-            <>
-                <div className="container">
+            <div className="spe-main">
+                <div className="spe-container">
                     {
                         this.props.special && this.props.special.specialData.map(item => (
                             <div key={item.id} className="everyCont" onClick={() => this.handleClick(item.id)}>
@@ -29,7 +29,7 @@ class special extends Component {
                     }
                 </div>
                 <Footer />
-            </>
+            </div>
         );
     }
     componentDidMount() {
