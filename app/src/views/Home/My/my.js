@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Footer from '../../../components/footer/footer'
 import '../../../scss/my.scss';
 import { inject, observer } from "mobx-react";
-
+import { Toast } from 'antd-mobile';
 @inject("home")
 @observer
 
@@ -72,8 +72,9 @@ class my extends Component {
             userPhone ?
               <div className="userMsgs">
                 <div className="img">
-                  <h6> </h6>
+                  <h6></h6>
                   <h5> </h5>
+                <input type="file" className="ins" onClick={()=>this.img()}/>
                 </div>
                 <div className='info'>
                   <span>{userPhone}</span>
@@ -106,12 +107,15 @@ class my extends Component {
     if('link' in item){
       this.props.history.push(item.link)
     } else {
-      // Toast.offline(`${item.name}功能还未解锁，请耐心等候~`,1)
+     Toast.offline(`${item.name}功能还未解锁，请耐心等候~`,1)
     }
   }
   goTo=()=>{
     this.props.history.push('/login')
 
+  }
+  img=()=>{
+    alert();
   }
 }
 

@@ -53,7 +53,6 @@ console.log(data.data.goodsList)
 @action async collect(params){
   let data=await xinxin(params);
   this.type=data.data.type;
-  console.log(data.data.type);
 }
 @action async addNum(params){
   let data=await add(params);

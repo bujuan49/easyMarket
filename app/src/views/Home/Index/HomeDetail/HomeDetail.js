@@ -246,8 +246,12 @@ class HomeDetail extends Component {
   changeNum(str){
     if(str==="+"){
       this.setState({num:++this.state.num})
+    this.props.homeDetail.count();
+
     }else if(this.state.num>0){
       this.setState({num:--this.state.num})
+    this.props.homeDetail.count();
+
     }
    
   }
