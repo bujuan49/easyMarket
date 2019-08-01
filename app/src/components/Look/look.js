@@ -4,6 +4,7 @@ import { inject, observer } from "mobx-react";
 import { Toast } from 'antd-mobile';
 import 'antd-mobile/dist/antd-mobile.css'; 
 @inject("shop")
+@inject("homeDetail")
 @observer
 
 class look extends Component {
@@ -63,6 +64,9 @@ class look extends Component {
       </div>
     );
   }
+  componentDidMount(){
+    this.props.homeDetail.count();
+  }
   AddShop=()=>{
     if(this.props.num===0){
       Toast.fail("请选择商品数量");
@@ -72,6 +76,8 @@ class look extends Component {
       this.props.shop.addNum(str);
       Toast.success("添加成功！");
      }
+     this.props.homeDetail.count();
+
   
   }
   error(){

@@ -1,5 +1,5 @@
 import { observable, action } from "mobx";
-import { shop,add,check,update,del } from "../../services/index.js";
+import { shop,add,check,update,del,countNum } from "../../services/index.js";
 
 export default class Shop {
     //轮播
@@ -23,6 +23,7 @@ export default class Shop {
     @action async addNum(params){
         let data=await add(params);
         this.mess=data.errno;
+        countNum();
     }
     @action async checked(params){
         let data=await check(params);

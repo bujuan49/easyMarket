@@ -36,7 +36,7 @@ class shop extends Component {
                                 this.props.shop && this.props.shop.data.map(item => (
                                     <section key={item.id} className={item.number===0?"none":null}>
                                         <div className="checks">
-                                            <span className={item.checked ? 'icon iconfont icon-check-circle check' : 'icon iconfont icon-check-circle actives'} onClick={()=>this.choosed(item.checked,item.product_id)}></span>
+                                            <span className={item.checked ? 'icon iconfont icon-check-circle check' : 'icon iconfont icon-check-circle actives'} onClick={()=>this.choosed(this.state.arr,item.checked,item.product_id)}></span>
                                         </div>
                                         <div className="left">
                                             <img src={item.list_pic_url} alt="" />
@@ -77,7 +77,7 @@ class shop extends Component {
                 <div className="bottom">
                     <div className="checks">
                     {
-                        this.state.flag?<span className='icon iconfont icon-check-circle actives' onClick={()=>this.all()}></span>:<span className="icon iconfont icon-check-circle check" onClick={()=>this.all()}></span>
+                        this.state.flag?<span className='icon iconfont icon-check-circle actives' onClick={()=>this.all()}></span>:<span className="icon iconfont icon-check-circle check" onClick={this.all}></span>
                     }
                        
                     </div>
@@ -110,7 +110,7 @@ class shop extends Component {
         let num=checked===1?0:1;
       let str={isChecked:num,productIds:product_id};
        this.props.shop.checked(str);
-       let data=this.props.shop.data.filter(item=>item.checked==0)
+       let data=this.props.shop.data.filter(item=>item.checked===0)
        if(data.length===data.length){
         this.setState({
             flag:false
@@ -137,23 +137,23 @@ class shop extends Component {
         price:this.props.shop.price
     })
     }
-    choosed=(checked,product_id)=>{//不选是0 选中为1
+    choosed=(arr,checked,product_id)=>{//不选是0 选中为1
         let num=checked===1?0:1;
         let str={isChecked:num,productIds:product_id};
         this.props.shop.checked(str);
+        console.log(num);
         if(num===1){
             this.setState({
                 arr:++this.state.arr
+            })
+            this.setState({
+                product:product_id
             })
         }else{
             this.setState({
                 arr:--this.state.arr
             })
         }
-        console.log(this.state.arr);
-        this.setState({
-            product:product_id
-        })
     }
    del=()=>{//删除
     let id=this.state.product;
