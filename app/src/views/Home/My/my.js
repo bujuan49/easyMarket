@@ -3,6 +3,7 @@ import Footer from '../../../components/footer/footer'
 import '../../../scss/my.scss';
 import { inject, observer } from "mobx-react";
 import { Toast } from 'antd-mobile';
+import axios from "axios";
 @inject("home")
 @observer
 
@@ -74,7 +75,7 @@ class my extends Component {
                 <div className="img">
                   <h6></h6>
                   <h5> </h5>
-                <input type="file" className="ins" onClick={()=>this.img()}/>
+                <input type="file" className="ins" onChange={(e)=>this.img(e)}/>
                 </div>
                 <div className='info'>
                   <span>{userPhone}</span>
@@ -114,8 +115,10 @@ class my extends Component {
     this.props.history.push('/login')
 
   }
-  img=()=>{
-    alert();
+  img=(e)=>{
+let form =new FormData();
+form.append(e.target.files[0].name,e.target.files[0]);
+axios.post("http://123.206.55.50:11000/upload",form);
   }
 }
 
