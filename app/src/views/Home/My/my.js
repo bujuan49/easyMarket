@@ -3,12 +3,9 @@ import Footer from '../../../components/footer/footer'
 import '../../../scss/my.scss';
 import { inject, observer } from "mobx-react";
 import { Toast } from 'antd-mobile';
-<<<<<<< HEAD
 import axios from "axios";
-=======
-import {removeCookie} from '../../../utils/index';
+import { removeCookie } from '../../../utils/index';
 
->>>>>>> master
 @inject("home")
 @observer
 
@@ -80,7 +77,7 @@ class my extends Component {
                 <div className="img">
                   <h6></h6>
                   <h5> </h5>
-                <input type="file" className="ins" onChange={(e)=>this.img(e)}/>
+                  <input type="file" className="ins" onChange={(e) => this.img(e)} />
                 </div>
                 <div className='info'>
                   <span>{userPhone}</span>
@@ -115,7 +112,7 @@ class my extends Component {
     if ('link' in item) {
       this.props.history.push(item.link)
     } else {
-     Toast.offline(`${item.name}功能还未解锁，请耐心等候~`,1)
+      Toast.offline(`${item.name}功能还未解锁，请耐心等候~`, 1)
     }
   }
   goTo = () => {
@@ -123,10 +120,10 @@ class my extends Component {
     removeCookie('x-nideshop-token')
 
   }
-  img=(e)=>{
-let form =new FormData();
-form.append(e.target.files[0].name,e.target.files[0]);
-axios.post("http://123.206.55.50:11000/upload",form);
+  img = (e) => {
+    let form = new FormData();
+    form.append(e.target.files[0].name, e.target.files[0]);
+    axios.post("http://123.206.55.50:11000/upload", form);
   }
 }
 
