@@ -1,7 +1,5 @@
 import loadable from "react-loadable";
 import React from "react";
-import Specical from '../views/Home/Special/special.js'
-
 
 function Loading() {
     return <div>...loadding</div>
@@ -46,10 +44,10 @@ const HomeBrand = loadable({
     loader: () => import("../views/Home/Index/HomeBrand/HomeBrand.js"),
     loading: Loading
 })
-// const Specical = loadable({//专题
-//     loader: () => import("../views/Home/Special/special.js"),
-//     loading: Loading
-// })
+const Specical = loadable({//专题
+    loader: () => import("../views/Home/Special/special.js"),
+    loading: Loading
+})
 const Classify = loadable({//分类
     loader: () => import("../views/Home/Classify/classify.js"),
     loading: Loading
@@ -81,58 +79,76 @@ const Home = loadable({//入口
 
 const route = [{
     path: "/login",
-    component: Login
+    component: Login,
+    flag: true
 }, {
     path: "/home",
     component: Home,
+    flag: true,
     children: [{
         path: "/home/comment/:id",
-        component: HomeComment
+        component: HomeComment,
+        flag: true
     }, {
         path: "/home/brand/:id",
-        component: HomeBrand
+        component: HomeBrand,
+        flag: true
     }, {
         path: "/home/goods/:id",
-        component: HomeDetail
+        component: HomeDetail,
+        flag: true
     }, {
         path: "/home/index",
-        component: Index
+        component: Index,
+        flag: true
     }, {
         path: "/home/specical",
-        component: Specical
+        component: Specical,
+        flag: true
     }, {
         path: "/home/classify",
-        component: Classify
+        component: Classify,
+        flag: true
     }, {
         path: "/home/shop",
-        component: Shop
+        component: Shop,
+        flag: true
     }, {
         path: "/home/my",
-        component: My
+        component: My,
+        flag: true
     }, {
         path: "/home/detail/:id",
-        component: SpecialDetail
+        component: SpecialDetail,
+        flag: true
     }, {
         path: "/home/classifylist/:id",
-        component: ClassifyList
+        component: ClassifyList,
+        flag: true
     }, {
         path: "/home/collect",
-        component: Collect
+        component: Collect,
+        flag: true
     }, {
         path: "/home/address",
-        component: Address
+        component: Address,
+        flag: true
     }, {
         path: "/home/newAddress",
-        component: newAddress
+        component: newAddress,
+        flag: true
     }, {
         path: "/home/moredetail",
-        component: moreDetail
+        component: moreDetail,
+        flag: true
     }, {
         path: "/home/classs",
-        component: Classs
+        component: Classs,
+        flag: true
     }, {
         path: "/home/saymore",
-        component: sayMore
+        component: sayMore,
+        flag: true
     }, {
         from: "/",
         to: "/home/index"

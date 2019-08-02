@@ -3,6 +3,8 @@ import Footer from '../../../components/footer/footer'
 import '../../../scss/my.scss';
 import { inject, observer } from "mobx-react";
 import { Toast } from 'antd-mobile';
+import {removeCookie} from '../../../utils/index';
+
 @inject("home")
 @observer
 
@@ -64,7 +66,7 @@ class my extends Component {
     }
   }
   render() {
-    const userPhone = window.localStorage.getItem('user')
+    const userPhone = window.localStorage.getItem('nideShopUser')
     return (
       <div className="zxycjy">
         <div className='zxy-main'>
@@ -113,7 +115,8 @@ class my extends Component {
     }
   }
   goTo = () => {
-    this.props.history.push('/login')
+    this.props.history.push('/login');
+    removeCookie('x-nideshop-token')
 
   }
   img=()=>{

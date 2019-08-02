@@ -30,14 +30,15 @@
   z-index: 999;
   margin-top: pxTorem(40px);
   background: white;
-  width: 100%;
+  width: 200%;
   display: flex;
   flex-direction: row;
   height: pxTorem(20px);
-  overflow-x: auto;
+  // overflow-x: auto;
   >span {
-    display: block;
+    display: inline-block;
     width: 20%;
+    height: 100%;
     font-size: pxTorem(12px);
     text-align: center;
     line-height: pxTorem(20px);

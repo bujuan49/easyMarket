@@ -25,7 +25,7 @@ class newAddress extends Component {
         }
     }
     render() {
-        const { findname, findAdd, findDEtail, mobileNum, findNumberOne, findNumberTwo, findNumberThree } = this.props.home;
+        const { findname, findAdd, findDEtail, mobileNum } = this.props.home;
         console.log(this.props.home.mobileNum)
         return (
             <div className="newaddress">

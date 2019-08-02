@@ -41,15 +41,15 @@ class Login extends Component {
     submit = () => {
         let { phone, pwd } = this.state;
         this.props.special.getLogin(phone, pwd);
-        if (this.props.special.loginUser === 0||getCookie()) {
-            this.props.history.push('/home/index');
-        } else if (this.props.special.loginUser === 1000) {
-            alert('phone或password错误！');
-        }
-        this.setState({
-            phone: '',
-            pwd: ''
-        })
+        setTimeout(()=>{
+            if (this.props.special.loginUser === 0 || getCookie('x-nideshop-token')) {
+                this.props.history.push('/home/index');
+            }
+            else if (this.props.special.loginUser === 1000) {
+                alert('phone或password错误！');
+            }
+        },1000)
+
     }
 }
 export default Login
