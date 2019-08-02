@@ -4,7 +4,7 @@ import { home, brand, list, collect, address, addressSave, addordelete, deleteAd
 export default class Home {
     //轮播
     @observable data = [];
-    
+
     @observable dataList = [];
 
     @observable dataLists = [];
@@ -115,11 +115,11 @@ export default class Home {
             typeId: 0,
             valueId: val.value_id
         }
-        let data = await addordelete(params)
+        this.data = await addordelete(params)
     }
 
     @action async deleteAddressAll(val) {
-        let data = await deleteAddress({ id: val });
+        await deleteAddress({ id: val });
         this.addresss()
     }
 

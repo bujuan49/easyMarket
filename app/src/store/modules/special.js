@@ -24,12 +24,12 @@ export default class Special {
     }
     //登录
     @action async getLogin(phone, pwd) {
-        window.localStorage.setItem('user', phone)
+        window.localStorage.setItem('nideShopUser', phone)
         let data = await login({ mobile: phone, password: pwd })
+        console.log(data)
         if (data.errno === 0) {
             setCookie(data.data.sessionKey)
             this.loginUser = data.errno;
-
         } else {
             this.loginUser = 1000;
         }
@@ -59,6 +59,7 @@ export default class Special {
     @action async pingLuns(val, num) {
         let data = await pingLun({ content: val, typeId: 1, valueId: num })
         console.log(data)
+        this.discussList(num)
     }
 
 

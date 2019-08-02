@@ -16,21 +16,6 @@
   flex: 1;
   overflow-y: auto;
 }
-footer {
-  width: 100%;
-  height: pxTorem(50px);
-  line-height: pxTorem(50px);
-  display: flex !important;
-  flex-direction: row;
-  dl {
-    text-align: center;
-    width: 20%;
-    dd {
-      font-size: pxTorem(12px);
-      color: #333;
-    }
-  }
-}
 .everyCont {
   width: 100%;
   height: pxTorem(258px);
