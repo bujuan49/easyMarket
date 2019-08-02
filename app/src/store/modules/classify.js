@@ -1,5 +1,5 @@
 import { observable, action } from "mobx";
-import { catalog, catalogLists, goods, goodsList } from "../../services/index.js";
+import { catalog, catalogLists, goods, goodsList, history, helper } from "../../services/index.js";
 
 export default class Classify {
     //初始渲染
@@ -9,6 +9,9 @@ export default class Classify {
     @observable goodList = [];
     @observable list = [];
     @observable des = {};
+    @observable historyList = [];
+    @observable helperList = [];
+
 
     //初始渲染
     @action async catalogList() {
@@ -43,5 +46,26 @@ export default class Classify {
         let data = await goodsList(num);
         console.log(data)
         this.list = data.data.data;
+    }
+
+    @action async historys() {
+        let data = await history();
+        console.log(data.data.hotKeywordList)
+        this.historyList = data.data.hotKeywordList;
+
+    }
+
+    @action async historys() {
+        let data = await history();
+        console.log(data.data.hotKeywordList)
+        this.historyList = data.data.hotKeywordList;
+
+    }
+
+    @action async helpers(keyword) {
+        let data = await helper(keyword);
+        console.log(data.data)
+        // this.historyList = data.data.hotKeywordList;
+
     }
 }

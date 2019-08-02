@@ -16,30 +16,41 @@
   .backk {
     display: inline-block;
     width: 10%;
-    font-size: pxTorem(18px);
+    font-size: pxTorem(14px);
     padding-left: 5%;
   }
   span:nth-child(2) {
+    width: 80%;
     display: inline-block;
-    padding-left: 28%;
+    text-align: center;
   }
 }
-.navss {
+.classNav {
   position: fixed;
   z-index: 999;
   margin-top: pxTorem(40px);
   background: white;
   width: 100%;
   display: flex;
+  flex-direction: row;
   height: pxTorem(20px);
   overflow-x: auto;
-  span {
+  >span {
+    display: block;
+    width: 20%;
+    font-size: pxTorem(12px);
+    text-align: center;
+    line-height: pxTorem(20px);
+    color: #333;
+    margin-left: pxTorem(10px);
+  }
+  > .time-active {
+    color: red;
     display: inline-block;
     width: 15%;
     font-size: pxTorem(12px);
     text-align: center;
     line-height: pxTorem(20px);
-    color: #333;
     margin-left: pxTorem(10px);
   }
 }
@@ -81,12 +92,13 @@ h4 {
   margin-top: pxTorem(20px);
 }
 
-.dis {
+.nav-dis {
   width: 100%;
   overflow-x: auto;
   height: pxTorem(80px);
   background: rgb(241, 245, 247);
   text-align: center;
+  margin-top: 20%;
   p {
     line-height: pxTorem(30px);
     color: #888;

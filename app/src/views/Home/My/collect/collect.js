@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../.../../../../../scss/collect.scss';
 import { inject, observer } from "mobx-react";
+import { SwipeAction, List } from 'antd-mobile';
 
 @inject("home")
 @observer
@@ -13,23 +14,43 @@ class collect extends Component {
     render() {
         return (
             <>
-                <div className="main">
-                    <div className="headerTop11">
-                        <span className="back" onClick={this.goBack}>←</span>
+                <div className="collect-main">
+                    <div className="collect-top">
+                        <span className="icon iconfont icon-icon-arrow-left over" onClick={this.goBack}></span>
                         <span>商品收藏</span>
                     </div>
-                    <div className="listss">
+                    <div className="collect-list">
                         {
-                            this.props.home && this.props.home.dataList.map(item => (
-                                <div className="lists" key={item.id} onClick={() => this.detail(item.id, item.name)}>
-                                    <img src={item.list_pic_url} alt="" />
-                                    <div className="right">
-                                        <p>{item.goods_brief}</p>
-                                        <p>{item.name}</p>
-                                        <p className='money'>￥{item.retail_price}</p>
-                                    </div>
-                                </div>
-                            ))
+                            this.props.home && this.props.home.dataList.map((item) => {
+                                return <List key={item.id}>
+                                    <SwipeAction
+                                        style={{ backgroundColor: 'gray' }}
+                                        autoClose
+                                        right={[
+                                            {
+                                                text: '删除',
+                                                onPress: () => this.props.home.addordeletes(item),
+                                                style: { backgroundColor: '#F4333C', color: 'white', width: '60px' },
+                                            },
+                                        ]}
+                                    >
+                                        <List.Item onClick={e => console.log(e)}>
+                                            <div className="lists">
+                                                <dl>
+                                                    <dt>
+                                                        <img src={item.list_pic_url} alt="" />
+                                                    </dt>
+                                                    <dd className="right">
+                                                        <p>{item.goods_brief}</p>
+                                                        <p>{item.name}</p>
+                                                        <p className='money'>￥{item.retail_price}</p>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                        </List.Item>
+                                    </SwipeAction>
+                                </List>
+                            })
                         }
                     </div>
                 </div>
@@ -44,10 +65,10 @@ class collect extends Component {
     }
     detail = (id, name) => {
         this.props.history.push({
-          pathname: `/home/goods/${id}`,
-          state: { name: name }
+            pathname: `/home/goods/${id}`,
+            state: { name: name }
         });
-      };
+    };
 }
 
 export default collect;

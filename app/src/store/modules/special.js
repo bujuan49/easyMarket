@@ -1,5 +1,5 @@
 import { observable, action } from "mobx";
-import { special, login, specialDetail, specialDetailList, idDiscuss } from "../../services/index.js";
+import { special, login, specialDetail, specialDetailList, idDiscuss, pingLun } from "../../services/index.js";
 import { setCookie } from '../../utils/index'
 
 export default class Special {
@@ -14,6 +14,9 @@ export default class Special {
     //id评论
     @observable discuss = [];
 
+    @observable pingLunList = [];
+
+
     //专题
     @action  async getSpecial() {
         let data = await special({ page: 1, size: 20 })
@@ -21,7 +24,7 @@ export default class Special {
     }
     //登录
     @action async getLogin(phone, pwd) {
-        window.localStorage.setItem('user',phone)
+        window.localStorage.setItem('user', phone)
         let data = await login({ mobile: phone, password: pwd })
         if (data.errno === 0) {
             setCookie(data.data.sessionKey)
@@ -50,6 +53,12 @@ export default class Special {
         let data = await idDiscuss({ valueId: num, typeId: 1 })
         console.log(data.data.data)
         this.discuss = data.data.data;
+    }
+
+    //添加评论
+    @action async pingLuns(val, num) {
+        let data = await pingLun({ content: val, typeId: 1, valueId: num })
+        console.log(data)
     }
 
 

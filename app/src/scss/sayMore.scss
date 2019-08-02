@@ -1,0 +1,57 @@
+@import "./minix.scss";
+@import "./common.scss";
+.fillmessage-wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.fillmessage-top {
+  box-shadow: 0 0.04rem 0.08rem 0 rgba(0, 0, 0, 0.12),
+    0 0 6px 0 rgba(0, 0, 0, 0.04);
+  width: 100%;
+  height: pxTorem(44px);
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  p {
+    font-size: pxTorem(14px);
+  }
+  .fillmessage-icon {
+    padding-left: pxTorem(15px);
+  }
+}
+.fillmessage-cont {
+  flex: 1;
+  padding-top: pxTorem(20px);
+}
+.fillmessage-textarea {
+  width: 96%;
+  margin-left: 2%;
+  height: 30%;
+  background: #fff;
+  border: 0;
+}
+.fillmessage-button {
+  width: 20%;
+  height: pxTorem(29px);
+  background: #108ee9;
+  color: #fff;
+  border: 0;
+  outline: 0;
+  border-radius: pxTorem(10px);
+  margin-left: 51%;
+  margin-top: pxTorem(10px);
+}
+.fillmessage-buttonLeft {
+  width: 20%;
+  height: pxTorem(30px);
+  background: white;
+  border: pxTorem(1px) solid #ccc;
+  color: #777;
+  outline: 0;
+  border-radius: pxTorem(10px);
+  margin-left: 5%;
+  margin-top: pxTorem(10px);
+}

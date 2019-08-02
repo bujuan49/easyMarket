@@ -6,39 +6,52 @@
   display: flex;
   flex-direction: column;
 }
-.headerTops {
+.headerts {
+  box-shadow: 0 0.04rem 0.08rem 0 rgba(0, 0, 0, 0.12),
+    0 0 6px 0 rgba(0, 0, 0, 0.04);
   width: 100%;
   height: pxTorem(40px);
   line-height: pxTorem(40px);
   background: white;
   .back {
     display: inline-block;
-    width: 17%;
+    width: 15%;
     font-size: pxTorem(18px);
-    padding-left: 10%;
+    padding-left: 5%;
+    font-size: pxTorem(14px) !important;
   }
   span:nth-child(2) {
     display: inline-block;
     text-align: center;
-    width: 50%;
+    width: 70%;
   }
 }
-.adds {
-  margin-top: pxTorem(40px);
+.add-adds {
+  margin-top: pxTorem(15px);
   width: 100%;
   flex: 1;
+  overflow-y: auto;
   section {
     width: 100%;
     height: pxTorem(80px);
     display: flex;
     font-size: pxTorem(12px);
+    margin-top: pxTorem(10px);
     .myname {
       width: 20%;
-      height: 91%;
+      height: 100%;
+      text-align: center;
+      color: orange;
+      border-left: pxTorem(7px) solid #108ee9;
+      padding-top: 1%;
+    }
+    .youname {
+      width: 20%;
+      height: 100%;
       text-align: center;
       padding-top: 3%;
       color: orange;
-      border-left: pxTorem(7px) solid #108ee9;;
+      padding-top: 1%;
     }
     .addres {
       width: 60%;
@@ -47,24 +60,27 @@
         line-height: pxTorem(22px);
       }
       p:nth-child(1) {
-        padding-top: 4%;
+        padding-top: 3%;
+        color: black;
       }
       p:nth-child(2),
       p:nth-child(3) {
         color: #777;
       }
     }
-    .icon-filedone{
+    .icon-iconfontshanchu1 {
+      display: inline-block;
       width: 20%;
       height: 100%;
       padding-top: pxTorem(20px);
+      padding-left: pxTorem(20px);
       text-align: center;
-      font-size: pxTorem(30px);
+      font-size: pxTorem(20px);
       color: #777;
     }
   }
 }
-.button {
+.add-button {
   width: 100%;
   height: pxTorem(40px);
   line-height: pxTorem(40px);
@@ -73,4 +89,8 @@
   border-radius: pxTorem(0px);
   font-weight: 500;
   font-size: pxTorem(20px);
+  background: #208cda;
+}
+.showFire {
+  display: block;
 }

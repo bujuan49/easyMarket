@@ -5,9 +5,15 @@
   height: 100%;
   font-size: pxTorem(14px);
 }
-.container {
+.spe-main{
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.spe-container {
+  width: 100%;
+  flex: 1;
   overflow-y: auto;
 }
 footer {
@@ -27,7 +33,7 @@ footer {
 }
 .everyCont {
   width: 100%;
-  height: pxTorem(28px);
+  height: pxTorem(258px);
   .img {
     display: block;
     width: 100%;

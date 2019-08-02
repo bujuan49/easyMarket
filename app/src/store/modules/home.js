@@ -1,5 +1,5 @@
 import { observable, action } from "mobx";
-import { home, brand, list, collect, address } from "../../services/index.js";
+import { home, brand, list, collect, address, addressSave, addordelete, deleteAddress } from "../../services/index.js";
 
 export default class Home {
     //轮播
@@ -45,6 +45,19 @@ export default class Home {
 
     @observable type = [];//居家
 
+    @observable addressSaveList = [];//新增地址
+
+    @observable addordeleteList = [];//删除收藏
+
+    @observable findList = {};//删除收藏
+    @observable findname = '';//删除姓名
+    @observable findAdd = '';//删除地址
+    @observable findDEtail = '';//删除详细
+    @observable findNumberOne = null;//删除收藏
+    @observable findNumberTwo = null;//删除收藏
+    @observable findNumberThree = null;//删除收藏
+    @observable mobileNum = '';
+
     @action async change() {
         let res = await home();
         this.data = res.data.banner;
@@ -66,25 +79,61 @@ export default class Home {
         this.inclination = res.data.categoryList[8].goodsList;
 
     }
+
     @action async goods(id) {
         let data = await brand(id);
         console.log(data.data);
         this.brand = data.data.brand;
     }
+
     @action async list(id) {
         let data = await list(id);
         this.mode = data.data.data;
         console.log(data.data.data);
     }
+
     @action async collects(id) {
         let data = await collect(id * 1)
         console.log(data.data)
         this.dataList = data.data;
     }
 
-    @action async addresss(id) {
-        let data = await address(id)
+    @action async addresss() {
+        let data = await address()
         console.log(data.data)
         this.addressList = data.data;
+    }
+
+    @action async addressSaves(params) {
+        let data = await addressSave(params)
+        console.log(data)
+        this.addresss();
+    }
+    //删除收藏
+    @action async addordeletes(val) {
+        let params = {
+            typeId: 0,
+            valueId: val.value_id
+        }
+        let data = await addordelete(params)
+    }
+
+    @action async deleteAddressAll(val) {
+        let data = await deleteAddress({ id: val });
+        this.addresss()
+    }
+
+    @action async findAddress(val) {
+        console.log(Number(val))
+        let findList = this.addressList.filter(item => {
+            return item.id === Number(val)
+        })[0]
+        this.findname = findList.name;
+        this.findAdd = findList.address;
+        this.findDEtail = findList.full_region;
+        this.mobileNum = findList.mobile;
+        this.findNumberOne = findList.province_id;
+        this.findNumberTwo = findList.ciyt_id;
+        this.findNumberThree = findList.district_id
     }
 }

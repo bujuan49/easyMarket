@@ -33,3 +33,13 @@ export function idDiscuss(params) {
         params
     })
 }
+
+//comment/post
+export function pingLun(params) {
+    console.log(params)
+    return request({
+        url: "/comment/post",
+        method: "POST",
+        data: params
+    })
+}

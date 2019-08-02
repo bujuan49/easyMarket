@@ -1,45 +1,100 @@
 import loadable from "react-loadable";
-import React from "react"
-import Home from "../views/Home/home.js";//入口
-import Specical from "../views/Home/Special/special.js";//专题
-import Classify from "../views/Home/Classify/classify.js";//分类
-import Shop from "../views/Home/Shop/shop.js";
-import My from "../views/Home/My/my.js";//我的
-import Login from "../views/Login/login.js";//我的
-import SpecialDetail from '../views/Home/Special/specialDetail/specialDetail.js'
-import ClassifyList from '../views/Home/Classify/classifylist/classifylist'
-import Collect from "../views/Home/My/collect/collect";//我的
-import Address from "../views/Home/My/address/address";//我的
-import newAddress from "../views/Home/My/address/newAddress/newAddress";//我的
-import HomeComment from "../views/Home/Index/HomeComment/HomeComment.js";
-import HomeBrand from "../views/Home/Index/HomeBrand/HomeBrand.js";
-function Loading(){
+import React from "react";
+import Specical from '../views/Home/Special/special.js'
+
+
+function Loading() {
     return <div>...loadding</div>
 }
-const Index=loadable({//首页
-    loader:()=>import("../views/Home/Index/index.js"),
-    loading:Loading
+const SpecialDetail = loadable({//入口
+    loader: () => import('../views/Home/Special/specialDetail/specialDetail.js'),
+    loading: Loading
 })
-const HomeDetail=loadable({//详情
-    loader:()=>import("../views/Home/Index/HomeDetail/HomeDetail.js"),
-    loading:Loading
+const moreDetail = loadable({//入口
+    loader: () => import('../views/Home/Special/specialDetail/moreSpecial.js'),
+    loading: Loading
 })
+const sayMore = loadable({//入口
+    loader: () => import('../views/Home/Special/specialDetail/sayMore.js'),
+    loading: Loading
+})
+const ClassifyList = loadable({//入口
+    loader: () => import('../views/Home/Classify/classifylist/classifylist'),
+    loading: Loading
+})
+const Classs = loadable({//入口
+    loader: () => import('../views/Home/Classify/classifylist/classs.js'),
+    loading: Loading
+})
+const Collect = loadable({//入口
+    loader: () => import("../views/Home/My/collect/collect"),
+    loading: Loading
+})
+const Address = loadable({//地址
+    loader: () => import("../views/Home/My/address/address"),
+    loading: Loading
+})
+const newAddress = loadable({//新地址
+    loader: () => import("../views/Home/My/address/newAddress/newAddress"),
+    loading: Loading
+})
+const HomeComment = loadable({
+    loader: () => import("../views/Home/Index/HomeComment/HomeComment.js"),
+    loading: Loading
+})
+const HomeBrand = loadable({
+    loader: () => import("../views/Home/Index/HomeBrand/HomeBrand.js"),
+    loading: Loading
+})
+// const Specical = loadable({//专题
+//     loader: () => import("../views/Home/Special/special.js"),
+//     loading: Loading
+// })
+const Classify = loadable({//分类
+    loader: () => import("../views/Home/Classify/classify.js"),
+    loading: Loading
+})
+const Shop = loadable({//购物车
+    loader: () => import("../views/Home/Shop/shop.js"),
+    loading: Loading
+})
+const My = loadable({//我的
+    loader: () => import("../views/Home/My/my.js"),
+    loading: Loading
+})
+const Login = loadable({//登录
+    loader: () => import("../views/Login/login.js"),
+    loading: Loading
+})
+const Index = loadable({//首页
+    loader: () => import("../views/Home/Index/index.js"),
+    loading: Loading
+})
+const HomeDetail = loadable({//详情
+    loader: () => import("../views/Home/Index/HomeDetail/HomeDetail.js"),
+    loading: Loading
+})
+const Home = loadable({//入口
+    loader: () => import("../views/Home/home.js"),
+    loading: Loading
+})
+
 const route = [{
     path: "/login",
-    component:Login
+    component: Login
 }, {
     path: "/home",
     component: Home,
     children: [{
-        path:"/home/comment/:id",
-        component:HomeComment
-    },{
-        path:"/home/brand/:id",
-        component:HomeBrand
-    },{
-        path:"/home/goods/:id",
-        component:HomeDetail
-    },{
+        path: "/home/comment/:id",
+        component: HomeComment
+    }, {
+        path: "/home/brand/:id",
+        component: HomeBrand
+    }, {
+        path: "/home/goods/:id",
+        component: HomeDetail
+    }, {
         path: "/home/index",
         component: Index
     }, {
@@ -69,9 +124,18 @@ const route = [{
     }, {
         path: "/home/newAddress",
         component: newAddress
-    },{
-        from:"/",
-        to:"/home/index"
+    }, {
+        path: "/home/moredetail",
+        component: moreDetail
+    }, {
+        path: "/home/classs",
+        component: Classs
+    }, {
+        path: "/home/saymore",
+        component: sayMore
+    }, {
+        from: "/",
+        to: "/home/index"
     }]
 }, {
     from: "/",
