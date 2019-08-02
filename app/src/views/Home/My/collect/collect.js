@@ -36,7 +36,7 @@ class collect extends Component {
                                     >
                                         <List.Item onClick={e => console.log(e)}>
                                             <div className="lists">
-                                                <dl>
+                                                <dl onClick={()=>this.detail(item.id,item.name)}>
                                                     <dt>
                                                         <img src={item.list_pic_url} alt="" />
                                                     </dt>
