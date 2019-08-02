@@ -1,16 +1,8 @@
 import React, { Component } from 'react';
 import '../../../../../scss/newAddress.scss'
-<<<<<<< HEAD
 import { inject, observer } from "mobx-react";
 import { PickerView, WhiteSpace } from 'antd-mobile';
 import address from './addressData'
-=======
-import Pack from '../../../../../component/add/addRess'
-// import { Checkbox } from 'antd-mobile';
-import { inject, observer } from "mobx-react";
-
-// const CheckboxItem = Checkbox.CheckboxItem;
->>>>>>> 7a7e78795475f7acabad9c9c3cae9567db66a41e
 
 @inject("home")
 @observer
@@ -21,7 +13,7 @@ class newAddress extends Component {
         this.state = {
             flag: false,
             num: false,
-            nums:false,
+            nums: false,
             arr: '江苏省/南京市/玄武区',
             vale: [],
             names: '',
